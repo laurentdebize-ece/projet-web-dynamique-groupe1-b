@@ -11,14 +11,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>  document.getElementById("paymentForm").addEventListener("submit", function (event) {
+    <script>  document.getElementById("paymentForm").addEventListener("soumettre", function (event) {
         event.preventDefault(); // Empêcher l'envoi du formulaire par défaut
         // Ici, vous devriez ajouter des vérifications et des traitements de paiement supplémentaires
         window.location.href = "omnes_box.html"; // Rediriger vers la page "J'ai une OmnesBox"
     });</script>
-   
-    
-
     <style>
         body {
             font-family: "Century Gothic", sans-serif;
@@ -39,7 +36,7 @@
             margin-bottom: 30px;
         }
 
-        .form-group label {
+        .form-group nom {
             font-weight: bold;
         }
 
@@ -53,7 +50,7 @@
             border-color: rgb(38, 93, 155);
         }
 
-        .btn-submit {
+        .boutton-soumettre {
             background-color: rgb(211, 128, 115);
             color: white;
             font-size: 20px;
@@ -69,7 +66,7 @@
             transition: all 0.3s ease;
         }
 
-        .btn-submit:hover {
+        .boutton-soumettre:hover {
             background-color: rgb(38, 93, 155);
             color: white;
         }
@@ -131,7 +128,7 @@
                     <input type="text" class="form-control" id="cvv" placeholder="123" required>
                 </div>
             </div>
-            <button type="submit" class="btn-submit">Valider le paiement</button>
+            <button type="soumettre" class="boutton-soumettre">Valider le paiement</button>
         </form>
     </div>
 </body>

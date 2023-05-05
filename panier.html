@@ -7,18 +7,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        function updateCartDisplay() {
-            const cartContainer = document.getElementById("cartContainer");
-            cartContainer.innerHTML = ""; // Videz le contenu du panier
+        function updatepanierDisplay() {
+            const panierContainer = document.getElementById("panierContainer");
+            panierContainer.innerHTML = ""; // Videz le contenu du panier
 
-            cart.forEach(item => {
-                const cartItem = document.createElement("div");
-                cartItem.innerHTML = `
+            panier.forEach(item => {
+                const panierItem = document.createElement("div");
+                panierItem.innerHTML = `
                     <p>${item.name}</p>
                     <p>${item.price}</p>
                     <p>${item.quantity}</p>
                 `;
-                cartContainer.appendChild(cartItem);
+                panierContainer.appendChild(panierItem);
             });
         }
 
@@ -68,7 +68,7 @@
             color: rgb(211, 128, 115) !important;
         }
 
-        .cart-container {
+        .panier-container {
             padding: 40px;
             background-color: white;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -77,49 +77,49 @@
             margin: 40px auto;
         }
 
-        .cart-container h1 {
+        .panier-container h1 {
             text-align: center;
             font-weight: bold;
             font-size: 28px;
             margin-bottom: 20px;
         }
 
-        .cart-table {
+        .panier-table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        .cart-table th {
+        .panier-table th {
             background-color: rgb(38, 93, 155);
             color: white;
             padding: 10px;
             font-weight: bold;
         }
-        .cart-table td {
+        .panier-table td {
             padding: 10px;
             border: 1px solid #ddd;
         }
 
-        .cart-table img {
+        .panier-table img {
             width: 100px;
             border-radius: 5px;
         }
 
-        .cart-summary {
+        .panier-summary {
             margin-top: 30px;
             display: flex;
             justify-content: flex-end;
         }
 
-        .cart-summary p {
+        .panier-summary p {
             margin-bottom: 0;
         }
 
-        .cart-summary strong {
+        .panier-summary strong {
             font-size: 20px;
         }
 
-        .btn-checkout {
+        .boutton-payer {
             margin-top: 30px;
             background-color: rgb(211, 128, 115);
             color: white;
@@ -136,7 +136,7 @@
             cursor: pointer;
         }
 
-        .btn-checkout:hover {
+        .boutton-payer:hover {
             background-color: rgb(38, 93, 155);
             color: white;
             text-decoration: none;
@@ -164,21 +164,21 @@
                     <a class="nav-link" href="index.html">Accueil</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="cartes_cadeau.html" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle" href="panieres_cadeau.html" id="navbarDropdownMenuLink"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Cartes cadeau
+                        panieres cadeau
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <div class="dropdown-header">Par montant</div>
-                        <a class="dropdown-item" href="cartes_cadeau.html">25€</a>
-                        <a class="dropdown-item" href="cartes_cadeau.html">50€</a>
-                        <a class="dropdown-item" href="cartes_cadeau.html">100€</a>
+                        <a class="dropdown-item" href="panieres_cadeau.html">25€</a>
+                        <a class="dropdown-item" href="panieres_cadeau.html">50€</a>
+                        <a class="dropdown-item" href="panieres_cadeau.html">100€</a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-header">Par activité</div>
-                        <a class="dropdown-item" href="cartes_cadeau.html">Restaurant</a>
-                        <a class="dropdown-item" href="cartes_cadeau.html">Spa</a>
-                        <a class="dropdown-item" href="cartes_cadeau.html">Aventure</a>
+                        <a class="dropdown-item" href="panieres_cadeau.html">Restaurant</a>
+                        <a class="dropdown-item" href="panieres_cadeau.html">Spa</a>
+                        <a class="dropdown-item" href="panieres_cadeau.html">Aventure</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -195,9 +195,9 @@
     </nav>
     <hr>
 
-    <div class="cart-container">
+    <div class="panier-container">
         <h1>Votre panier</h1>
-        <table class="cart-table">
+        <table class="panier-table">
             <thead>
                 <tr>
                     <th>Produit</th>
@@ -220,11 +220,11 @@
                 </tr>
             </tbody>
         </table>
-        <div class="cart-summary">
+        <div class="panier-summary">
             <p><strong>Total :</strong></p>
             <p>25€</p>
         </div>
-        <a href="caisse.html" class="btn-checkout">Passer à la caisse</a>
+        <a href="caisse.html" class="boutton-payer">Passer à la caisse</a>
     </div>
 
 </body>
