@@ -173,13 +173,13 @@
 <div id="carouselExample" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="image1_caroussel.png" class="d-block w-100" alt="Image 1">
+            <img src="Image/image1_caroussel.png" class="d-block w-100" alt="Image 1">
             <div class="carousel-caption d-none d-md-block">
                 <a href="cartes_cadeau.html" class="btn btn-discover">Découvrir</a>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="image_2_caroussel.jpeg" class="d-block w-100" alt="Image 2">
+            <img src="Image/image_2_caroussel.jpeg" class="d-block w-100" alt="Image 2">
             <div class="carousel-caption d-none d-md-block">
                 <a href="cartes_cadeau.html" class="btn btn-discover">Découvrir</a>
             </div>
@@ -192,7 +192,7 @@
         </div>
     </div>
     <div class="text-center my-4">
-        <a href="professionnel.html" class="btn btn-design" data-toggle="tooltip" data-placement="bottom" title="Cliquez ici si vous êtes un professionnel">Vous êtes un professionnel ?</a>
+        <a href="professionnel.php" class="btn btn-design" data-toggle="tooltip" data-placement="bottom" title="Cliquez ici si vous êtes un professionnel">Vous êtes un professionnel ?</a>
     </div>
     <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

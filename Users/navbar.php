@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">
-            <img src="logo_omnesBox.png" alt="Logo" class="navbar-brand-img">
+            <img src="Image/logo_omnesBox.png" alt="Logo" class="navbar-brand-img">
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
