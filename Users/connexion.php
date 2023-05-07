@@ -1,12 +1,3 @@
-<?php
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=omnes_box; charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-} 
-catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
-?>
-
 <!DOCTYPE html>
 
 <html>
@@ -21,6 +12,10 @@ catch (Exception $e) {
     <title>Connexion - OMNES BOX</title>
     <link href="../CSS/connexion.css" rel="stylesheet" type="text/css" media="all" />
     <script src="action.js"> </script>
+
+    <!-- ASSURE LA CONNEXION A LA BASE DE DONNEES -->
+    <?php include("verif_connexion_bdd.php") ?>
+
 </head>
 
 <body>
@@ -67,13 +62,15 @@ catch (Exception $e) {
 
     <?php
 
-    $utilisateurs = array(
-        "Test" => "test"
-    );
-    $Admin = array(
-        "Admin" => "123",
 
-    );
+    $sql = "SELECT email, mdp FROM compte";
+    $request = mysqli_query($bdd, $sql);
+    $users = mysqli_fetch_all($request);
+
+    for($i = 0 ; $i < sizeof($users) ; $i++){
+        $utilisateurs[$users[$i][0]] = $users[$i][1]; 
+    }
+   
 
     if (isset($_POST["login"], $_POST["pwd"]) && !empty($_POST["login"]) && !empty($_POST["pwd"])) {
         //sécurité contre faille XSS
@@ -81,18 +78,14 @@ catch (Exception $e) {
         $pwd = htmlspecialchars($_POST["pwd"]);
 
         $pwd_found = false;
+
         foreach ($utilisateurs as $login_bdd => $pwd_bdd) {
             if ($login == $login_bdd && $pwd == $pwd_bdd) {
                 $pwd_found = true;
             }
         }
-        foreach ($Admin as $loginA_bdd => $pwdA_bdd) {
-            if ($login == $loginA_bdd && $pwd == $pwdA_bdd) {
-                $pwdA_found = true;
-            }
-        }
         if ($pwd_found == true) {
-            header('Location: http://localhost:8888/index.html');
+            header('Location: http://localhost:8888/accueil.php');
         } else if ($pwdA_found == true) {
             header('Location: http://localhost:8888/admin.php');
         } else

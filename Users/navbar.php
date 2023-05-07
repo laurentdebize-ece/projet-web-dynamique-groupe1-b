@@ -39,7 +39,7 @@
                 <a class="nav-link omnes-box" href="omnes_box.php">J'ai une OmnesBox</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="mon_compte.php">Se connnecter</a>
+                <a class="nav-link" href="connexion.php">Se connnecter</a>
             </li>
         </ul>
     </div>
