@@ -1,3 +1,8 @@
+
+<?php
+
+?>
+
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">
             <img src="Image/logo_omnesBox.png" alt="Logo" class="navbar-brand-img">
@@ -34,7 +39,7 @@
                 <a class="nav-link omnes-box" href="omnes_box.php">J'ai une OmnesBox</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="mon_compte.php">Mon compte</a>
+                <a class="nav-link" href="mon_compte.php">Se connnecter</a>
             </li>
         </ul>
     </div>
