@@ -17,7 +17,8 @@
     <style>
     
     .log {
-        text-align:center ;
+        text-align:left ;
+        margin-left: 50px;
     }
     .text{
         margin-left: 25px;
@@ -34,14 +35,14 @@
     {
         margin-left: 25px;
         float: left;
-        width: 30%;
+        width: 75%;
     text-align:left;
     
     }
 
     .pieddroit
     {
-    margin-right: 65px;
+        margin-right: 65px;
     float: right;
     width: 40%;
     text-align: right;
@@ -49,7 +50,6 @@
     font-size: 13px;
     }
     .submit{
-         
         border-radius: 15px;
         background-color: #1877f2;
         color: white;
@@ -78,34 +78,52 @@
     
     </style>
     
-    <img src="logo_omnesBox.png" alt="Logo">
+    <h1> OmnesBox </h1>
     <h4>
         <div class="container"> <div class="row">
-        <div class="col-sm-4" ></div>
-         <div class="col-sm-4" style="height:50%;">
-            <div class="panel panel-default" style="height:500px;">
+        <div class="col-sm-3" ></div>
+        <div class="panel panel-default" style="height:650px; width: 650px; margin-left: 260px;">
+         <div class="col-sm-3" style="height:50%;">
+            
 
                 <br><br>
-                <h2 class="text">Login</h2><br>
+                <h2 class="text">Création de compte</h2><br>
                 <form action="index.php" method="post">
-                <div class="pieddepage">
-                <p class="piedgauche"> Email :</p><a  href="CreationCompte.php"class="pieddroit">Créer un compte</a>
-            </div>
+                <p class="piedgauche"> Nom :</p>
+            <br>
+            <br>
+                <p class="log"> <input type="text" name="Nom" id="Nom"></p>
+                <p class="piedgauche"> Identifiant :</p>
             <br>
             <br>    
-                <p class="log"> <input type="Email" name="login" id="login"></p>
-
-                <br> <br>
-                <div class="pieddepage">
-                <p class="text"> Mot de Passe : </p></div>
-                <br><br>
+                <p class="log"> <input type="text" name="login" id="login"></p>
+                <p class="piedgauche"> Mot de Passe : </p>
+            <br>
+            <br>
                 <p class="log"><input type="password" name="pwd" id="pwd"></p>
-                <br></br>
-                <p class="log"><input class="submit"  type="submit" value="Connexion" ></p>
+            </div>
+            
+            <div class="col-sm-3" style="height:50%; margin-left: 120px; margin-top:150px">
+            <br>
+            <br>
+                <p class="piedgauche"> Prénom :</p>
+            <br>
+            <br>
+                <p class="log"> <input type="text" name="Prenom" id="Prenom"></p>
+                
+                <p class="piedgauche"> Email :</p>
+            <br>
+            <br>    
+                <p class="log"> <input type="Email" name="Email" id="Email"></p></div></div>
+            
+                
+            <br>
+            <br>
+                <p class="log"><input class="submit"  type="submit" value="Création du compte" ></p>
                 
             </form></div>
-            </div><div class="col-sm-4 " >
-            <button onclick="window.location.href = 'index.html';" class="close-button" aria-label="Case de fermeture" type="button"> 
+            <div class="col-sm-4 " ></div>
+            <button class="close-button" aria-label="Case de fermeture" type="button"> 
             <span aria-hidden="true">&times;</span> 
             </button> 
   
