@@ -10,75 +10,60 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title> OmnesBox </title>
-    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../CSS/creationCompte.css" rel="stylesheet" type="text/css" media="all" />
     <script src="action.js"> </script>
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
 </head>
 
 <body>
-    <style>
-        .log {
-            text-align: left;
-            margin-left: 50px;
+    <?php
+
+    function test_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    $emailError = '';
+    $creation_compte = ''; 
+
+    if (isset($_POST["Nom"], $_POST["pwd"], $_POST["Email"], $_POST["Prenom"]) && !empty($_POST["Nom"]) && !empty($_POST["pwd"]) && !empty($_POST["Prenom"]) && !empty($_POST["Email"])) {
+        //sécurité contre faille XSS
+        $Nom = test_input($_POST["Nom"]);
+        $Prenom = test_input($_POST["Prenom"]);
+        $Email = test_input($_POST["Email"]);
+        $pwd = test_input($_POST["pwd"]);
+        $type = 3;
+
+        $emailExist = false ;
+        
+        $verify = "SELECT email FROM compte";
+        $request = mysqli_query($bdd, $verify);
+        while($email_bdd = mysqli_fetch_assoc($request)){
+            if(!strcasecmp($Email, $email_bdd['email'])) {
+                $emailExist = true ;
+            }
         }
-
-        .text {
-            margin-left: 25px;
+    
+        if ($emailExist) {
+            $emailError = 'Cet email est déjà utilisé !';
+        } 
+        else {
+            $add = "INSERT INTO compte
+                    VALUES (NULL, '$Nom', '$Prenom' , '$Email', '$pwd', $type)";
+            $emailError = '';
+            if (mysqli_query($bdd, $add)) {
+                $creation_compte = "Nouveau compte crée avec succés !";
+                $_SESSION['page'] = 'PHP_SELF' ;
+            } else {
+                $creation_compte = 'ERREUR SQL CREATION DU COMPTE' ;
+            }
         }
-
-        .pieddepage {
-            position: absolute;
-            bottom: 1;
-            width: 90%;
-            background-color: #FFFFFF;
-        }
-
-        .piedgauche {
-            margin-left: 25px;
-            float: left;
-            width: 75%;
-            text-align: left;
-
-        }
-
-        .pieddroit {
-            margin-right: 65px;
-            float: right;
-            width: 40%;
-            text-align: right;
-            margin-top: 6px;
-            font-size: 13px;
-        }
-
-        .submit {
-            border-radius: 15px;
-            background-color: #1877f2;
-            color: white;
-            width: 275px;
-            height: 40px;
-            border: #1877f2;
-        }
-
-        .submit:hover {
-            width: 285px;
-            height: 43px;
-            background-color: #176ad5;
-            border: #176ad5;
-        }
-
-        .close-button {
-            position: absolute;
-            color: #8a8a8a;
-            cursor: pointer;
-            border-radius: 10px;
-            margin-left: 350px;
-            height: 50px;
-            width: 50px;
-
-        }
-    </style>
-
+    }
+    ?>
     <h1> OmnesBox </h1>
     <h4>
         <div class="container">
@@ -90,15 +75,12 @@
 
                         <br><br>
                         <h2 class="text">Création de compte</h2><br>
-                        <form action="index.php" method="post">
+                        <form action="CreationCompte.php" method="post">
                             <p class="piedgauche"> Nom :</p>
                             <br>
                             <br>
                             <p class="log"> <input type="text" name="Nom" id="Nom"></p>
-                            <p class="piedgauche"> Identifiant :</p>
-                            <br>
-                            <br>
-                            <p class="log"> <input type="text" name="login" id="login"></p>
+        
                             <p class="piedgauche"> Mot de Passe : </p>
                             <br>
                             <br>
@@ -116,7 +98,8 @@
                         <p class="piedgauche"> Email :</p>
                         <br>
                         <br>
-                        <p class="log"> <input type="Email" name="Email" id="Email"></p>
+                        <p class="log"> <input type="Email" name="Email" id="Email">  </p>
+                        <span> <?php echo $emailError ?> </span>
                     </div>
                 </div>
 
@@ -136,42 +119,6 @@
         </div>
         </div>
     </h4>
-
-    <?php
-
-    $utilisateurs = array(
-        "Test" => "test"
-    );
-    $Admin = array(
-        "Admin" => "123",
-
-    );
-
-    if (isset($_POST["login"], $_POST["pwd"]) && !empty($_POST["login"]) && !empty($_POST["pwd"])) {
-        //sécurité contre faille XSS
-        $login = htmlspecialchars($_POST["login"]);
-        $pwd = htmlspecialchars($_POST["pwd"]);
-
-        $pwd_found = false;
-        foreach ($utilisateurs as $login_bdd => $pwd_bdd) {
-            if ($login == $login_bdd && $pwd == $pwd_bdd) {
-                $pwd_found = true;
-            }
-        }
-        foreach ($Admin as $loginA_bdd => $pwdA_bdd) {
-            if ($login == $loginA_bdd && $pwd == $pwdA_bdd) {
-                $pwdA_found = true;
-            }
-        }
-        if ($pwd_found == true) {
-            header('Location: http://localhost:8888/index.html');
-        } else if ($pwdA_found == true) {
-            header('Location: http://localhost:8888/admin.php');
-        } else
-            echo " <p> Login ou mot de passe incorrect </p>";
-    }
-    ?>
-
 </body>
 
 </html>

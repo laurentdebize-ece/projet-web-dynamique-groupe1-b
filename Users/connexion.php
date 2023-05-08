@@ -20,6 +20,62 @@
 </head>
 
 <body>
+    <?php
+
+    function test_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    $emailErr = '';
+    $sql = "SELECT idCompte, nom, prenom, email, mdp FROM compte";
+    $request = mysqli_query($bdd, $sql);
+    $users = mysqli_fetch_all($request);
+    $id_compte = 0;
+    for ($i = 0; $i < sizeof($users); $i++) {
+        $utilisateurs[$users[$i][2]] = $users[$i][3];
+        $info[$i] = array($users[$i][0], $users[$i][1], $users[$i][2], $users[$i][3],  $users[$i][4]);
+    }
+
+
+    if (isset($_POST["login"], $_POST["pwd"]) && !empty($_POST["login"]) && !empty($_POST["pwd"])) {
+        //sécurité contre faille XSS
+        $login = test_input($_POST["login"]);
+        $pwd = test_input($_POST["pwd"]);
+
+        if (!filter_var($login, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+
+        $pwd_found = false;
+        $pwdA_found = false;
+
+        for ($i = 0; $i < sizeof($users); $i++) {
+            $email_login_bdd = $info[$i][3];
+            $pwd_bdd = $info[$i][4];
+            if ($login ==  $email_login_bdd && $pwd == $pwd_bdd) {
+                $pwd_found = true;
+                $_SESSION['email'] =  $email_login_bdd;
+                $_SESSION['pwd'] = $pwd;
+                $_SESSION['id'] = $info[$i][0];
+                $_SESSION['nom'] = $info[$i][1];
+                $_SESSION['prenom'] = $info[$i][2];
+                $_SESSION['connected'] = true;
+            }
+        }
+
+        if ($pwd_found == true) {
+            header('Location: accueil.php');
+        } else if ($pwdA_found == true) {
+            header('Location: admin.php');
+        } else
+            //Si le mdp est incorrect
+            echo " <p> Login ou mot de passe incorrect </p>";
+    }
+    ?>
 
     <img src="logo_omnesBox.png" alt="Logo">
     <h4>
@@ -37,7 +93,7 @@
                             </div>
                             <br>
                             <br>
-                            <p class="log"> <input type="Email" name="login" id="login"></p>
+                            <p class="log"> <input type="Email" name="login" id="login"> </span></p>
 
                             <br> <br>
                             <div class="pieddepage">
@@ -60,54 +116,6 @@
             </div>
         </div>
     </h4>
-
-    <?php
-
-
-    $sql = "SELECT idCompte, nom, prenom, email, mdp FROM compte";
-    $request = mysqli_query($bdd, $sql);
-    $users = mysqli_fetch_all($request);
-    $id_compte = 0 ;
-    for($i = 0 ; $i < sizeof($users) ; $i++){
-        $utilisateurs[$users[$i][2]] = $users[$i][3]; 
-        $info[$i] = array($users[$i][0], $users[$i][1], $users[$i][2], $users[$i][3],  $users[$i][4]);
-    }
-
-    
-    if (isset($_POST["login"], $_POST["pwd"]) && !empty($_POST["login"]) && !empty($_POST["pwd"])) {
-        //sécurité contre faille XSS
-        $login = htmlspecialchars($_POST["login"]);
-        $pwd = htmlspecialchars($_POST["pwd"]);
-
-        $pwd_found = false;
-        $pwdA_found = false ;
-
-        for($i = 0 ; $i < sizeof($users) ; $i++){
-            $email_login_bdd = $info[$i][3] ;
-            $pwd_bdd = $info[$i][4] ;
-            if ($login ==  $email_login_bdd && $pwd == $pwd_bdd) {
-                $pwd_found = true;
-                $_SESSION['email'] =  $email_login_bdd ;
-                $_SESSION['pwd'] = $pwd ; 
-                $_SESSION['id'] = $info[$i][0]; 
-                $_SESSION['nom'] = $info[$i][1]; 
-                $_SESSION['prenom'] = $info[$i][2];
-                $_SESSION['connected'] = true ;
-            }
-        }
-
-        if ($pwd_found == true) {
-            header('Location: accueil.php');
-        } 
-        else if ($pwdA_found == true) {
-            header('Location: admin.php');
-        } 
-        else
-            echo " <p> Login ou mot de passe incorrect </p>";
-        
-    }
-    ?>
-
 </body>
 
 </html>
