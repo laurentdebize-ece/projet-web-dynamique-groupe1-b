@@ -9,6 +9,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil - OMNES BOX</title>
+
+    <!-- ASSURE LA CONNEXION A LA BASE DE DONNEES -->
+    <?php include("verif_connexion_bdd.php") ?>
+    <?php 
+    session_start();
+    if (!isset($_SESSION["connected"])) {
+        $_SESSION["connected"] = false ;
+    } 
+    ?>
+
+
     <style>
         .btn-design {
             background-color: rgb(211, 128, 115);
@@ -140,7 +151,6 @@
 </head>
 
 <body>
-
     <!-- Contenu du pop-up -->
     <div id="popup">
         <div id="popup-content">
@@ -150,7 +160,7 @@
         </div>
     </div>
 
-    <?php include("navbar.php") ?>
+    <?php include("navbar.php") ;?>
 
     <div id="carouselExample" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">

@@ -1,7 +1,6 @@
 
-<?php
 
-?>
+<?php include("verif_session.php") ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">
@@ -39,7 +38,15 @@
                 <a class="nav-link omnes-box" href="omnes_box.php">J'ai une OmnesBox</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="connexion.php">Se connnecter</a>
+                <?php 
+                if(!$_SESSION['connected']){
+                    echo '<a class="nav-link" href="connexion.php">Se connecter</a>' ;
+                }
+                else {
+                    echo '<a class="nav-link" href="mon_compte.php">Mon Compte</a>' ;
+                }
+                ?>
+                
             </li>
         </ul>
     </div>
