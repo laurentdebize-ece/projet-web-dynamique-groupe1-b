@@ -1,18 +1,41 @@
 
+<style>
+
+
+.deconnexion {
+
+border-radius: 15px;
+
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 15x;
+font-weight: bold;
+
+}
+
+.deconnexion:hover {
+
+
+border: #176ad5;
+color:white;    
+}
+
+</style>
 
 <?php include("verif_session.php") ?>
 
+
 <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="accueil.php">
+        <a class="navbar-brand" href="index.php.php">
             <img src="Image/logo_omnesBox.png" alt="Logo" class="navbar-brand-img">
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" >
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="accueil.php">Accueil</a>
+                <a class="nav-link" href="index.php">Accueil</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="cartes_cadeau.php" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -35,19 +58,24 @@
                 <a class="nav-link" href="panier.php">Panier</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link omnes-box" href="omnes_box.php">J'ai une OmnesBox</a>
+                <a class="nav-link omnes-box" href="omnes_box.php">OmnesBox</a>
             </li>
-            <li class="nav-item">
+        </ul>
+        
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
                 <?php 
                 if(!$_SESSION['connected']){
-                    echo '<a class="nav-link" href="connexion.php">Se connecter</a>' ;
+                    echo '<a class="nav-link" href="connexion.php">Connexion</a>' ;
                 }
                 else {
                     echo '<a class="nav-link" href="mon_compte.php">Mon Compte</a>' ;
                 }
                 ?>
-                
             </li>
-        </ul>
+                <li class="nav-item">
+                   <a type="button" class="nav-link" href="#">Déconnexion</a>
+                </li>
+            </ul>
     </div>
 </nav>

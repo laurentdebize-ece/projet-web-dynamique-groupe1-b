@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4 ">
-                    <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
+                    <button onclick="window.location.href = 'index.php';" class="close-button" aria-label="Case de fermeture" type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
 
