@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<script>
+function togglePasswordVisibility() {
+  var passwordInput = document.getElementById("password");
+  var showPasswordCheckbox = document.getElementById("showPassword");
+
+  if (showPasswordCheckbox.checked) {
+    passwordInput.type = "text";
+  } else {
+    passwordInput.type = "password";
+  }
+}
+</script>
 
 <html>
 
@@ -77,7 +89,7 @@
     }
     ?>
 
-    <img src="logo_omnesBox.png" alt="Logo">
+    <img src="Users/Image/logo_omnesBox.png" alt="Logo">
     <h4>
         <div class="container">
             <div class="row">
@@ -100,7 +112,8 @@
                                 <p class="text"> Mot de Passe : </p>
                             </div>
                             <br><br>
-                            <p class="log"><input type="password" name="pwd" id="pwd"></p>
+                            <p class="log"><input type="password"id="password" name="pwd" id="pwd"></p>
+                            <p class="log"><input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"></p>
                             <br></br>
                             <p class="log"><input class="submit" type="submit" value="Connexion"></p>
 
