@@ -1,0 +1,58 @@
+.log {
+    text-align: center;
+}
+
+.text {
+    margin-left: 25px;
+}
+
+.pieddepage {
+    position: absolute;
+    bottom: 1;
+    width: 90%;
+    background-color: #FFFFFF;
+}
+
+.piedgauche {
+    margin-left: 25px;
+    float: left;
+    width: 30%;
+    text-align: left;
+
+}
+
+.pieddroit {
+    margin-right: 65px;
+    float: right;
+    width: 40%;
+    text-align: right;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.submit {
+
+    border-radius: 15px;
+    background-color: #1877f2;
+    color: white;
+    width: 275px;
+    height: 40px;
+    border: #1877f2;
+}
+
+.submit:hover {
+    width: 285px;
+    height: 43px;
+    background-color: #176ad5;
+    border: #176ad5;
+}
+
+.close-button {
+    position: absolute;
+    color: #8a8a8a;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 350px;
+    height: 50px;
+    width: 50px;
+}

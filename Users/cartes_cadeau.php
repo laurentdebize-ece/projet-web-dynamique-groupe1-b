@@ -1,3 +1,5 @@
+<?php include("verif_session.php") ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <?php include("verif_connexion_bdd.php") ?>
     <script>
         $(document).ready(function() {
             $('.dropdown').hover(function() {
@@ -130,47 +133,9 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="index.html">
-            <img src="logo_omnesBox.png" alt="Logo" class="navbar-brand-img">
-        </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Accueil</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="cartes_cadeau.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Cartes cadeau
-                </a>
-                
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <div class="dropdown-header">Par montant</div>
-                    <a class="dropdown-item" href="cartes_cadeau.html">25€</a>
-                    <a class="dropdown-item" href="cartes_cadeau.html">50€</a>
-                    <a class="dropdown-item" href="cartes_cadeau.html">100€</a>
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-header">Par activité</div>
-                    <a class="dropdown-item" href="cartes_cadeau.html">Restaurant</a>
-                    <a class="dropdown-item" href="cartes_cadeau.html">Spa</a>
-                    <a class="dropdown-item" href="cartes_cadeau.html">Aventure</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="panier.html">Panier</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link omnes-box" href="omnes_box.html">J'ai une OmnesBox</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="mon_compte.html">Mon compte</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+
+    <?php include("navbar.php") ?>
+    
     <nav class="navbar navbar-expand-lg navbar-dark">
         <!-- Ajoutez ici le code du menu de navigation -->
     </nav>
@@ -205,7 +170,7 @@
             <!-- Ajoutez ici les cartes cadeaux en utilisant la structure de la carte ci-dessous -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="image_carte_apple.jpeg" alt="Exemple de carte cadeau">
+                    <img src="Image/image_carte_apple.jpeg" alt="Exemple de carte cadeau">
                     <div class="card-body">
                         <h5 class="card-title">Carte cadeau Apple 25€</h5>
                         <p class="card-text">Offrez un accessoire apple dans un App sélectionné.</p>
