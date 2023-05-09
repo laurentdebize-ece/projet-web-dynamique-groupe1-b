@@ -63,6 +63,13 @@ color:white;
         </ul>
         
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            <?php 
+                if($_SESSION['connected']){
+                    echo '<a type="button" class="nav-link" href="#">Déconnexion</a>';
+                }
+                ?> 
+                </li>
         <li class="nav-item">
                 <?php 
                 if(!$_SESSION['connected']){
@@ -73,9 +80,7 @@ color:white;
                 }
                 ?>
             </li>
-                <li class="nav-item">
-                   <a type="button" class="nav-link" href="#">Déconnexion</a>
-                </li>
-            </ul>
+        </ul>
+                
     </div>
 </nav>

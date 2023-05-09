@@ -68,7 +68,7 @@
         }
 
         if ($pwd_found == true) {
-            header('Location: accueil.php');
+            header('Location: index.php');
         } else if ($pwdA_found == true) {
             header('Location: admin.php');
         } else
