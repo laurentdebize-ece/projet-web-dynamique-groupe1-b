@@ -175,13 +175,13 @@
         <div class="carousel-item active">
             <img src="Image/image1_caroussel.png" class="d-block w-100" alt="Image 1">
             <div class="carousel-caption d-none d-md-block">
-                <a href="cartes_cadeau.html" class="btn btn-discover">Découvrir</a>
+                <a href="cartes_cadeau.php" class="btn btn-discover">Découvrir</a>
             </div>
         </div>
         <div class="carousel-item">
             <img src="Image/image_2_caroussel.jpeg" class="d-block w-100" alt="Image 2">
             <div class="carousel-caption d-none d-md-block">
-                <a href="cartes_cadeau.html" class="btn btn-discover">Découvrir</a>
+                <a href="cartes_cadeau.php" class="btn btn-discover">Découvrir</a>
             </div>
         </div>
         <div class="carousel-item">
