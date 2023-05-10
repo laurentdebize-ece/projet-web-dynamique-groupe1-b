@@ -1,0 +1,27 @@
+Pour récupérer la branche main sur la branche erwan, vous devez effectuer les étapes suivantes :
+
+Assurez-vous d'être sur la branche erwan. Si vous n'êtes pas sûr de la branche sur laquelle vous vous trouvez, utilisez la commande suivante pour vérifier :
+
+git branch
+
+Cela affichera toutes les branches locales et vous indiquera sur quelle branche vous vous trouvez actuellement. Si vous n'êtes pas sur la branche erwan, utilisez la commande suivante pour vous y déplacer :
+
+git checkout erwan
+
+Mettez à jour votre copie locale de la branche main en utilisant la commande suivante :
+
+git pull origin main
+
+Cela récupérera toutes les modifications de la branche main depuis le référentiel distant et les fusionnera dans votre copie locale de la branche main.
+
+Fusionnez maintenant la branche main dans votre branche erwan en utilisant la commande suivante :
+
+git merge main
+
+Cela fusionnera les modifications de la branche main dans votre branche erwan. Si vous rencontrez des conflits de fusion, vous devrez les résoudre manuellement.
+
+Enfin, poussez les modifications fusionnées sur la branche erwan sur le référentiel distant en utilisant la commande suivante :
+
+git push origin erwan
+
+Cela mettra à jour la branche erwan sur le référentiel distant avec les modifications que vous avez fusionnées à partir de la branche main
