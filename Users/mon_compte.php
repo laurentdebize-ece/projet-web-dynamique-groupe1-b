@@ -11,7 +11,20 @@
     <link href="../CSS/mon_compte.css" rel="stylesheet" type="text/css" media="all" />
     <?php include("navbar.php") ?>
     <?php include("verif_connexion_bdd.php") ?>
-    <?php include("verif_session.php") ?>
+    
+    <?php
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        // Vérifier si l'utilisateur est connecté
+        if (!isset($_SESSION['id'])) {
+        // Rediriger vers la page de connexion
+        header("Location: connexion.php");
+        exit;
+        }
+    ?>
+
     <script>
         $(document).ready(function() {
             $('.dropdown').hover(function() {
