@@ -141,6 +141,7 @@
                     <input type="text" name="omnesbox" placeholder="Numéro OmnesBox" style="width: 100%; padding: 8px; margin-bottom: 10px;">
                     <button type="submit" class="btn" formmethod="POST" formaction="traiement_OMNESBOX.php">Valider</button>
                 </form>
+
             </div>
             <div class="info-box">
                 <h3>Offres disponibles</h3>

@@ -23,11 +23,12 @@ $stmt->execute();
 
 // Vérifier si la clé existe dans la base de données
 if ($stmt->rowCount() > 0) {
-    // Si la clé existe, afficher un message de succès
-    echo "Félicitations, votre clé est valide !";
+    // Si la clé existe, rediriger l'utilisateur vers la page mon_compte.php
+    header("Location: mon_compte.php");
+    exit();
 } else {
-    // Si la clé n'existe pas, afficher un message d'erreur
-    echo "Désolé, votre clé est invalide.";
+    // Si la clé n'existe pas, afficher un message d'erreur en popup
+    echo "<script>alert('Désolé, votre clé est invalide.');</script>";
 }
 
 ?>
