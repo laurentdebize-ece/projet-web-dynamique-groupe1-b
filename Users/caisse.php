@@ -11,13 +11,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>  document.getElementById("paymentForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Empêcher l'envoi du formulaire par défaut
-        // Ici, vous devriez ajouter des vérifications et des traitements de paiement supplémentaires
-        window.location.href = "omnes_box.html"; // Rediriger vers la page "J'ai une OmnesBox"
-    });</script>
-   
-    
+    <script>
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêcher l'envoi du formulaire par défaut
+            // Ici, vous devriez ajouter des vérifications et des traitements de paiement supplémentaires
+            window.location.href = "omnes_box.html"; // Rediriger vers la page "J'ai une OmnesBox"
+        });
+    </script>
+
+
 
     <style>
         body {
@@ -137,4 +139,3 @@
 </body>
 
 </html>
-
