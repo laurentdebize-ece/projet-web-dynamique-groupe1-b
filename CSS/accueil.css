@@ -216,3 +216,35 @@ footer .newsletter-input {
     width: 100%;
     margin-bottom: 10px;
 }
+
+.step {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: #fcefe9;
+    transition: all 0.3s ease !important;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f7d9c9;
+}
+
+.step-icon {
+    font-size: 50px;
+    color: #d38073;
+    margin-bottom: 20px;
+}
+
+.step h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 18px;
+}
