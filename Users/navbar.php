@@ -1,6 +1,8 @@
+
+<?php include("verif_session.php") ?>
+
+
 <style>
-
-
     .deconnexion {
 
     border-radius: 15px;
@@ -63,7 +65,7 @@
             <?php
                 // vérifier si l'utilisateur est connecté
                 if(isset($_SESSION['connected']) && $_SESSION['connected']){
-                    echo '<a href="deconnexion.php">Déconnexion</a>';
+                    echo '<a class="nav-link" href="deconnexion.php">Déconnexion</a>';
                 }
             ?>
             
@@ -71,8 +73,9 @@
         <li class="nav-item">
             <?php
                 if(isset($_SESSION['connected']) && $_SESSION['connected']){
-                    echo '<a class="nav-link" href="mon_compte.php">Mon Compte</a>' ;
-                }
+                    if ($_SESSION['connected'] && $_SERVER['REQUEST_URI']  !=  "/projet-web-dynamique-groupe1-b/Users/mon_compte.php") {
+                        echo '<a class="nav-link" href="mon_compte.php">Mon Compte</a>';
+                    }                }
                 else {
                     echo '<a class="nav-link" href="connexion.php">Connexion</a>' ;
                 }

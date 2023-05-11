@@ -11,7 +11,6 @@
     <link href="../CSS/mon_compte.css" rel="stylesheet" type="text/css" media="all" />
     <?php include("navbar.php") ?>
     <?php include("verif_connexion_bdd.php") ?>
-    <?php include("verif_session.php") ?>
     <script>
         $(document).ready(function() {
             $('.dropdown').hover(function() {

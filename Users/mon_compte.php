@@ -11,8 +11,10 @@
     <link href="../CSS/mon_compte.css" rel="stylesheet" type="text/css" media="all" />
     <?php include("navbar.php") ?>
     <?php include("verif_connexion_bdd.php") ?>
+    <?php include("verif_session.php") ?>
     
     <?php
+    
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -23,6 +25,7 @@
         header("Location: connexion.php");
         exit;
         }
+        
     ?>
 
     <script>
@@ -53,6 +56,7 @@
                 <h3>Informations personnelles</h3>
                 <ul>
                     <?php
+                    
                     echo '<li>Nom : ' . $_SESSION['nom'] . '</li>';
 
                     echo '<li>Prénom : ' . $_SESSION['prenom'] . '</li>';
