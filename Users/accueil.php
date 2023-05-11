@@ -76,42 +76,39 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Suivant</span>
         </a>
-    </div>
 
-    <div class="content">
-        <h2>Bienvenue sur notre site de cartes cadeaux !</h2>
-        <p>Nous proposons une large sélection de cartes cadeaux pour toutes les occasions. Que vous souhaitiez offrir un
-            cadeau d'anniversaire, de mariage, de Noël ou simplement pour dire merci, vous trouverez la carte cadeau
-            idéale sur OmnesBox.</p>
-        <hr>
-        <h2>Comment ça marche</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-gift"></i>
+        <div class="content">
+            <h2>Bienvenue sur notre site de cartes cadeaux !</h2>
+            <p>Nous proposons une large sélection de cartes cadeaux pour toutes les occasions. Que vous souhaitiez offrir un cadeau d'anniversaire, de mariage, de Noël ou simplement pour dire merci, vous trouverez la carte cadeau idéale sur OmnesBox.</p>
+            <hr>
+            <h2>Comment ça marche</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3>Choisissez une carte</h3>
+                        <p>Parcourez notre sélection de cartes cadeaux et choisissez celle qui correspond le mieux à vos besoins.</p>
                     </div>
-                    <h3>Choisissez une carte</h3>
-                    <p>Parcourez notre sélection de cartes cadeaux et choisissez celle qui correspond le mieux à vos
-                        besoins.</p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-pen"></i>
+                <div class="col-md-4">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-pen"></i>
+                        </div>
+                        <h3>Personnalisez</h3>
+                        <p>Ajoutez un message personnel et choisissez un design pour votre carte cadeau.</p>
                     </div>
-                    <h3>Personnalisez</h3>
-                    <p>Ajoutez un message personnel et choisissez un design pour votre carte cadeau.</p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-envelope"></i>
+                <div class="col-md-4">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Offrez</h3>
+                        <p>Envoyez la carte cadeau par e-mail ou imprimez-la pour l'offrir en personne.</p>
                     </div>
-                    <h3>Offrez</h3>
-                    <p>Envoyez la carte cadeau par e-mail ou imprimez-la pour l'offrir en personne.</p>
                 </div>
             </div>
         </div>
