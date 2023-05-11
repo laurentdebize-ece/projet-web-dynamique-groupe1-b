@@ -1,0 +1,218 @@
+.boutton-design {
+    background-color: rgb(211, 128, 115);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+.btn-design {
+    background-color: rgb(211, 128, 115);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-color: rgb(246, 246, 246);
+    font-family: "Century Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    color: black !important;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: rgba(92, 158, 224, 0.1);
+    color: rgb(38, 93, 155) !important;
+}
+
+.omnes-box:hover {
+    background-color: rgba(232, 183, 176, 0.1);
+    color: rgb(211, 128, 115) !important;
+}
+
+#carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin: 20px;
+}
+
+#carousel img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.content p {
+    text-align: justify;
+    font-size: 18px;
+}
+
+.btn-discover {
+    background-color: rgb(38, 93, 155);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-discover:hover {
+    background-color: rgb(211, 128, 115);
+    color: white;
+    text-decoration: none;
+}
+
+/* Style du fond semi-transparent */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Ajoutez un z-index élevé pour que le pop-up soit au-dessus de tout le reste */
+}
+
+.useful-links li a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.useful-links li a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Style du contenu du pop-up */
+#popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    animation: fadeIn 0.5s;
+    z-index: 10000;
+    /* Ajoutez un z-index encore plus élevé pour que le contenu du pop-up soit au-dessus du fond semi-transparent */
+}
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style du footer */
+footer {
+    background-color: rgba(38, 93, 155, 0.5);
+    color: white;
+    padding: 40px 0;
+    font-size: 16px;
+}
+
+.test {
+    display: flex;
+    justify-content: right;
+}
+
+footer h4 {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+}
+
+footer .social-links a {
+    font-size: 24px;
+}
+
+footer .btn-newsletter {
+    background-color: rgb(211, 128, 115);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+footer .btn-newsletter:hover {
+    background-color: rgb(246, 246, 246);
+    color: rgb(38, 93, 155);
+}
+
+footer .newsletter-input {
+    border: 1px solid #fff;
+    padding: 8px;
+    border-radius: 25px;
+    width: 100%;
+    margin-bottom: 10px;
+}

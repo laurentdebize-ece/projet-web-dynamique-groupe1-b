@@ -12,7 +12,31 @@
     <title>Connexion - OMNES BOX</title>
     <link href="../CSS/connexion.css" rel="stylesheet" type="text/css" media="all" />
     <script src="action.js"> </script>
-
+    function showThankYouMessage() {
+    <meta charset="UTF-8">
+// Ici, vous pouvez ajouter la logique d'envoi de l'e-mail et de validation de l'adresse.
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+// Une fois que cela est fait, affichez le message de remerciement.
+    <title>Page d'accueil - OMNES BOX</title>
+event.preventDefault();
+    <?php include("navbar.php"); ?>
+var email = document.getElementById("email").value;
+    <!-- ASSURE LA CONNEXION A LA BASE DE DONNEES -->
+// Vérifiez que l'adresse e-mail est valide
+    <?php include("verif_connexion_bdd.php") ?>
+if (email) {
+    <?php
+document.querySelector("form").style.display = "none";
+    if (!isset($_SESSION)) {
+document.getElementById("thank-you-message").style.display = "block";
+        session_start();
+} else {
+    }
+alert("Veuillez entrer une adresse e-mail valide.");
+    if (!isset($_SESSION["connected"])) {
+}
+        $_SESSION["connected"] = false;
+}
     <!-- ASSURE LA CONNEXION A LA BASE DE DONNEES -->
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
