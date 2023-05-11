@@ -1,31 +1,9 @@
 
 <?php include("verif_session.php") ?>
 
-
-<style>
-    .deconnexion {
-
-    border-radius: 15px;
-
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15x;
-    font-weight: bold;
-
-    }
-
-    .deconnexion:hover {
-
-
-    border: #176ad5;
-    color:white;    
-    }
-</style>
-
-
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">
-            <img src="Image/logo_omnesBox.png" alt="Logo" class="navbar-brand-img">
+            <img src="../Images/logo_omnesBox.png" alt="Logo" width="150" height="40" class="navbar-brand-img">
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

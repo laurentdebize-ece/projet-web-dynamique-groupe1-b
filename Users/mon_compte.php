@@ -2,30 +2,27 @@
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" />
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5zzenw4p+HHAAK5GSLf2xlYtvJ8U2Q4U+9cuEnJoa3" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="../CSS/mon_compte.css" rel="stylesheet" type="text/css" media="all" />
-    <?php include("navbar.php") ?>
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
-    
-    <?php
-    
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
 
-        // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['id'])) {
+    <?php
+
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    // Vérifier si l'utilisateur est connecté
+    if (!isset($_SESSION['id'])) {
         // Rediriger vers la page de connexion
         header("Location: connexion.php");
         exit;
-        }
-        
+    }
+
     ?>
 
     <script>
@@ -47,16 +44,19 @@
 </head>
 
 <body>
-
+<?php include("navbar.php") ?>
     <div class="container">
         <h1 class="custom-title">Mon compte</h1>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="espace_personnel.php" class="btn btn-personal-space">Espace Personnel</a>
+        </div>
 
         <div class="account-info">
             <div class="info-box">
                 <h3>Informations personnelles</h3>
                 <ul>
                     <?php
-                    
+
                     echo '<li>Nom : ' . $_SESSION['nom'] . '</li>';
 
                     echo '<li>Prénom : ' . $_SESSION['prenom'] . '</li>';
@@ -64,14 +64,14 @@
                     echo '<li>Email : ' . $_SESSION['email'] . '</li>';
                     ?>
                 </ul>
-                <button class="btn btn-modifier-infos"  Onclick="location.href='modifier_info.php' ">Modifier les informations</button>
+                <button class="btn btn-modifier-infos" Onclick="location.href='modifier_info.php' ">Modifier les informations</button>
             </div>
             <div class="info-box">
                 <h3>Mot de passe</h3>
                 <p>Le mot de passe n'est pas affiché pour des raisons de sécurité. Vous pouvez le modifier en cliquant sur le bouton ci-dessous.</p>
                 <button class="btn" data-toggle="tooltip" data-placement="top" title="le MDP peut être modifié à l'infini">
                     Modifier le mot de passe </button>
-                
+
             </div>
             <div class="info-box">
                 <h3>Type de compte</h3>
@@ -93,7 +93,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

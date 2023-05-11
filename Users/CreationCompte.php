@@ -11,7 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title> OmnesBox </title>
     <link href="../CSS/creationCompte.css" rel="stylesheet" type="text/css" media="all" />
-    <script src="action.js"> </script>
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
 </head>

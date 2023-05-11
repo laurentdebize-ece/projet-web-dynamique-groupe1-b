@@ -96,20 +96,6 @@ nav a:hover {
     text-decoration: none;
 }
 
-/* Style du fond semi-transparent */
-#popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    /* Ajoutez un z-index élevé pour que le pop-up soit au-dessus de tout le reste */
-}
 
 .useful-links li a {
     color: inherit;
@@ -122,16 +108,6 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Style du contenu du pop-up */
-#popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-    animation: fadeIn 0.5s;
-    z-index: 10000;
-    /* Ajoutez un z-index encore plus élevé pour que le contenu du pop-up soit au-dessus du fond semi-transparent */
-}
 
 /* Animation d'entrée */
 @keyframes fadeIn {
@@ -144,77 +120,6 @@ nav a:hover {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Style du footer */
-footer {
-    background-color: rgba(38, 93, 155, 0.5);
-    color: white;
-    padding: 40px 0;
-    font-size: 16px;
-}
-
-.test {
-    display: flex;
-    justify-content: right;
-}
-
-footer h4 {
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-footer ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-footer ul li {
-    margin-bottom: 10px;
-}
-
-footer .social-links {
-    display: flex;
-    justify-content: space-between;
-    width: 120px;
-}
-
-footer .social-links a {
-    font-size: 24px;
-}
-
-footer .btn-newsletter {
-    background-color: rgb(211, 128, 115);
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-footer .btn-newsletter:hover {
-    background-color: rgb(246, 246, 246);
-    color: rgb(38, 93, 155);
-}
-
-footer .newsletter-input {
-    border: 1px solid #fff;
-    padding: 8px;
-    border-radius: 25px;
-    width: 100%;
-    margin-bottom: 10px;
 }
 
 .step {
