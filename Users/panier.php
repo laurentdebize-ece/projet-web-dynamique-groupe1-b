@@ -7,33 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-        function updateCartDisplay() {
-            const cartContainer = document.getElementById("cartContainer");
-            cartContainer.innerHTML = ""; // Videz le contenu du panier
-
-            cart.forEach(item => {
-                const cartItem = document.createElement("div");
-                cartItem.innerHTML = `
-                    <p>${item.name}</p>
-                    <p>${item.price}</p>
-                    <p>${item.quantity}</p>
-                `;
-                cartContainer.appendChild(cartItem);
-            });
-        }
-
-        $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-
-            $('.dropdown').hover(function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-            }, function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-            });
-        });
-    </script>
+    <?php include('verif_session.php') ;?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panier - OMNES BOX</title>
@@ -172,7 +146,7 @@
             <tbody>
                 <!-- Ajoutez ici les lignes correspondant aux articles de votre panier -->
                 <tr>
-                    <td><img src="exemple_produit.jpg" alt="Exemple produit"></td>
+                    <td><img src="../Images/image_carte_apple.jpeg" alt="Exemple produit"></td>
                     <td>Exemple de produit</td>
                     <td>25€</td>
                     <td>
@@ -186,7 +160,7 @@
             <p><strong>Total :</strong></p>
             <p>25€</p>
         </div>
-        <a href="caisse.html" class="btn-checkout">Passer à la caisse</a>
+        <a href="caisse.php" class="btn-checkout">Passer à la caisse</a>
     </div>
     <?php include("footer.php"); ?>
 </body>

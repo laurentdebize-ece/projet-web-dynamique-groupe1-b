@@ -13,14 +13,7 @@
     <title>Page d'accueil - OMNES BOX</title>
     <!-- ASSURE LA CONNEXION A LA BASE DE DONNEES -->
     <?php include("verif_connexion_bdd.php") ?>
-    <?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-    if (!isset($_SESSION["connected"])) {
-        $_SESSION["connected"] = false;
-    }
-    ?>
+    <?php include("verif_session.php")  ?>
 
     <script src="https://kit.fontawesome.com/your-key.js" crossorigin="anonymous"></script>
 

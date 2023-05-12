@@ -1,5 +1,5 @@
 
-<?php include("verif_session.php") ?>
+
 
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">
@@ -53,7 +53,8 @@
                 if(isset($_SESSION['connected']) && $_SESSION['connected']){
                     if ($_SESSION['connected'] && $_SERVER['REQUEST_URI']  !=  "/projet-web-dynamique-groupe1-b/Users/mon_compte.php") {
                         echo '<a class="nav-link" href="mon_compte.php">Mon Compte</a>';
-                    }                }
+                    }                
+                }
                 else {
                     echo '<a class="nav-link" href="connexion.php">Connexion</a>' ;
                 }

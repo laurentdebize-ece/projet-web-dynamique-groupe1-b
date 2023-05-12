@@ -113,7 +113,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="info-card" data-aos="fade-up">
-                        <img src="image1.jpg" alt="Image 1">
+                        <img src="../Images/image_partenaire.jpeg" alt="Image 1">
                         <h3>Devenir partenaire</h3>
                         <p>Tout savoir sur comment devenir partenaire et profiter des avantages de notre plateforme.</p>
                         <a href="#">En savoir plus</a>

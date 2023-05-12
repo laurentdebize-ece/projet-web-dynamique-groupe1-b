@@ -13,9 +13,6 @@
 
     <?php
 
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
     // Vérifier si l'utilisateur est connecté
     if (!isset($_SESSION['id'])) {
         // Rediriger vers la page de connexion
