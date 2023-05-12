@@ -23,21 +23,6 @@
     ?>
 
     <script src="https://kit.fontawesome.com/your-key.js" crossorigin="anonymous"></script>
-    <script>
-        function showThankYouMessage() {
-            event.preventDefault();
-            var email = document.getElementById("email").value;
-            if (email) {
-                document.querySelector("form").style.display = "none";
-                document.getElementById("thank-you-message").style.display = "block";
-            } else {
-                alert("Veuillez entrer une adresse e-mail valide.");
-            }
-        }
-    </script>
-
-
-
 
 </head>
 

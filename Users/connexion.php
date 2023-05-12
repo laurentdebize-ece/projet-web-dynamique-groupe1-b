@@ -11,7 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Connexion - OMNES BOX</title>
     <link href="../CSS/connexion.css" rel="stylesheet" type="text/css" media="all" />
-    <script src="action.js"> </script>
 
     <!-- ASSURE LA CONNEXION A LA BASE DE DONNEES -->
     <?php include("verif_connexion_bdd.php") ?>
