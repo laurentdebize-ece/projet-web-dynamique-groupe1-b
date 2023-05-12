@@ -11,9 +11,10 @@ function test_input($data)
     return $data;
 }
 
-$newsletter = true ;
+$newsletter = false ;
 
 if (isset($_POST["email"]) && !empty($_POST["email"])) {
+    echo "test" ;
     //sécurité contre faille XSS
     $Email = test_input($_POST["email"]);
 
@@ -65,10 +66,14 @@ if (isset($_POST["email"]) && !empty($_POST["email"])) {
             <div class="col-md-4">
                 <h4>Newsletter</h4>
                 <p>Inscrivez-vous à notre newsletter pour recevoir les dernières nouvelles et offres spéciales.</p>
-                <form action='footer.php' onsubmit="return showThankYouMessage()">
+
+
+                <form method="post" >
                     <input type="email" class="newsletter-input" name="email" id="email" placeholder="Entrez votre adresse e-mail" required>
                     <input class="submit btn btn-newsletter" type="submit" value="S'inscrire">
                 </form>
+
+                
                 <div id="thank-you-message" style="display:none;">
                     <h2>Merci de vous être inscrit !</h2>
                     <p>Un e-mail de confirmation a été envoyé à votre adresse. Veuillez le vérifier pour compléter
