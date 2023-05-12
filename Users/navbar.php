@@ -24,6 +24,15 @@ color:white;
 
 <?php include("verif_session.php") ?>
 
+<script>
+    function deconnexion() {
+        $_SESSION['connected'] = false ;
+        unset($_SESSION['id']) ;
+        unset($_SESSION['nom']) ;
+        unset($_SESSION['prenom']) ;
+        unset($_SESSION['email']) ;
+    }
+</script>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="index.php.php">
@@ -66,7 +75,7 @@ color:white;
             <li class="nav-item">
             <?php 
                 if($_SESSION['connected']){
-                    echo '<a type="button" class="nav-link" href="#">Déconnexion</a>';
+                    echo '<a type="button" class="nav-link" Onclick="deconnexion()">Déconnexion</a>';
                 }
                 ?> 
                 </li>

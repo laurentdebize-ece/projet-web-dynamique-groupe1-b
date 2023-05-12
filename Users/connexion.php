@@ -68,7 +68,7 @@ function togglePasswordVisibility() {
         for ($i = 0; $i < sizeof($users); $i++) {
             $email_login_bdd = $info[$i][3];
             $pwd_bdd = $info[$i][4];
-            if ($login ==  $email_login_bdd && $pwd == $pwd_bdd) {
+            if (!strcasecmp($login, $email_login_bdd) && $pwd == $pwd_bdd) {
                 $pwd_found = true;
                 $_SESSION['email'] =  $email_login_bdd;
                 $_SESSION['pwd'] = $pwd;
