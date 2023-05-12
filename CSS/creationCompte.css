@@ -2,6 +2,10 @@
     text-align: left;
     margin-left: 50px;
 }
+.sub{
+    text-align: center;
+    
+}
 
 .text {
     margin-left: 25px;
@@ -9,26 +13,33 @@
 
 .pieddepage {
     position: absolute;
-    bottom: 1;
-    width: 90%;
+    bottom:1;
+    width: 70%;
     background-color: #FFFFFF;
 }
 
 .piedgauche {
-    margin-left: 25px;
+    
     float: left;
-    width: 75%;
+    width: 50%;
     text-align: left;
 
 }
 
 .pieddroit {
-    margin-right: 65px;
+    
     float: right;
     width: 40%;
-    text-align: right;
-    margin-top: 6px;
-    font-size: 13px;
+    text-align: left;
+    
+    
+}
+.pied {
+    
+    float: center;
+    width: 50%;
+    text-align: center;
+
 }
 
 .submit {
@@ -38,6 +49,8 @@
     width: 275px;
     height: 40px;
     border: #1877f2;
+    text-align: center;
+    float: right;
 }
 
 .submit:hover {

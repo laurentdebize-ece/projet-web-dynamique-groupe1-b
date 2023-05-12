@@ -69,46 +69,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3"></div>
-                <div class="panel panel-default" style="height:650px; width: 650px; margin-left: 260px;">
-                    <div class="col-sm-3" style="height:50%;">
+                
+                    <div class="col-sm-6" style="height:50%;">
+                    <div class="panel panel-default" style="height:450px">
+                    
 
 
                         <br><br>
-                        <h2 class="text">Création de compte</h2><br>
+                        <h2 class="text">Création du compte</h2>
+                        <br>
                         <form action="CreationCompte.php" method="post">
-                            <p class="piedgauche"> Nom :</p>
-                            <br>
-                            <br>
+                        <div class="pieddepage">
+                            <div class="piedgauche">
+                            <label class="log" for="Nom"> Nom :</label>
                             <p class="log"> <input type="text" name="Nom" id="Nom"></p>
-        
-                            <p class="piedgauche"> Mot de Passe : </p>
                             <br>
-                            <br>
+                            <label class="log" for="pwd"> Mot de Passe : </label>
                             <p class="log"><input type="password" name="pwd" id="pwd"></p>
-                    </div>
 
-                    <div class="col-sm-3" style="height:50%; margin-left: 120px; margin-top:150px">
+                        </div>
+                        <div class="pieddroit">
+                            <label class="log" for="Prenom"> Prénom :</label>
+                            <p class="log"> <input type="text" name="Prenom" id="Prenom"></p>
+                            <br>
+                            <label class="log" for="Email" > Email :</label>
+                            <p class="log"> <input type="Email" name="Email" id="Email">  </p>
+                            <span> <?php echo $emailError ?> </span>
+                        </div>
                         <br>
                         <br>
-                        <p class="piedgauche"> Prénom :</p>
-                        <br>
-                        <br>
-                        <p class="log"> <input type="text" name="Prenom" id="Prenom"></p>
-
-                        <p class="piedgauche"> Email :</p>
-                        <br>
-                        <br>
-                        <p class="log"> <input type="Email" name="Email" id="Email">  </p>
-                        <span> <?php echo $emailError ?> </span>
-                    </div>
+                <input class="submit" type="submit" value="Création du compte">
                 </div>
-
-
-                <br>
-                <br>
-                <p class="log"><input class="submit" type="submit" value="Création du compte"></p>
-
                 </form>
+                    
+                </div>
             </div>
             <div class="col-sm-4 "></div>
             <button class="close-button" aria-label="Case de fermeture" type="button">

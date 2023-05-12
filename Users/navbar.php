@@ -26,7 +26,7 @@ color:white;
 
 <script>
     function deconnexion() {
-        $_SESSION['connected'] = false ;
+        $_SESSION['connected'] = false ;    
         unset($_SESSION['id']) ;
         unset($_SESSION['nom']) ;
         unset($_SESSION['prenom']) ;

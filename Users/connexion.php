@@ -89,7 +89,7 @@ function togglePasswordVisibility() {
     }
     ?>
 
-    <img src="Users/Image/logo_omnesBox.png" alt="Logo">
+    <img src="Image/logo_omnesBox.png" alt="Logo">
     <h4>
         <div class="container">
             <div class="row">
@@ -113,7 +113,7 @@ function togglePasswordVisibility() {
                             </div>
                             <br><br>
                             <p class="log"><input type="password"id="password" name="pwd" id="pwd"></p>
-                            <p class="log"><input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"></p>
+                            <p class="show">Afficher le mot de passe <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"></p>
                             <br></br>
                             <p class="log"><input class="submit" type="submit" value="Connexion"></p>
 
