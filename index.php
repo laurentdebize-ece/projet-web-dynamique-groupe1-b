@@ -1,0 +1,1 @@
+<?php header('Location: Users/accueil.php'); ?>

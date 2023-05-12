@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <style>
 
@@ -34,9 +35,14 @@ color:white;
     }
 </script>
 
+=======
+
+<?php include("verif_session.php") ?>
+
+>>>>>>> main
 <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="index.php.php">
-            <img src="Image/logo_omnesBox.png" alt="Logo" class="navbar-brand-img">
+        <a class="navbar-brand" href="accueil.php">
+            <img src="../Images/logo_omnesBox.png" alt="Logo" width="150" height="40" class="navbar-brand-img">
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,7 +50,7 @@ color:white;
     <div class="collapse navbar-collapse" id="navbarNavDropdown" >
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">Accueil</a>
+                <a class="nav-link" href="accueil.php">Accueil</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="cartes_cadeau.php" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,23 +79,25 @@ color:white;
         
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-            <?php 
-                if($_SESSION['connected']){
-                    echo '<a type="button" class="nav-link" Onclick="deconnexion()">Déconnexion</a>';
+            <?php
+                // vérifier si l'utilisateur est connecté
+                if(isset($_SESSION['connected']) && $_SESSION['connected']){
+                    echo '<a class="nav-link" href="deconnexion.php">Déconnexion</a>';
                 }
-                ?> 
+            ?>
+            
                 </li>
         <li class="nav-item">
-                <?php 
-                if(!$_SESSION['connected']){
+            <?php
+                if(isset($_SESSION['connected']) && $_SESSION['connected']){
+                    if ($_SESSION['connected'] && $_SERVER['REQUEST_URI']  !=  "/projet-web-dynamique-groupe1-b/Users/mon_compte.php") {
+                        echo '<a class="nav-link" href="mon_compte.php">Mon Compte</a>';
+                    }                }
+                else {
                     echo '<a class="nav-link" href="connexion.php">Connexion</a>' ;
                 }
-                else {
-                    echo '<a class="nav-link" href="mon_compte.php">Mon Compte</a>' ;
-                }
-                ?>
+            ?>
             </li>
-        </ul>
-                
+        </ul>   
     </div>
 </nav>

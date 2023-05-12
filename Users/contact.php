@@ -3,27 +3,10 @@
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5zzenw4p+HHAAK5GSLf2xlYtvJ8U2Q4U+9cuEnJoa3" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <script>
-        function updateCartDisplay() {
-            const cartContainer = document.getElementById("cartContainer");
-            cartContainer.innerHTML = ""; // Videz le contenu du panier
-
-            cart.forEach(item => {
-                const cartItem = document.createElement("div");
-                cartItem.innerHTML = `
-                    <p>${item.name}</p>
-                    <p>${item.price}</p>
-                    <p>${item.quantity}</p>
-                `;
-                cartContainer.appendChild(cartItem);
-            });
-        }
-
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
 
@@ -36,7 +19,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panier - OMNES BOX</title>
+    <title>Contact - OMNES BOX</title>
     <style>
         body {
             font-family: "Century Gothic", sans-serif;
@@ -70,7 +53,7 @@
             color: rgb(211, 128, 115) !important;
         }
 
-        .cart-container {
+        .contact-container {
             padding: 40px;
             background-color: white;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -79,51 +62,26 @@
             margin: 40px auto;
         }
 
-        .cart-container h1 {
+        .contact-container h1 {
             text-align: center;
             font-weight: bold;
             font-size: 28px;
             margin-bottom: 20px;
         }
 
-        .cart-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .cart-table th {
-            background-color: rgb(38, 93, 155);
-            color: white;
-            padding: 10px;
-            font-weight: bold;
-        }
-
-        .cart-table td {
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-
-        .cart-table img {
-            width: 100px;
-            border-radius: 5px;
-        }
-
-        .cart-summary {
-            margin-top: 30px;
+        .contact-form {
             display: flex;
-            justify-content: flex-end;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .cart-summary p {
-            margin-bottom: 0;
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            margin-bottom: 20px;
         }
 
-        .cart-summary strong {
-            font-size: 20px;
-        }
-
-        .btn-checkout {
-            margin-top: 30px;
+        .btn-submit {
             background-color: rgb(211, 128, 115);
             color: white;
             font-size: 20px;
@@ -139,7 +97,7 @@
             cursor: pointer;
         }
 
-        .btn-checkout:hover {
+        .btn-submit:hover {
             background-color: rgb(38, 93, 155);
             color: white;
             text-decoration: none;
@@ -150,43 +108,21 @@
             background-color: rgb(232, 183, 176);
         }
     </style>
+
 </head>
 
 <body>
-
-    <?php include("navbar.php") ?>
+    <?php include("navbar.php"); ?>
     <hr>
-
-    <div class="cart-container">
-        <h1>Votre panier</h1>
-        <table class="cart-table">
-            <thead>
-                <tr>
-                    <th>Produit</th>
-                    <th>Description</th>
-                    <th>Prix unitaire</th>
-                    <th>Quantité</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Ajoutez ici les lignes correspondant aux articles de votre panier -->
-                <tr>
-                    <td><img src="exemple_produit.jpg" alt="Exemple produit"></td>
-                    <td>Exemple de produit</td>
-                    <td>25€</td>
-                    <td>
-                        <input type="number" min="1" value="1" class="form-control" style="width: 80px;">
-                    </td>
-                    <td>25€</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="cart-summary">
-            <p><strong>Total :</strong></p>
-            <p>25€</p>
-        </div>
-        <a href="caisse.html" class="btn-checkout">Passer à la caisse</a>
+    <div class="contact-container">
+        <h1>Contactez-nous</h1>
+        <form class="contact-form">
+            <input type="text" placeholder="Votre nom" required>
+            <input type="email" placeholder="Votre adresse e-mail" required>
+            <input type="text" placeholder="Objet" required>
+            <textarea rows="5" placeholder="Votre message" required></textarea>
+            <button type="submit" class="btn-submit">Envoyer</button>
+        </form>
     </div>
     <?php include("footer.php"); ?>
 </body>

@@ -1,0 +1,65 @@
+body {
+    font-family: "Century Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin-bottom: -16px;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    color: black !important;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: rgba(92, 158, 224, 0.1);
+    color: rgb(38, 93, 155) !important;
+}
+
+.omnes-box:hover {
+    background-color: rgba(232, 183, 176, 0.1);
+    color: rgb(211, 128, 115) !important;
+}
+.cartes-container {
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.cartes-container h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.carte {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+.carte:hover {
+    background-color: rgba(51, 75, 194, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.carte h2 {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}

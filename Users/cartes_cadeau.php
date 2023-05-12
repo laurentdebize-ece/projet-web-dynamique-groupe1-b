@@ -1,13 +1,14 @@
-<?php include("verif_session.php") ?>
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5zzenw4p+HHAAK5GSLf2xlYtvJ8U2Q4U+9cuEnJoa3" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <?php include("verif_connexion_bdd.php") ?>
+    <?php include("verif_session.php") ?>
     <script>
         $(document).ready(function() {
             $('.dropdown').hover(function() {
@@ -21,7 +22,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartes cadeau - OMNES BOX</title>
     <style>
-    
         body {
             font-family: "Century Gothic", sans-serif;
             margin: 0;
@@ -47,6 +47,7 @@
             background-color: rgba(92, 158, 224, 0.1);
             color: rgb(38, 93, 155) !important;
         }
+
         .omnes-box:hover {
             background-color: rgba(232, 183, 176, 0.1);
             color: rgb(211, 128, 115) !important;
@@ -98,7 +99,7 @@
         }
 
         .gift-card-container .card .btn-add-to-cart {
-    
+
             height: 40px !important;
             background-color: rgb(38, 93, 155);
             padding-bottom: -15px;
@@ -132,10 +133,11 @@
         }
     </style>
 </head>
+
 <body>
 
     <?php include("navbar.php") ?>
-    
+
     <nav class="navbar navbar-expand-lg navbar-dark">
         <!-- Ajoutez ici le code du menu de navigation -->
     </nav>
@@ -188,7 +190,7 @@
             </div>
         </div>
     </div>
-
+    <?php include("footer.php"); ?>
 </body>
-</html>
 
+</html>

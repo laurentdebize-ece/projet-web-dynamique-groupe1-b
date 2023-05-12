@@ -11,62 +11,31 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title> OmnesBox </title>
     <link href="../CSS/creationCompte.css" rel="stylesheet" type="text/css" media="all" />
-    <script src="action.js"> </script>
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
 </head>
 
 <body>
-    <?php
-
-    function test_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
-    $emailError = '';
-    $creation_compte = ''; 
-
-    if (isset($_POST["Nom"], $_POST["pwd"], $_POST["Email"], $_POST["Prenom"]) && !empty($_POST["Nom"]) && !empty($_POST["pwd"]) && !empty($_POST["Prenom"]) && !empty($_POST["Email"])) {
-        //sécurité contre faille XSS
-        $Nom = test_input($_POST["Nom"]);
-        $Prenom = test_input($_POST["Prenom"]);
-        $Email = test_input($_POST["Email"]);
-        $pwd = test_input($_POST["pwd"]);
-        $type = 3;
-
-        $emailExist = false ;
-        
-        $verify = "SELECT email FROM compte";
-        $request = mysqli_query($bdd, $verify);
-        while($email_bdd = mysqli_fetch_assoc($request)){
-            if(!strcasecmp($Email, $email_bdd['email'])) {
-                $emailExist = true ;
-            }
+    <style>
+        .popup{
+            text-align: center;
+            position: fixed;
+            border-radius: 20px;
+            background-color: #9c2b2e;
+            border-style: inset ;
+            border: #e84e4f ; 
         }
-    
-        if ($emailExist) {
-            $emailError = 'Cet email est déjà utilisé !';
-        } 
-        else {
-            $add = "INSERT INTO compte
-                    VALUES (NULL, '$Nom', '$Prenom' , '$Email', '$pwd', $type)";
-            $emailError = '';
-            if (mysqli_query($bdd, $add)) {
-                $creation_compte = "Nouveau compte crée avec succés !";
-                $_SESSION['page'] = 'PHP_SELF' ;
-            } else {
-                $creation_compte = 'ERREUR SQL CREATION DU COMPTE' ;
-            }
-        }
-    }
-    ?>
+    </style>
     <h1> OmnesBox </h1>
     <h4>
         <div class="container">
+            <div class='popup'>
+                <?php 
+                if(isset($GLOBALS['EmailError'])) {
+                    echo "je suis ". $GLOBALS['EmailError'] ;
+                }
+                ?>
+            </div>
             <div class="row">
                 <div class="col-sm-3"></div>
                 
