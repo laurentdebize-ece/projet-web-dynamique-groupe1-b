@@ -1,5 +1,29 @@
 
 
+<style> 
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    color: black !important;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: rgba(92, 158, 224, 0.1);
+    color: rgb(38, 93, 155) !important;
+}
+
+
+
+</style>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">
@@ -55,10 +79,10 @@
                         echo '<a class="nav-link" href="mon_compte.php">Mon Compte</a>';
                     }                
                 }
-                else {
+                else if(!$_SESSION['connectedPartenaire']) {
                     echo '<a class="nav-link" href="connexion.php">Connexion</a>' ;
                 }
-            ?>
+            ?>  
             </li>
         </ul>   
     </div>

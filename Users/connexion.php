@@ -57,7 +57,7 @@
             if (!strcasecmp($login, $email_login_bdd) && $pwd == $pwd_bdd) {
                 $pwd_found = true;
                 $_SESSION['email'] =  $email_login_bdd;
-                $_SESSION['pwd'] = $pwd;
+                $_SESSION['type'] = $type;
                 $_SESSION['id'] = $info[$i][0];
                 $_SESSION['nom'] = $info[$i][1];
                 $_SESSION['prenom'] = $info[$i][2];

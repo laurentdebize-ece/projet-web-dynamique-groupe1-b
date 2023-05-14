@@ -1,0 +1,42 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #000;
+    color: #d0d0d0;
+}
+
+.container {
+    
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px 15px;
+}
+
+h1,h2 {
+    font-weight: 300;
+}
+
+.section {
+    padding: 50px 0;
+}
+
+.boutton {
+    background-color: #f0cb64;
+    color: black;
+}
+.boutton:hover {
+    background-color: #fff;
+}
+
+form {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

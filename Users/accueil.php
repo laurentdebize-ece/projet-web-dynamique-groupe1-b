@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="text-center my-4">
-            <a href="../Partenaire/connexion_partenaire.php" class="btn btn-design" data-toggle="tooltip" data-placement="bottom" title="Cliquez ici si vous êtes un professionnel">Vous êtes un professionnel ?</a>
+            <a href="../Partenaire/accueil_pro.php" class="btn btn-design" data-toggle="tooltip" data-placement="bottom" title="Cliquez ici si vous êtes un professionnel">Vous êtes un professionnel ?</a>
         </div>
         <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
