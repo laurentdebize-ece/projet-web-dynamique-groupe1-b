@@ -170,9 +170,10 @@
         </div>
         <div class="row">
             <!-- Ajoutez ici les cartes cadeaux en utilisant la structure de la carte ci-dessous -->
+            
             <div class="col-md-4">
                 <div class="card">
-                    <img src="Image/image_carte_apple.jpeg" alt="Exemple de carte cadeau">
+                    <img src="Images/image_carte_apple.jpeg" alt="Exemple de carte cadeau">
                     <div class="card-body">
                         <h5 class="card-title">Carte cadeau Apple 25€</h5>
                         <p class="card-text">Offrez un accessoire apple dans un App sélectionné.</p>
