@@ -68,10 +68,18 @@
                             $req = mysqli_query($bdd, "SELECT nom FROM activite JOIN cartes ON activite.idActivite = cartes.idActivite WHERE cartes.idActivite = {$product['idActivite']}");
                             if(mysqli_num_rows($req) > 0) {
                                 $row = mysqli_fetch_assoc($req);
+
+                                // Récupération de l'image en base64
+                                $image_data = base64_encode($product['image']);
+
+                                // Détermination du type d'image en fonction des premiers octets de la colonne image
+                                $mime_type = finfo_buffer(finfo_open(), $product['image'], FILEINFO_MIME_TYPE);
+                                $image_src = "data:".$mime_type.";base64,".$image_data;
+    
                     ?>
 
                                 <tr>
-                                    <td><img src="image_produit/<?=$product['image']?>"></td>
+                                    <td><img src="<?php echo $image_src?>"></td>
                                     <td><?= isset($row['nom']) ? $row['nom'] : '' ?></td>
                                     <td><?=$product['prix']?>€</td>
                                     <td>

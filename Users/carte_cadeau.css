@@ -63,8 +63,7 @@ span {
     justify-content: center;
 }
 .image_cartes img {
-    height: 150px;
-    width: 150px;
+    width: 300px;
     object-fit: cover;
     padding: 20px;
 }
@@ -87,4 +86,10 @@ span {
     color: #fff;
     padding: 10px  10%;
     border-radius: 6px;
+}
+
+.id_product:hover {
+    background-color: rgb(38, 93, 155);
+    color: white;
+    text-decoration: none;
 }

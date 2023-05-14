@@ -32,10 +32,16 @@
                 //afficher la liste des produits
                 $req = mysqli_query($bdd, "SELECT * FROM cartes");
                 while($row = mysqli_fetch_assoc($req)){ 
+                    // Récupération de l'image en base64
+                    $image_data = base64_encode($row['image']);
+
+                    // Détermination du type d'image en fonction des premiers octets de la colonne image
+                    $mime_type = finfo_buffer(finfo_open(), $row['image'], FILEINFO_MIME_TYPE);
+                    $image_src = "data:".$mime_type.";base64,".$image_data;
                 ?>
                 <form action="" class="cartes">
                     <div class="image_cartes">
-                        <img src="image_produit/<?=$row['image']?>">
+                        <img src="<?php echo $image_src?>">
                     </div>
                     <div class="content">
                         <?php 
