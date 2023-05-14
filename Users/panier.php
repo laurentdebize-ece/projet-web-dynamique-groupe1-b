@@ -47,7 +47,12 @@
                     $total = 0 ;
                     // liste des produits
                     //récupérer les clés du tableau session
-                    $ids = array_keys($_SESSION['panier']);
+                    if(isset($_SESSION['panier'])){
+                        $panier = $_SESSION['panier'];
+                        $ids = array_keys($panier);
+                        // rest of your code
+                    }
+                    
                     //s'il n'y a aucune clé dans le tableau
                     if(empty($ids)){
                         echo "Votre panier est vide";

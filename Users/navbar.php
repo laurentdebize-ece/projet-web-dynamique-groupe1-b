@@ -14,7 +14,7 @@
                 <a class="nav-link" href="accueil.php">Accueil</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="cartes_cadeau_test.php">
+                <a class="nav-link" href="cartes_cadeau.php">
                     Cartes cadeau
                 </a>
                 

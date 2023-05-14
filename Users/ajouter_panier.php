@@ -30,7 +30,7 @@
     }
 
    //redirection vers la page index.php
-   header("Location:cartes_cadeau_test.php");
+   header("Location:cartes_cadeau.php");
 
 
   }
