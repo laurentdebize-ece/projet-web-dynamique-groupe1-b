@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <style>
 
@@ -35,11 +34,6 @@ color:white;
     }
 </script>
 
-=======
-
-<?php include("verif_session.php") ?>
-
->>>>>>> main
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">
             <img src="../Images/logo_omnesBox.png" alt="Logo" width="150" height="40" class="navbar-brand-img">

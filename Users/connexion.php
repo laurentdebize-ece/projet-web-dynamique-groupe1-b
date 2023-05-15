@@ -107,7 +107,7 @@ function togglePasswordVisibility() {
 
                             <br> <br>
                             <div class="pieddepage">
-                                <p class="text"> Mot de Passe : </p>
+                                <p class="text"> Mot de Passe : </p>    
                             </div>
                             <br><br>
                             <p class="log"><input type="password"id="password" name="pwd" id="pwd"></p>
@@ -120,7 +120,7 @@ function togglePasswordVisibility() {
                 </div>
                 <div class="col-sm-4 ">
                     
-                    <button onclick="window.location.href = 'index.php';" class="close-button" aria-label="Case de fermeture" type="button">
+                    <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
 
