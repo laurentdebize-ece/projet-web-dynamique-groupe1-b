@@ -51,6 +51,7 @@
     border: #1877f2;
     text-align: center;
     float: right;
+    margin-top: 25px;
 }
 
 .submit:hover {

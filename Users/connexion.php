@@ -87,7 +87,7 @@ function togglePasswordVisibility() {
     }
     ?>
 
-    <img src="Image/logo_omnesBox.png" alt="Logo">
+    <img src="../Images/logo_omnesBox.png" width="150" height="40 alt="Logo">
     <h4>
         <div class="container">
             <div class="row">
@@ -120,7 +120,7 @@ function togglePasswordVisibility() {
                 </div>
                 <div class="col-sm-4 ">
                     
-                    <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
+                    <button onclick="window.location.href = 'index.php';" class="close-button" aria-label="Case de fermeture" type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
 

@@ -17,6 +17,7 @@
 
 <body>
     <style>
+        
         .popup{
             text-align: center;
             position: fixed;
@@ -26,9 +27,11 @@
             border: #e84e4f ; 
         }
     </style>
-    <h1> OmnesBox </h1>
+    <img src="../Images/logo_omnesBox.png" width="150" height="40" alt="Logo">
+    
     <h4>
         <div class="container">
+            <br><br><br><br>
             <div class='popup'>
                 <?php 
                 if(isset($GLOBALS['EmailError'])) {
@@ -63,8 +66,10 @@
                             <br>
                             <label class="log" for="Email" > Email :</label>
                             <p class="log"> <input type="Email" name="Email" id="Email">  </p>
-                            <span> <?php echo $emailError ?> </span>
+                            <br>
+                            
                         </div>
+                        <br>
                         <br>
                         <br>
                 <input class="submit" type="submit" value="Création du compte">
