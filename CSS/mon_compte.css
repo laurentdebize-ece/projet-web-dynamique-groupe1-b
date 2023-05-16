@@ -25,29 +25,6 @@ h1.custom-title {
     animation: fadeInDown 1s ease;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    margin-bottom: -15px;
-}
-
-
-nav a {
-    text-decoration: none;
-    padding: 14px 20px;
-    display: block;
-    color: black !important;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-}
-
-nav a:hover {
-    background-color: rgba(92, 158, 224, 0.1);
-    color: rgb(38, 93, 155) !important;
-}
-
 .omnes-box:hover {
     background-color: rgba(232, 183, 176, 0.1);
     color: rgb(211, 128, 115) !important;

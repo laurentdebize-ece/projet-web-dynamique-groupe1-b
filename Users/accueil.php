@@ -13,14 +13,7 @@
     <title>Page d'accueil - OMNES BOX</title>
     <!-- ASSURE LA CONNEXION A LA BASE DE DONNEES -->
     <?php include("verif_connexion_bdd.php") ?>
-    <?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-    if (!isset($_SESSION["connected"])) {
-        $_SESSION["connected"] = false;
-    }
-    ?>
+    <?php include("verif_session.php")  ?>
 
     <script src="https://kit.fontawesome.com/your-key.js" crossorigin="anonymous"></script>
 
@@ -50,7 +43,7 @@
             </div>
         </div>
         <div class="text-center my-4">
-            <a href="../Partenaire/connexion_partenaire.php" class="btn btn-design" data-toggle="tooltip" data-placement="bottom" title="Cliquez ici si vous êtes un professionnel">Vous êtes un professionnel ?</a>
+            <a href="../Partenaire/accueil_pro.php" class="btn btn-design" data-toggle="tooltip" data-placement="bottom" title="Cliquez ici si vous êtes un professionnel">Vous êtes un professionnel ?</a>
         </div>
         <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

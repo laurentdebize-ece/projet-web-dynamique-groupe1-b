@@ -1,38 +1,5 @@
 
-<style>
-
-
-.deconnexion {
-
-border-radius: 15px;
-
-color: white;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 15x;
-font-weight: bold;
-
-}
-
-.deconnexion:hover {
-
-
-border: #176ad5;
-color:white;    
-}
-
-</style>
-
-<link rel="stylesheet" href="../CSS/accueil.css">
-
-<script>
-    function deconnexion() {
-        $_SESSION['connected'] = false ;    
-        unset($_SESSION['id']) ;
-        unset($_SESSION['nom']) ;
-        unset($_SESSION['prenom']) ;
-        unset($_SESSION['email']) ;
-    }
-</script>
+<?php include("verif_session.php") ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">
@@ -75,11 +42,12 @@ color:white;
                 if(isset($_SESSION['connected']) && $_SESSION['connected']){
                     if ($_SESSION['connected'] && $_SERVER['REQUEST_URI']  !=  "/projet-web-dynamique-groupe1-b/Users/mon_compte.php") {
                         echo '<a class="nav-link" href="mon_compte.php">Mon Compte</a>';
-                    }                }
-                else {
+                    }                
+                }
+                else if(!$_SESSION['connectedPartenaire']) {
                     echo '<a class="nav-link" href="connexion.php">Connexion</a>' ;
                 }
-            ?>
+            ?>  
             </li>
         </ul>   
     </div>
