@@ -8,74 +8,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php      include("../Users/verif_session.php") ?>
+    <?php  include("../Users/verif_session.php") ?>
+    <link href="../CSS/tableau_bord.css" rel="stylesheet" type="text/css" media="all" />
     <title>Tableau de Bord</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: white;
-            background-image: url(../Images/background_pro.jpeg);
-        }
-
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 2em;
-            background-color: black;
-        }
-
-        .affichage {
-            background: rgba(251, 251, 251, 0.1);
-            border: none;
-            border-radius: 10px;
-            padding: 1.5em;
-            margin-bottom: 2em;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .affichage:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .affichage h3 {
-            font-size: 1.5em;
-            margin-bottom: 0.5em;
-        }
-
-        .affichage p {
-            margin-bottom: 1em;
-        }
-
-        a {
-            display: inline-block;
-            background-color: rgb(38, 93, 155);
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
-            border: none;
-            padding: 7px 10px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            margin-top: 1em;
-            text-decoration: none;
-        }
-
-        a:hover {
-            background-color: rgb(221, 188, 100);
-            color: black;
-        }
-        
-        footer {
-            color: #fff;
-            background-color: #000;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
 </head>
 
 <body>
@@ -105,7 +40,7 @@
                     <div class="affichage" data-aos="fade-up" data-aos-delay="400" style="text-align: center">
                         <h3>Statistiques</h3>
                         <p>Consultez les statistiques de votre partenariat et optimisez vos performances.</p>
-                        <a href="#">Voir les détails</a>
+                        <a href="statistiques.php">Voir les détails</a>
                     </div>
                 </div>
             </div>

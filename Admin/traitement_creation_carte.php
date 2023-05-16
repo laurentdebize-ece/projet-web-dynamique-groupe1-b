@@ -26,8 +26,9 @@ if (isset($_POST["theme"]) && !empty($_POST["theme"])) {
     if ($carteExist) {
         echo 'Cette carte existe déjà dans la base de données !';
     } else {
+        $theme = ucfirst($Theme) ;
         $add = "INSERT INTO cartes
-                    VALUES (NULL, '$Theme')";
+                    VALUES (NULL, '$theme')";
         if (mysqli_query($bdd, $add)) {
             echo 'Carte ajoutée avec succés !';
             header('Location: ajouter_cartes.php');
