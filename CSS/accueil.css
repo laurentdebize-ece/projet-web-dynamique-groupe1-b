@@ -26,6 +26,10 @@ body {
     padding: 0;
 }
 
+span.navbar-toggler-icon {
+    background-color: #185479;
+}
+
 .omnes-box:hover {
     background-color: rgba(232, 183, 176, 0.1);
     color: rgb(211, 128, 115) !important;

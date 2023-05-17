@@ -24,6 +24,7 @@ nav a:hover {
 
 
 </style>
+<link rel="stylesheet" href="../CSS/accueil.css">
 
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">
@@ -37,22 +38,11 @@ nav a:hover {
             <li class="nav-item active">
                 <a class="nav-link" href="accueil.php">Accueil</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="cartes_cadeau.php" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item active">
+                <a class="nav-link" href="cartes_cadeau.php">
                     Cartes cadeau
                 </a>
                 
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <div class="dropdown-header">Par montant</div>
-                    <a class="dropdown-item" href="cartes_cadeau.php">25€</a>
-                    <a class="dropdown-item" href="cartes_cadeau.php">50€</a>
-                    <a class="dropdown-item" href="cartes_cadeau.php">100€</a>
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-header">Par activité</div>
-                    <a class="dropdown-item" href="cartes_cadeau.php">Restaurant</a>
-                    <a class="dropdown-item" href="cartes_cadeau.php">Spa</a>
-                    <a class="dropdown-item" href="cartes_cadeau.php">Aventure</a>
-                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="panier.php">Panier</a>
