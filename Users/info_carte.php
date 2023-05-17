@@ -43,6 +43,9 @@
             <div class="content">
                 <img src="<?php echo $image_src?>">
                 <h4 class="name"><?=$row2['nom']?></h4>
+                <br>
+                <h2 class="price"><?=$row['prix']?>€</h2>
+                <br>
                 <p class="description"><?=$row2['description_activite']?></p>
             </div>
     <?php

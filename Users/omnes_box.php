@@ -36,7 +36,7 @@
                 <h3>Numéro OmnesBox</h3>
                 <p>Entrez votre numéro OmnesBox pour accéder aux offres et réductions disponibles.</p>
                 <form method="POST" action="traiement_OMNESBOX.php">
-                    <input type="text" name="omnesbox" placeholder="Numéro OmnesBox" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+                    <input type="text" name="omnesbox" placeholder="Numéro OmnesBox" style="width: 100%; padding: 8px; margin-bottom: 10px;" required>
                     <button type="submit" class="btn" formmethod="POST" formaction="traiement_OMNESBOX.php">Valider</button>
                 </form>
 
