@@ -29,6 +29,8 @@ if ($stmt->rowCount() > 0) {
 } else {
     // Si la clé n'existe pas, afficher un message d'erreur en popup
     echo "<script>alert('Désolé, votre clé est invalide.');</script>";
+    header("Location: omnes_box.php");
+    exit();
 }
 
 ?>
