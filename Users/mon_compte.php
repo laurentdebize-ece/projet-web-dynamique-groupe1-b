@@ -66,8 +66,9 @@
             <div class="info-box">
                 <h3>Mot de passe</h3>
                 <p>Le mot de passe n'est pas affiché pour des raisons de sécurité. Vous pouvez le modifier en cliquant sur le bouton ci-dessous.</p>
-                <button class="btn" data-toggle="tooltip" data-placement="top" title="le MDP peut être modifié à l'infini">
-                    Modifier le mot de passe </button>
+                <a href="modifier_MDP.php">
+                    <button class="btn" data-toggle="tooltip" data-placement="top" title="le MDP peut être modifié à l'infini">Modifier le mot de passe </button>
+                </a>
 
             </div>
             <div class="info-box">

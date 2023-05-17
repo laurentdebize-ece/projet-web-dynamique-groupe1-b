@@ -8,40 +8,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../CSS/panier.css">
-    <?php include("verif_session.php");?>
-    <?php include("verif_connexion_bdd.php");?>
-
-
-
-    <script>
-        function updateCartDisplay() {
-            const cartContainer = document.getElementById("cartContainer");
-            cartContainer.innerHTML = ""; // Videz le contenu du panier
-
-            cart.forEach(item => {
-                const cartItem = document.createElement("div");
-                cartItem.innerHTML = `
-                    <p>${item.name}</p>
-                    <p>${item.price}</p>
-                    <p>${item.quantity}</p>
-                `;
-                cartContainer.appendChild(cartItem);
-            });
-        }
-
-        $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-
-            $('.dropdown').hover(function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-            }, function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-            });
-        });
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panier - OMNES BOX</title>
+
+    <?php 
+    include("verif_session.php");
+    include("verif_connexion_bdd.php");
+    
+    //supprimer les produits
+    //si la variable del existe
+    if(isset($_GET['del'])){
+        $id_del = $_GET['del'] ;
+        //suppression
+        unset($_SESSION['panier'][$id_del]);
+    }
+    ?>
+
 </head>
 
 <body >

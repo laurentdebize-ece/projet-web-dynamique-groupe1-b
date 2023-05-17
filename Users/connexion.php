@@ -78,7 +78,7 @@ function togglePasswordVisibility() {
         }
 
         if ($pwd_found == true) {
-            header('Location: index.php');
+            header('Location: mon_compte.php');
         } else if ($pwdA_found == true) {
             header('Location: admin.php');
         } else
@@ -87,47 +87,50 @@ function togglePasswordVisibility() {
     }
     ?>
 
-    <img src="../Images/logo_omnesBox.png" width="150" height="40 alt="Logo">
-    <h4>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4" style="height:50%;">
-                    <div class="panel panel-default" style="height:500px;">
 
+    <a href="accueil.php">
+        <img src="../Images/logo_omnesBox.png" width="150" height="40" alt="Logo">
+    </a>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4" style="height:50%;">
+                <div class="panel panel-default" style="height:500px;">
+
+                    <br><br>
+                    <h2 class="text">Login</h2><br>
+                    <form action="connexion.php" method="post">
+                        <div class="pieddepage">
+                            <p class="piedgauche"> Email :</p><a href="CreationCompte.php" class="pieddroit">Créer un compte</a>
+                        </div>
+                        <br>
+                        <br>
+                        <p class="log"> <input type="Email" name="login" id="login"> </span></p>
+
+                        <br> <br>
+                        <div class="pieddepage">
+                            <p class="text"> Mot de Passe : </p>    
+                        </div>
                         <br><br>
-                        <h2 class="text">Login</h2><br>
-                        <form action="connexion.php" method="post">
-                            <div class="pieddepage">
-                                <p class="piedgauche"> Email :</p><a href="CreationCompte.php" class="pieddroit">Créer un compte</a>
-                            </div>
-                            <br>
-                            <br>
-                            <p class="log"> <input type="Email" name="login" id="login"> </span></p>
+                        <p class="log"><input type="password"id="password" name="pwd" id="pwd"></p>
+                        <p class="show">Afficher le mot de passe <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"></p>
+                        <br></br>
+                        <p class="log"><input class="submit" type="submit" value="Connexion"></p>
 
-                            <br> <br>
-                            <div class="pieddepage">
-                                <p class="text"> Mot de Passe : </p>    
-                            </div>
-                            <br><br>
-                            <p class="log"><input type="password"id="password" name="pwd" id="pwd"></p>
-                            <p class="show">Afficher le mot de passe <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"></p>
-                            <br></br>
-                            <p class="log"><input class="submit" type="submit" value="Connexion"></p>
-
-                        </form>
-                    </div>
-                </div>
-                <div class="col-sm-4 ">
-                    
-                    <button onclick="window.location.href = 'index.php';" class="close-button" aria-label="Case de fermeture" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
+                    </form>
                 </div>
             </div>
+            <div class="col-sm-4 ">
+                
+                <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
         </div>
-    </h4>
+    </div>
+    
 </body>
 
 </html>

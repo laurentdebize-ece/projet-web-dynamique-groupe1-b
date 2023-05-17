@@ -27,6 +27,18 @@
 
 }
 
+img{
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.container{
+
+    margin-top: 50px;
+
+}
+
 .pieddroit {
     margin-right: 65px;
     float: right;
