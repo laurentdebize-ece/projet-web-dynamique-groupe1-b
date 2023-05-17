@@ -26,24 +26,8 @@ body {
     padding: 0;
 }
 
-
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: white;
-}
-
-nav a {
-    text-decoration: none;
-    padding: 14px 20px;
-    display: block;
-    color: black !important;
-    font-weight: bold;
-}
-
-nav a:hover {
-    background-color: rgba(92, 158, 224, 0.1);
-    color: rgb(38, 93, 155) !important;
+span.navbar-toggler-icon {
+    background-color: #185479;
 }
 
 .omnes-box:hover {

@@ -1,5 +1,30 @@
 
-<?php include("verif_session.php") ?>
+
+<style> 
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    color: black !important;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: rgba(92, 158, 224, 0.1);
+    color: rgb(38, 93, 155) !important;
+}
+
+
+
+</style>
+<link rel="stylesheet" href="../CSS/accueil.css">
 
 <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="accueil.php">

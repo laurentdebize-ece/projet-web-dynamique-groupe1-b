@@ -1,6 +1,5 @@
 <link href="../CSS/footer.css" rel="stylesheet" type="text/css" media="all" />
 <?php include("verif_connexion_bdd.php") ?>
-<?php include("verif_session.php") ?>
 
 <?php
 function test_input($data)

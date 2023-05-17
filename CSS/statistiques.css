@@ -8,6 +8,8 @@ body {
     max-width: 960px;
     margin: 0 auto;
     padding: 30px 15px;
+    border-style: solid;
+    border: #f0cb64;
 }
 
 h1,
@@ -19,6 +21,7 @@ h2 {
 
 .section {
     margin-bottom: 60px;
+
 }
 
 .carte {
@@ -31,7 +34,7 @@ h2 {
 }
 
 .carte:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px);    
 }
 
 .carte-titre {
@@ -42,6 +45,7 @@ h2 {
 
 .carte-description {
     font-size: 16px;
+
 }
 
 .activity {
@@ -107,15 +111,6 @@ th {
 
 td {
     color: #fff;
-}
-
-.boutton {
-    background-color: #f0cb64;
-    color: black;
-}
-
-.boutton:hover {
-    background-color: #fff;
 }
 
 chart-container {

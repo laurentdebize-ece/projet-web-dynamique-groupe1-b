@@ -17,42 +17,30 @@
     include("../Users/verif_connexion_bdd.php");
     include("../Users/verif_session.php");
     ?>
-    <link href="../CSS/statistiques.css" rel="stylesheet" type="text/css" media="all" />
-
 </head>
 
 <body>
+    <link href="../CSS/statistiques.css" rel="stylesheet" type="text/css" media="all" />
     <div class="container">
         <section class="section">
             <h1>Espace Partenaire - Statistiques</h1>
             <div class="carte">
-                <h2 class="carte-titre">Cartes cadeaux acceptées</h2>
-                <div class="carte-description">
-                    <?php
-                    $idPartenaire = $_SESSION['idPartenaire'];
-                    $table = "SELECT c.theme, f.prix, f.description, f.duree  
+                <h2 class="carte-titre">Vos cartes cadeaux</h2>
+                <?php
+                $idPartenaire = $_SESSION['idPartenaire'];
+                $table = "SELECT c.theme, f.prix, f.description, f.duree  
                             FROM formule AS f, cartes AS c, partenariat AS pa 
                             WHERE pa.idPartenaire = '$idPartenaire' AND pa.idFormule = f.idFormule AND pa.idCarte = c.idCarte";
-                    $request = mysqli_query($bdd, $table);
-                    ?>
-                    <div class="carte">
-                        <h2 class="carte-titre">Carte cadeau 1</h2>
-                        <p class="carte-description">Description de la carte cadeau 1</p>
-                        <?php
-                        while ($row = mysqli_fetch_array($request)) {
-                            echo "<option>" . $row['theme'] . "</option>";
-                        }
-                        ?>
-                    </div>
-                    <div class="carte">
-                        <h2 class="carte-titre">Carte cadeau 2</h2>
-                        <p class="carte-description">Description de la carte cadeau 2</p>
-                    </div>
-                    <div class="carte">
-                        <h2 class="carte-titre">Carte cadeau 3</h2>
-                        <p class="carte-description">Description de la carte cadeau 3</p>
-                    </div>
-                </div>
+                $request = mysqli_query($bdd, $table);
+                while ($row = mysqli_fetch_array($request)) {
+                    echo "<div class='carte'>";
+                    echo "<h2 class='carte-titre'>" . $row['theme'] . "</h2>";
+                    echo "<p class='carte-description'>" . $row['description'] . "</p>";
+                    echo "<p class='carte-description'> Prix : " . $row['prix'] . "$</p>";
+                    echo "<p class='carte-description'> Durée : " . $row['duree'] . "h</p>";
+                    echo "</div>";
+                }
+                ?>
             </div>
         </section>
         <section class="section">
