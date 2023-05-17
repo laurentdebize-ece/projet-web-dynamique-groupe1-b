@@ -47,8 +47,11 @@ nav a:hover {
 }
 
 span.navbar-toggler-icon {
-    background-color: #185479;
+    background-color: black;
+    border-radius: 2px;
 }
+
+
 
 .omnes-box:hover {
     background-color: rgba(232, 183, 176, 0.1);
