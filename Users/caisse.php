@@ -18,6 +18,8 @@
             window.location.href = "omnes_box.html"; // Rediriger vers la page "J'ai une OmnesBox"
         });
     </script>
+    <?php include("verif_session.php");?>
+
 
 
 
