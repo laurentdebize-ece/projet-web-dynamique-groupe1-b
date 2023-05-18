@@ -45,7 +45,7 @@
                 <div class="panel panel-default" style="height:500px;">
                     <br><br>
                     <h2 class="text">Ajouter une nouvelle carte</h2><br>
-                    <form action="" method="post">
+                    <form action="traitement_creation_carte.php" method="post">
                         <div class="pieddepage">
                             <p class="text"> Thème :</p>
                         </div>
@@ -53,16 +53,15 @@
                         <div class="pieddepage">
                             <p class="text"> Description : </p>
                         </div>
+                        <p class="log"><input type="description" name="description" id="description"></p>
                         <div class="pieddepage">
                             <p class="text"> Prix :</p>
                         </div>
                         <p class="log"> <input type="prix" name="prix" id="prix"> </span></p>
                         <div class="pieddepage">
                             <p class="text"> Image : </p>
-                            <p> (mettre quelque chose pour charger l'image) </p>
-
                         </div>
-                        <p class="log"><input type="description" name="description" id="description"></p>
+                        <p class="log"> <input type="file" accept="image/*" name="image" id="image" > </span></p>
                         <p class="log"><input class="submit" type="submit" value="Continuer"></p>
                     </form>
                 </div>
