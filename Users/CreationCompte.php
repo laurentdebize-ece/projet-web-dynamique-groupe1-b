@@ -13,6 +13,39 @@
     <link href="../CSS/creationCompte.css" rel="stylesheet" type="text/css" media="all" />
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
+
+    <?php
+    // Vérifier si le formulaire a été soumis
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Récupérer les valeurs du formulaire
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $motDePasse = $_POST['mdp'];
+        $email = $_POST['email'];
+
+        // Échapper les caractères spéciaux pour éviter les injections SQL
+        $nom = mysqli_real_escape_string($bdd, $nom);
+        $prenom = mysqli_real_escape_string($bdd, $prenom);
+        $email = mysqli_real_escape_string($bdd, $email);
+
+        // Hacher le mot de passe
+        //$motDePasseHash = password_hash($motDePasse, PASSWORD_DEFAULT);
+
+        $result = mysqli_query($bdd, "SELECT * FROM compte WHERE email = '$email'");
+
+        if (mysqli_num_rows($result) > 0) {
+            echo "Cette email est déjà utilisé";
+        } else {
+            $sqlInsert = "INSERT INTO compte (nom, prenom, email, mdp, typeCompte) VALUES ('$nom', '$prenom', '$email', '$motDePasse', 3)";
+
+            if (mysqli_query($bdd, $sqlInsert)) {
+                echo "Le compte a été créé avec succès.";
+            } else {
+                echo "Erreur lors de la création du compte : " . mysqli_error($bdd);
+            }
+        }
+    }
+    ?>
 </head>
 
 <body>
@@ -26,8 +59,13 @@
             border-style: inset ;
             border: #e84e4f ; 
         }
+        body img{
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
     </style>
-    <img src="../Images/logo_omnesBox.png" width="150" height="40" alt="Logo">
+    <a href="accueil.php"><img src="../Images/logo_omnesBox.png" width="150" height="40" alt="Logo"></a>
     
     <h4>
         <div class="container">
@@ -53,19 +91,19 @@
                         <form action="CreationCompte.php" method="post">
                         <div class="pieddepage">
                             <div class="piedgauche">
-                            <label class="log" for="Nom"> Nom :</label>
-                            <p class="log"> <input type="text" name="Nom" id="Nom"></p>
+                            <label class="log" for="nom"> Nom :</label>
+                            <p class="log"> <input type="text" name="nom" id="nom" required></p>
                             <br>
                             <label class="log" for="pwd"> Mot de Passe : </label>
-                            <p class="log"><input type="password" name="pwd" id="pwd"></p>
+                            <p class="log"><input type="password" name="mdp" id="mdp" required></p>
 
                         </div>
                         <div class="pieddroit">
-                            <label class="log" for="Prenom"> Prénom :</label>
-                            <p class="log"> <input type="text" name="Prenom" id="Prenom"></p>
+                            <label class="log" for="prenom"> Prénom :</label>
+                            <p class="log"> <input type="text" name="prenom" id="prenom" required></p>
                             <br>
-                            <label class="log" for="Email" > Email :</label>
-                            <p class="log"> <input type="Email" name="Email" id="Email">  </p>
+                            <label class="log" for="email" > Email :</label>
+                            <p class="log"> <input type="email" name="email" id="email" required></p>
                             <br>
                             
                         </div>

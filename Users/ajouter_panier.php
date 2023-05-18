@@ -32,6 +32,5 @@
    //redirection vers la page index.php
    header("Location:cartes_cadeau.php");
 
-
   }
 ?>
