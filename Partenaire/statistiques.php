@@ -28,13 +28,13 @@
                 <h2 class="carte-titre">Vos cartes cadeaux</h2>
                 <?php
                 $idPartenaire = $_SESSION['idPartenaire'];
-                $table = "SELECT c.theme, f.prix, f.description, f.duree  
-                            FROM formule AS f, cartes AS c, partenariat AS pa 
-                            WHERE pa.idPartenaire = '$idPartenaire' AND pa.idFormule = f.idFormule AND pa.idCarte = c.idCarte";
+                $table = "SELECT a.nom, c.prix, f.description, f.duree  
+                            FROM formule AS f, cartes AS c, partenariat AS pa, activite AS a 
+                            WHERE pa.idPartenaire = '$idPartenaire' AND pa.idFormule = f.idFormule AND a.idActivite = c.idActivite AND pa.idCarte = c.idCarte";
                 $request = mysqli_query($bdd, $table);
                 while ($row = mysqli_fetch_array($request)) {
                     echo "<div class='carte'>";
-                    echo "<h2 class='carte-titre'>" . $row['theme'] . "</h2>";
+                    echo "<h2 class='carte-titre'>" . $row['nom'] . "</h2>";
                     echo "<p class='carte-description'>" . $row['description'] . "</p>";
                     echo "<p class='carte-description'> Prix : " . $row['prix'] . "$</p>";
                     echo "<p class='carte-description'> Durée : " . $row['duree'] . "h</p>";
@@ -43,16 +43,7 @@
                 ?>
             </div>
         </section>
-        <section class="section">
-            <div class="carte">
-                <h2 class="carte-titre">Activités proposées</h2>
-                <div class="carte-description">
-                    <div class="activity">restauration</div>
-                    <div class="activity">aventure</div>
-                    <div class="activity">spa</div>
-                </div>
-            </div>
-        </section>
+
         <section class="section">
             <div class="carte">
                 <h2 class="carte-titre">Clients ayant dépensé leur carte cadeau</h2>
