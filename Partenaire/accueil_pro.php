@@ -47,7 +47,7 @@
                         <img src="../Images/image3.jpg" alt="Image 2">
                         <h3>Support et assistance</h3>
                         <p>Accédez à notre support en ligne et trouvez les réponses à vos questions.</p>
-                        <a href="#">En savoir plus</a>
+                        <a href="https://support.microsoft.com/fr-fr">En savoir plus</a>
                     </div>
                 </div>
                 <div class="col-md-4">

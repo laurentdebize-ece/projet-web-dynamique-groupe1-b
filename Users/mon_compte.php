@@ -53,7 +53,6 @@
                 <h3>Informations personnelles</h3>
                 <ul>
                     <?php
-
                     echo '<li>Nom : ' . $_SESSION['nom'] . '</li>';
 
                     echo '<li>Prénom : ' . $_SESSION['prenom'] . '</li>';
@@ -69,25 +68,6 @@
                 <a href="modifier_MDP.php">
                     <button class="btn" data-toggle="tooltip" data-placement="top" title="le MDP peut être modifié à l'infini">Modifier le mot de passe </button>
                 </a>
-
-            </div>
-            <div class="info-box">
-                <h3>Type de compte</h3>
-                <?php
-                $id = $_SESSION['id'];
-                $sql = "SELECT type FROM compte WHERE idCompte=$id";
-                $request = mysqli_query($bdd, $sql);
-                $type = mysqli_fetch_object($request);
-                if ($type->type == 1) {
-                    echo '<li>Type de compte : Administrateur </li>';
-                } else if ($type->type  == 2) {
-                    echo '<li>Type de compte : Partenaire </li>';
-                } else if ($type->type  == 3) {
-                    echo '<li>Type de compte : Client </li>';
-                }
-
-                ?>
-                <p>Les types de comptes disponibles sont : utilisateur (client ou bénéficiaire), partenaire et administrateur.</p>
             </div>
         </div>
     </div>

@@ -15,33 +15,37 @@
     <?php include("verif_session.php") ?>
 
     <?php
-    // Vérifier si le formulaire a été soumis
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Récupérer les valeurs du formulaire
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $motDePasse = $_POST['mdp'];
-        $email = $_POST['email'];
 
-        // Échapper les caractères spéciaux pour éviter les injections SQL
-        $nom = mysqli_real_escape_string($bdd, $nom);
-        $prenom = mysqli_real_escape_string($bdd, $prenom);
-        $email = mysqli_real_escape_string($bdd, $email);
+    $email_error = '';
+    
+    
+    function test_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 
-        // Hacher le mot de passe
-        //$motDePasseHash = password_hash($motDePasse, PASSWORD_DEFAULT);
+    if (isset($_POST["nom"], $_POST["mdp"], $_POST["email"], $_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["mdp"]) && !empty($_POST["prenom"]) && !empty($_POST["email"])) {
+        $nom = test_input($_POST['nom']);
+        $prenom = test_input($_POST['prenom']);
+        $motDePasse = test_input($_POST['mdp']);
+        $email = test_input($_POST['email']);
 
-        $result = mysqli_query($bdd, "SELECT * FROM compte WHERE email = '$email'");
+        $verify = "SELECT * FROM compte WHERE email = '$email'" ;
+        $result = mysqli_query($bdd, $verify);
 
         if (mysqli_num_rows($result) > 0) {
-            echo "Cette email est déjà utilisé";
-        } else {
-            $sqlInsert = "INSERT INTO compte (nom, prenom, email, mdp, typeCompte) VALUES ('$nom', '$prenom', '$email', '$motDePasse', 3)";
+            $email_error =  "Cette email est déjà utilisé";
+        } 
+        else {
+            $add = "INSERT INTO compte (nom, prenom, email, mdp, typeCompte) VALUES ('$nom', '$prenom', '$email', '$motDePasse', 3)";
 
-            if (mysqli_query($bdd, $sqlInsert)) {
-                echo "Le compte a été créé avec succès.";
+            if (mysqli_query($bdd, $add)) {
+                header('Location: Traitement_Creation.php') ;
             } else {
-                echo "Erreur lors de la création du compte : " . mysqli_error($bdd);
+               $email_error = "Erreur lors de la création du compte : " . mysqli_error($bdd);
             }
         }
     }
@@ -50,78 +54,75 @@
 
 <body>
     <style>
-        
-        .popup{
+        .popup {
             text-align: center;
             position: fixed;
             border-radius: 20px;
             background-color: #9c2b2e;
-            border-style: inset ;
-            border: #e84e4f ; 
+            border-style: inset;
+            border: #e84e4f;
         }
-        body img{
+
+        body img {
             display: block;
             margin: 0 auto;
             margin-top: 10px;
         }
     </style>
     <a href="accueil.php"><img src="../Images/logo_omnesBox.png" width="150" height="40" alt="Logo"></a>
-    
+
     <h4>
         <div class="container">
             <br><br><br><br>
             <div class='popup'>
-                <?php 
-                if(isset($GLOBALS['EmailError'])) {
-                    echo "je suis ". $GLOBALS['EmailError'] ;
+                <?php
+                if (isset($GLOBALS['EmailError'])) {
+                    echo "je suis " . $GLOBALS['EmailError'];
                 }
                 ?>
             </div>
             <div class="row">
                 <div class="col-sm-3"></div>
-                
-                    <div class="col-sm-6" style="height:50%;">
+                <div class="col-sm-6" style="height:50%;">
                     <div class="panel panel-default" style="height:450px">
-                    
-
-
                         <br><br>
                         <h2 class="text">Création du compte</h2>
                         <br>
                         <form action="CreationCompte.php" method="post">
-                        <div class="pieddepage">
-                            <div class="piedgauche">
-                            <label class="log" for="nom"> Nom :</label>
-                            <p class="log"> <input type="text" name="nom" id="nom" required></p>
-                            <br>
-                            <label class="log" for="pwd"> Mot de Passe : </label>
-                            <p class="log"><input type="password" name="mdp" id="mdp" required></p>
+                            <div class="pieddepage">
+                                <div class="piedgauche">
+                                    <label class="log" for="nom"> Nom :</label>
+                                    <p class="log"> <input type="text" name="nom" id="nom" required></p>
+                                    <br>
+                                    <label class="log" for="pwd"> Mot de Passe : </label>
+                                    <p class="log"><input type="password" name="mdp" id="mdp" required></p>
 
-                        </div>
-                        <div class="pieddroit">
-                            <label class="log" for="prenom"> Prénom :</label>
-                            <p class="log"> <input type="text" name="prenom" id="prenom" required></p>
-                            <br>
-                            <label class="log" for="email" > Email :</label>
-                            <p class="log"> <input type="email" name="email" id="email" required></p>
-                            <br>
-                            
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                <input class="submit" type="submit" value="Création du compte">
+                                </div>
+                                <div class="pieddroit">
+                                    <label class="log" for="prenom"> Prénom :</label>
+                                    <p class="log"> <input type="text" name="prenom" id="prenom" required></p>
+                                    <br>
+                                    <label class="log" for="email"> Email :</label>
+                                    <p class="log"> <input type="email" name="email" id="email" required></p>
+                                    <br>
+
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <input class="submit" type="submit" value="Création du compte">
+                            </div>
+                        </form>
+                    </div>
+                    <?php  echo "<p style='text-align:center;color:red'>" . $email_error . "</p>" ?>
+
                 </div>
-                </form>
-                    
-                </div>
+                <div class="col-sm-4 "></div>
+                <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
             </div>
-            <div class="col-sm-4 "></div>
-            <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-
-        </div>
         </div>
         </div>
     </h4>

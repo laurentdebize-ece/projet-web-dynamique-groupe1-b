@@ -41,13 +41,13 @@ function togglePasswordVisibility() {
     }
 
     $emailErr = '';
-    $sql = "SELECT idCompte, nom, prenom, email, mdp FROM compte";
+    $sql = "SELECT idCompte, nom, prenom, email, mdp, typeCompte FROM compte";
     $request = mysqli_query($bdd, $sql);
     $users = mysqli_fetch_all($request);
     $id_compte = 0;
     for ($i = 0; $i < sizeof($users); $i++) {
         $utilisateurs[$users[$i][2]] = $users[$i][3];
-        $info[$i] = array($users[$i][0], $users[$i][1], $users[$i][2], $users[$i][3],  $users[$i][4]);
+        $info[$i] = array($users[$i][0], $users[$i][1], $users[$i][2], $users[$i][3],  $users[$i][4],  $users[$i][5]);
     }
 
 
@@ -69,7 +69,7 @@ function togglePasswordVisibility() {
             if (!strcasecmp($login, $email_login_bdd) && $pwd == $pwd_bdd) {
                 $pwd_found = true;
                 $_SESSION['email'] =  $email_login_bdd;
-                $_SESSION['type'] = $type;
+                $_SESSION['type'] = $info[$i][5];
                 $_SESSION['id'] = $info[$i][0];
                 $_SESSION['nom'] = $info[$i][1];
                 $_SESSION['prenom'] = $info[$i][2];

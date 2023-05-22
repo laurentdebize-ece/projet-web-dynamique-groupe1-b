@@ -1,4 +1,4 @@
-<link href="../CSS/footer.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../CSS/foooter.css" rel="stylesheet" type="text/css" media="all" />
 <?php include("verif_connexion_bdd.php") ?>
 
 <?php

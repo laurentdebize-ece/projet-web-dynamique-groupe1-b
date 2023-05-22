@@ -1,49 +1,63 @@
-<?php
+<!DOCTYPE html>
+<html lang="fr">
 
-    function test_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    $GLOBALS['EmailError'] = '' ;
-    $GLOBALS['creation'] = '';
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5zzenw4p+HHAAK5GSLf2xlYtvJ8U2Q4U+9cuEnJoa3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    if (isset($_POST["Nom"], $_POST["pwd"], $_POST["Email"], $_POST["Prenom"]) && !empty($_POST["Nom"]) && !empty($_POST["pwd"]) && !empty($_POST["Prenom"]) && !empty($_POST["Email"])) {
-        //sécurité contre faille XSS
-        $Nom = test_input($_POST["Nom"]);
-        $Prenom = test_input($_POST["Prenom"]);
-        $Email = test_input($_POST["Email"]);
-        $pwd = test_input($_POST["pwd"]);
-        $type = 3;
+    <?php include("verif_session.php") ?>
 
-        $emailExist = false ;
-        
-        $verify = "SELECT email FROM compte";
-        $request = mysqli_query($bdd, $verify);
-        while($email_bdd = mysqli_fetch_assoc($request)){
-            if(!strcasecmp($Email, $email_bdd['email'])) {
-                $emailExist = true ;
-            }
+    <meta http-equiv="refresh" content="5;url=../index.php">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDIRECTION - OMNES BOX</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            margin: 25vh;
+          
         }
-    
-        if ($emailExist) {
-            $GLOBALS['EmailError'] = 'Cet email existe déjà !' ;
-            header('Location: CreationCompte.php');
-        } 
-        else {
-            $add = "INSERT INTO compte
-                    VALUES (NULL, '$Nom', '$Prenom' , '$Email', '$pwd', $type)";
-            if (mysqli_query($bdd, $add)) {
-                header('Location: connexion.php');
-                $GLOBALS['creation'] = 'Compte crée avec succés !' ;
-                $_SESSION['page'] = 'PHP_SELF' ;
-            } 
+
+        .containeur {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
         }
-    }
-    else {
-        $GLOBALS['EmailError'] = 'Veuillez remplir les champs !' ;
-        header('Location: CreationCompte.php');
-    }
-?>
+
+        .succes {
+            background-color: #4CAF50;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .succes-tic {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .succes-texte {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="containeur">
+        <div class="succes">
+            <span class="succes-tic">✔</span>
+            <p class="succes-texte">Le compte a été créé avec succès.</p>
+            <p class="succes-texte">Vous serez redirigé vers l'accueil dans 5 secondes...</p>
+        </div>
+    </div>
+</body>
+
+</html>
