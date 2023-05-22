@@ -92,7 +92,7 @@ body {
 .btn:hover {
     background-color: white; 
     color: black; 
-    border: 2px solid #007bff;
+    border: 1px solid #007bff;
 }
 .bouton-container {
     display: flex;
@@ -139,7 +139,7 @@ body {
     <button class="btn" onclick="show('1','2')">Voir les cartes</button>
     <button class="btn" onclick="show('2','1')">Ajouter une cartes</button>
 
-    <button></button>
+    
 
     <div class="container">
         <div class="row" id="row1">
