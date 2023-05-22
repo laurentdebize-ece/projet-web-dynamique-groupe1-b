@@ -31,20 +31,21 @@
     $idPartenaire = $_SESSION['idPartenaire'];
 
 
-    if (isset($_POST["activite"], $_POST["description"], $_POST["duree"]) && !empty($_POST["activite"]) && !empty($_POST["description"]) && !empty($_POST["duree"])) {
+    if (isset($_POST["activite"], $_POST["description"],$_POST["prix"], $_POST["duree"]) && !empty($_POST["activite"]) && !empty($_POST["description"]) && !empty($_POST["prix"]) && !empty($_POST["duree"])) {
         //sécurité contre faille XSS
         $activite = test_input($_POST["activite"]);
         $description = test_input($_POST["description"]);
         $duree = test_input($_POST["duree"]);
+        $prix = test_input($_POST["prix"]);
 
         $formuleExist = false;
-        $verify = "SELECT a.nom 
+        $verify = "SELECT a.nom, f.prix, f.description
                 FROM formule AS f, cartes AS c, partenariat AS p, activite AS a 
                 WHERE p.idFormule = f.idFormule AND p.idCarte = c.idCarte AND c.idActivite = a.idActivite AND p.idPartenaire = '$idPartenaire'";
         $request = mysqli_query($bdd, $verify);
         if ($request != false) {
             while ($formule = mysqli_fetch_assoc($request)) {
-                if (!strcasecmp($activite, $formule['nom'])) {
+                if (!strcasecmp($activite, $formule['nom']) && $prix == $formule['prix'] && $description == $formule['description']) {
                     $formuleExist = true;
                     break;
                 }
@@ -62,13 +63,11 @@
             }
             //ID DU PARTENAIRE DANS LA SESSION
             $addFormule = "INSERT INTO formule
-                            VALUES (NULL, '$duree', '$description')";
+                            VALUES (NULL, '$duree', '$description', '$prix')";
             //Ajout de la formule
-            if(mysqli_query($bdd, $addFormule)){
-                $messageErreur = 'ERREUR : Formule non ajoutée' ;
-
-            }
-            else {
+            if (mysqli_query($bdd, $addFormule)) {
+                    $messageErreur = 'ERREUR : Formule non ajoutée';
+            } else {
             }
 
             //ID DE LA FORMULE AJOUTEE
@@ -81,12 +80,12 @@
 
             if (mysqli_query($bdd, "INSERT INTO partenariat VALUES (NULL, '$idCarte', '$idPartenaire', '$idFormule')")) {
                 $messageErreur =  'Formule ajoutée avec succès !';
-            } 
+            }
         }
     }
     if (isset($_POST["supprimer"]) && !empty($_POST["supprimer"])) {
         //sécurité contre faille XSS
-        $activite = test_input($_POST["supprimer"]);
+        $activite = test_input($_POST["supprimer"]);    
         $idFormule = test_input(substr($activite, 5, 3));
         $supprimer_partenariat = "DELETE FROM partenariat WHERE idFormule = '$idFormule'";
         $supprimer_formule = "DELETE FROM formule WHERE idFormule = '$idFormule'";
@@ -106,11 +105,10 @@
             <form action='' method="post">
                 <div class="form-group">
                     <label>Sélectionnez une activité disponible</label>
-                    <select class="form-control select-activite" name="activite" id="activite">
+                    <select class="form-control" name="activite" id="activite">
                         <?php
                         $table = "SELECT nom FROM activite";
                         $request = mysqli_query($bdd, $table);
-
                         while ($row = mysqli_fetch_array($request)) {
                             echo "<option>" . $row['nom'] . "</option>";
                         }
@@ -118,12 +116,22 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Durée de l'activité (Rentrez 0 si pas de durée)</label>
-                    <input type="text" name="duree" class="form-control" id="duree">
+                    <label>Prix de la formule (en $)</label>
+                    <select class="form-control" name="prix" id="prix">
+                        <option>10</option>
+                        <option>20</option>
+                        <option>50</option>
+                        <option>100</option>
+                        <option>200</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Description de la formule</label>
                     <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Durée de l'activité (Rentrez 0 si pas de durée)</label>
+                    <input type="text" name="duree" class="form-control" id="duree">
                 </div>
                 <input type="submit" value='Créer la formule' class="btn boutton"></input>
             </form>
@@ -138,7 +146,7 @@
                     <select class="form-control" name="supprimer" id="supprimer">
                         <?php
                         $idPartenaire = $_SESSION['idPartenaire'];
-                        $table = "SELECT f.idFormule, a.nom, c.prix FROM formule AS f, activite AS a, cartes AS c, partenariat as p WHERE p.idCarte = c.idCarte AND p.idFormule = f.idFormule AND c.idActivite = a.idActivite AND p.idPartenaire = '$idPartenaire';";
+                        $table = "SELECT f.idFormule, a.nom, f.prix FROM formule AS f, activite AS a, cartes AS c, partenariat as p WHERE p.idCarte = c.idCarte AND p.idFormule = f.idFormule AND c.idActivite = a.idActivite AND p.idPartenaire = '$idPartenaire';";
                         $request = mysqli_query($bdd, $table);
                         while ($row = mysqli_fetch_array($request)) {
                             echo "<option>ID : " . $row['idFormule'] . " -- Thème : " . $row['nom'] . " -- Prix : " . $row['prix'] . "$</option>";
@@ -149,7 +157,7 @@
                 <input type="submit" value='Supprimer la formule' class="btn boutton"></input>
             </form>
         </section>
-        <?php echo '<p>' . $suppressionErreur . '</p>' ?>
+        <?php echo '<p>' . $suppressionErreur . '</p>' ?>   
     </div>
 
     <footer style="padding: 0; text-align: center; background-color: #000; color: #d0d0d0; margin-top: 50px;">

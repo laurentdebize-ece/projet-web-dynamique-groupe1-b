@@ -12,49 +12,28 @@ $carteExist = false;
 $activiteExist = false;
 
 
-if (isset($_POST["theme"], $_POST["image"], $_POST["description"], $_POST["prix"]) && !empty($_POST["theme"]) && !empty($_POST["prix"]) && !empty($_POST["description"]) && !empty($_POST["image"])) {
+if (isset($_POST["theme"], $_FILES["image"], $_POST["description"]) && !empty($_POST["theme"]) && !empty($_POST["description"]) && !empty($_FILES["image"])) {
     //sécurité contre faille XSS
     $Theme = test_input($_POST["theme"]);
     $theme = ucfirst($Theme);
     $description = test_input($_POST["description"]);
-    $prix = test_input($_POST["prix"]);
-    $image = $_POST['image'] ;
+    $image = $_FILES['image'];
 
     $carteExist = false;
-    $activiteExist = false ;
+    $activiteExist = false;
 
-    $verify = "SELECT a.nom AS n, c.prix AS c FROM activite AS a JOIN cartes AS c ON c.idActivite = a.idActivite";
+    $verify = "SELECT a.nom AS n FROM activite AS a JOIN cartes AS c ON c.idActivite = a.idActivite";
     $request = mysqli_query($bdd, $verify);
     while ($cartes_bdd = mysqli_fetch_assoc($request)) {
         if (!strcasecmp($theme, $cartes_bdd['n'])) {
-            if ($prix == $cartes_bdd['c']) {
-                $carteExist = true;
-                break ;
-            }
-            else{
-                $activiteExist = true ;
-                break ;
-            }
+            $carteExist = true;
+            break;
         }
     }
 
     if ($carteExist) {
         echo 'Cette carte existe déjà dans la base de données !';
-    }
-    else if($activiteExist){ 
-        $request = mysqli_query($bdd, "SELECT idActivite FROM activite WHERE nom = '$theme'");
-        $idActivite;
-        while ($activites = mysqli_fetch_assoc($request)) {
-            $idActivite = $activites['idActivite'];
-        }
-        $ajouter_cartes = "INSERT INTO cartes
-                            VALUES (NULL, '$image', '$idActivite', '$prix')";
-        if (mysqli_query($bdd, $ajouter_cartes)) {
-            echo 'Carte ajoutée avec succès !';
-            header('Location: ajouter_cartes.php');
-        }
-    }
-    else {
+    } else {
         $add = "INSERT INTO activite
                     VALUES (NULL, '$theme', '$description')";
         mysqli_query($bdd, $add);
@@ -65,7 +44,7 @@ if (isset($_POST["theme"], $_POST["image"], $_POST["description"], $_POST["prix"
             $idActivite = $activites['max'];
         }
         $ajouter_cartes = "INSERT INTO cartes
-                            VALUES (NULL, '$image', '$idActivite', '$prix')";
+                            VALUES (NULL, '$image', '$idActivite')";
         if (mysqli_query($bdd, $ajouter_cartes)) {
             echo 'Carte ajoutée avec succès !';
             header('Location: ajouter_cartes.php');
