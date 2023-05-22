@@ -12,16 +12,118 @@
     <title>Administrateur - OMNES BOX</title>
     <?php include("../Users/verif_connexion_bdd.php") ?>
     <style>
-        #row1 {
-            margin-right: 100px;
-            display: none;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
 
-        #row2 {
-            display: none;
-            margin-left: 100px;
-        }
-    </style>
+
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
+.panel {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    padding: 20px;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05);
+}
+
+.titre{
+    font-size: 45px;
+}
+
+.log {
+    width: 100%;
+    padding: .375rem .75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.text {
+    color: #212529;
+    font-size: 1.25rem;
+}
+
+.submit {
+    
+    border-radius: 15px;
+    background-color: #1877f2;
+    color: white;
+    width: 275px;
+    height: 40px;
+    border: #1877f2;
+}
+
+.submit:hover {
+    width: 285px;
+    height: 43px;
+    background-color: #176ad5;
+    border: #176ad5;
+}
+
+#row1, #row2 {
+    display: none;
+}
+
+.pieddepage {
+    margin-top: 1rem;
+}
+
+
+.btn {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: white; 
+    color: black; 
+    border: 1px solid #007bff;
+}
+.bouton-container {
+    display: flex;
+    justify-content: center;
+}
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.file-label {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px; 
+    border-radius: .25rem;
+    cursor: pointer;
+    font-size: 0.8rem; 
+    transition: background-color .3s;
+}
+.file-label:hover{
+    background-color: #0056b3;
+    color: #ddd;
+}
+
+</style>
+
+
 </head>
 
 <body>
@@ -34,32 +136,38 @@
     </script>
 
     <?php include("navbar_admin.php") ?>
-    <button onclick="show('1','2')">Voir les cartes</button>
-    <button onclick="show('2','1')">Ajouter une cartes</button>
-    <button></button>
+    <button class="btn" onclick="show('1','2')">Voir les cartes</button>
+    <button class="btn" onclick="show('2','1')">Ajouter une cartes</button>
+
+    
 
     <div class="container">
         <div class="row" id="row1">
             <div class="col-sm-12"></div>
             <div class="col-sm-12" style="height:50%;">
-                <div class="panel panel-default" style="height:500px;">
+                <div class="panel panel-default" style="height:650px;">
                     <br><br>
                     <h2 class="text">Ajouter une nouvelle carte</h2><br>
                     <form action="traitement_creation_carte.php" method="post" enctype="multipart/form-data">
                         <div class="pieddepage">
                             <p class="text"> Thème :</p>
                         </div>
-                        <p class="log"> <input type="activite" name="theme" id="theme"> </span></p>
+                         <input class="log" type="activite" name="theme" id="theme"> </span>
                         <div class="pieddepage">
                             <p class="text"> Description : </p>
                         </div>
                         <p class="log"><input type="description" name="description" id="description"></p>
                     
                         <div class="pieddepage">
-                            <p class="text"> Image : </p>
+                            
                         </div>
-                        <p class="log"> <input type="file" accept="image/*" name="image" id="image" > </span></p>
-                        <p class="log"><input class="submit" type="submit" value="Continuer"></p>
+                        <input type="file" accept="image/*" name="image" id="image" class="file-input">
+                        <label for="image" class="file-label">Choisir un fichier</label>
+                        <br> 
+                        <br> 
+                        <br> 
+                        <div class="bouton-container"> 
+                        <input class="submit" type="submit" value="Continuer"></div>
                     </form>
                 </div>
             </div>

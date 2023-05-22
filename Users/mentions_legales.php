@@ -8,16 +8,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <?php include("verif_session.php");?>
-    <script>
-        $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-            $('.dropdown').hover(function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-            }, function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-            });
-        });
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions légales - OMNES BOX</title>
@@ -52,20 +42,18 @@
     <div class="conteneur-mentions">
         <h1>Mentions légales</h1>
         <p>
-            Le présent site internet est édité par la société OMNES BOX, Société par actions simplifiée au capital de
-            10 000 €, dont le siège social est situé 123 Rue Exemple, 75000 Paris, France, immatriculée au Registre du
-            Commerce et des Sociétés de Paris sous le numéro 123 456 789.
+            Le présent site internet est édité par la société OMNES BOX, Société au capital de
+            1 000 000€, dont le siège social est situé 25 Rue de l'Université, 69007 Lyon, France.
         </p>
         <p>
-            Directeur de la publication : M. Jean Dupont, Président de la société OMNES BOX.
+            Directeur de la publication : M. Fares BALY, Président de la société OMNES BOX.
         </p>
         <p>
-            Hébergeur : Société Hébergeur Exemple, dont le siège social est situé 456 Route Exemple, 69000 Lyon, France,
-            immatriculée au Registre du Commerce et des Sociétés de Lyon sous le numéro 987 654 321.
+            Hébergeur : OMNES Education, dont le siège social est situé dans Paris.
         </p>
         <p>
             Pour toute question concernant le site ou les services proposés, veuillez nous contacter par e-mail à
-            contact@omnesbox.fr ou par courrier postal à l'adresse suivante : OMNES BOX, 123 Rue Exemple, 75000 Paris,
+            contact@omnesbox.fr ou par courrier postal à l'adresse suivante : OMNES BOX, 25 Rue de l'Université, 69007 Lyon,
             France.
         </p>
     </div>
