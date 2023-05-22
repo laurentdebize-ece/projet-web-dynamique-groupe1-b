@@ -147,8 +147,8 @@ body {
             <div class="col-sm-12" style="height:50%;">
                 <div class="panel panel-default" style="height:650px;">
                     <br><br>
-                    <h2 >Ajouter une nouvelle carte</h2><br>
-                    <form action="traitement_creation_carte.php" method="post">
+                    <h2 class="text">Ajouter une nouvelle carte</h2><br>
+                    <form action="traitement_creation_carte.php" method="post" enctype="multipart/form-data">
                         <div class="pieddepage">
                             <p class="text"> Thème :</p>
                         </div>
@@ -156,11 +156,8 @@ body {
                         <div class="pieddepage">
                             <p class="text"> Description : </p>
                         </div>
-                        <input class="log" type="description" name="description" id="description">
-                        <div class="pieddepage">
-                            <p class="text"> Prix :</p>
-                        </div>
-                        <input class="log" type="prix" name="prix" id="prix"> </span>
+                        <p class="log"><input type="description" name="description" id="description"></p>
+                    
                         <div class="pieddepage">
                             
                         </div>
