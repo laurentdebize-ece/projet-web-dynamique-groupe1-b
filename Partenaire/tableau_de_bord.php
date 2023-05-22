@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php  include("../Users/verif_session.php") ?>
-    <link href="../CSS/tableau_bord.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../CSS/tableau_Bord.css" rel="stylesheet" type="text/css" media="all" />
     <title>Tableau de Bord</title>
 </head>
 
