@@ -12,52 +12,62 @@
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
 
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartes cadeau - OMNES BOX</title>
-    
 </head>
 
 <body>
 
     <?php include("navbar.php") ?>
 
-    <section class="products_list">
+    <section class="liste">
         <div class="row">
-            <?php 
-            //afficher la liste des produits
+            <?php
+            function parcourir($tab, $var)
+            {
+                for ($i = 0; $i < sizeof($tab); $i++) {
+                    if ($tab[$i] == $var) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            $i = 0;
+            $activite = array();
             $req = mysqli_query($bdd, "SELECT * FROM cartes");
-            while($row = mysqli_fetch_assoc($req)){ 
-                // Récupération de l'image en base64
-                $image_data = base64_encode($row['image']);
-
-                // Détermination du type d'image en fonction des premiers octets de la colonne image
-                $mime_type = finfo_buffer(finfo_open(), $row['image'], FILEINFO_MIME_TYPE);
-                $image_src = "data:". $mime_type.";base64,".$image_data;
+            while ($row = mysqli_fetch_assoc($req)) {
+                if (!parcourir($activite, $row['idActivite'])) {
+                    $activite[$i] = $row['idActivite'];
+                    $i++ ;
+                    $image_data = base64_encode($row['image']);
+                    $mime_type = finfo_buffer(finfo_open(), $row['image'], FILEINFO_MIME_TYPE);
+                    $image_src = "data:" . $mime_type . ";base64," . $image_data;
             ?>
-            <div class="col-md-4 mb-4">
-                <form action="" class="cartes">
-                    <div class="image_cartes">
-                        <a href="info_carte.php?id=<?=$row['idActivite']?>">
-                            <img src="<?php echo $image_src?>">
-                        </a>
+                    <div class="col-md-4 mb-4">
+                        <form action="" class="cartes">
+                            <div class="image_cartes">
+                                <a href="info_carte.php?id=<?= $row['idActivite'] ?>">
+                                    <img src="<?php echo $image_src ?>">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <?php
+                                $req2 = mysqli_query($bdd, "SELECT nom FROM activite JOIN cartes ON activite.idActivite = cartes.idActivite WHERE cartes.idActivite = {$row['idActivite']}");
+                                $row2 = mysqli_fetch_assoc($req2);
+                                ?>
+                                <h4 class="name"><?= $row2['nom'] ?></h4>
+                            </div>
+                        </form>
                     </div>
-                    <div class="content">
-                        <?php 
-                        $req2 = mysqli_query($bdd, "SELECT nom FROM activite JOIN cartes ON activite.idActivite = cartes.idActivite WHERE cartes.idActivite = {$row['idActivite']}");
-                        $row2 = mysqli_fetch_assoc($req2);
-                        ?>
-                        <h4 class="name"><?=$row2['nom']?></h4>
-                        <a href="ajouter_panier.php?id=<?=$row['idActivite']?>" class="id_product">Ajouter au panier</a>
-                    </div>
-                </form>
-            </div>
-            <?php } ?>
+            <?php }
+            } 
+            ?>
         </div>
     </section>
 
-    
+
     <?php include("footer.php"); ?>
 </body>
 

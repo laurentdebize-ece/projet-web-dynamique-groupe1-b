@@ -97,7 +97,6 @@ span.navbar-toggler-icon {
 }
 
 
-/* Animation d'entrée */
 @keyframes fadeIn {
     from {
         opacity: 0;

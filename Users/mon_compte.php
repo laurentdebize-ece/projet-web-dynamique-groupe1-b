@@ -63,7 +63,6 @@
                     echo '<li>Email : ' . $_SESSION['email'] . '</li>';
                     ?>
                 </ul>
-                <button class="btn btn-modifier-infos" Onclick="location.href='modifier_info.php' ">Modifier les informations</button>
             </div>
             <div class="info-box">
                 <h3>Mot de passe</h3>

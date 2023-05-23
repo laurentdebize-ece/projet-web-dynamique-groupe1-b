@@ -17,9 +17,7 @@
 
     <?php
 
-    // Vérifier si l'utilisateur est connecté
     if (!isset($_SESSION['id'])) {
-        // Rediriger vers la page de connexion
         header("Location: connexion.php");
         exit;
     }
@@ -27,31 +25,24 @@
     ?>
 
     <?php
-    // Vérifier si le formulaire a été soumis
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Récupérer les valeurs du formulaire
         $ancienMotDePasse = $_POST['ancienMDP'];
         $nouveauMotDePasse = $_POST['nouveauMDP'];
         $confirmationMotDePasse = $_POST['confirmationMDP'];
 
-        // Vérifier si les champs sont vides
         if (empty($ancienMotDePasse) || empty($nouveauMotDePasse) || empty($confirmationMotDePasse)) {
             echo "Veuillez remplir tous les champs.";
         } else {
-            // Vérifier si les nouveaux mots de passe correspondent
             if ($nouveauMotDePasse !== $confirmationMotDePasse) {
                 echo "Les nouveaux mots de passe ne correspondent pas.";
             } else {
-                // Vérifier si l'ancien mot de passe correspond à celui enregistré dans la base de données
-                $id = $_SESSION['id']; // ID du compte à modifier (vous devez récupérer cette valeur à partir de votre système)
-
+                $id = $_SESSION['id']; 
                 $result = mysqli_query($bdd, "SELECT mdp FROM compte WHERE idCompte = $id");
                 if (mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_assoc($result);
                     $motDePasseBD = $row['mdp'];
 
                     if ($ancienMotDePasse === $motDePasseBD) {
-                        // Mettre à jour le mot de passe dans la base de données
                         $sqlUpdate = "UPDATE compte SET mdp = '$nouveauMotDePasse' WHERE idCompte = $id";
 
                         if (mysqli_query($bdd, $sqlUpdate)) {

@@ -6,17 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-
-            $('.dropdown').hover(function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-            }, function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-            });
-        });
-    </script>
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - OMNES BOX</title>
@@ -30,32 +20,12 @@
             background-color: #f8f9fa;
         }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: white;
-            margin-bottom: -16px;
-        }
-
-        nav a {
-            text-decoration: none;
-            padding: 14px 20px;
-            display: block;
-            color: black !important;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            background-color: rgba(92, 158, 224, 0.1);
-            color: rgb(38, 93, 155) !important;
-        }
-
         .omnes-box:hover {
             background-color: rgba(232, 183, 176, 0.1);
             color: rgb(211, 128, 115) !important;
         }
 
-        .contact-container {
+        .contact {
             padding: 40px;
             background-color: white;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -64,7 +34,7 @@
             margin: 40px auto;
         }
 
-        .contact-container h1 {
+        .contact h1 {
             text-align: center;
             font-weight: bold;
             font-size: 28px;
@@ -116,7 +86,7 @@
 <body>
     <?php include("navbar.php"); ?>
     <hr>
-    <div class="contact-container">
+    <div class="contact">
         <h1>Contactez-nous</h1>
         <form class="contact-form">
             <input type="text" placeholder="Votre nom" required>

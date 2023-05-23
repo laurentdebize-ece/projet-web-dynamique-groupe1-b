@@ -25,24 +25,16 @@
         <h1>Espace personnel</h1>
 
         <?php
-            // Récupération de l'idCompte de l'acheteur connecté
             $idCompte = $_SESSION['id'];
 
             $query = "SELECT cartes.*, activite.nom AS nomCarte FROM cartes JOIN achat ON cartes.idCarte = achat.idCarte JOIN activite ON cartes.idActivite = activite.idActivite WHERE achat.idCompte = $idCompte";
             $result = mysqli_query($bdd, $query);
 
-
-            // Vérification des résultats de la requête
             if ($result) {
-                // Parcours des résultats
                 while ($row = mysqli_fetch_assoc($result)) {
-                    // Accès aux informations de la carte
                     $nomCarte = $row['nomCarte'];
-
-                    // Récupération de l'image en base64
                     $image_data = base64_encode($row['image']);
 
-                    // Détermination du type d'image en fonction des premiers octets de la colonne image
                     $mime_type = finfo_buffer(finfo_open(), $row['image'], FILEINFO_MIME_TYPE);
                     $image_src = "data:".$mime_type.";base64,".$image_data;
 
@@ -56,7 +48,6 @@
         <?php            
                 }
             } else {
-                // Gestion de l'erreur
                 echo "Erreur lors de la récupération des informations de la carte : " . mysqli_error($bdd);
             }
         ?>
