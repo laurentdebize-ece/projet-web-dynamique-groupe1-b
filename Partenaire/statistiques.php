@@ -28,7 +28,7 @@
                 <h2 class="carte-titre">Vos cartes cadeaux</h2>
                 <?php
                 $idPartenaire = $_SESSION['idPartenaire'];
-                $table = "SELECT a.nom, f.prix, f.description, f.duree  
+                $table = "SELECT a.nom, f.description, f.duree  
                             FROM formule AS f, cartes AS c, partenariat AS pa, activite AS a 
                             WHERE pa.idPartenaire = '$idPartenaire' AND pa.idFormule = f.idFormule AND a.idActivite = c.idActivite AND pa.idCarte = c.idCarte";
                 $request = mysqli_query($bdd, $table);
@@ -36,7 +36,6 @@
                     echo "<div class='carte'>";
                     echo "<h2 class='carte-titre'>" . $row['nom'] . "</h2>";
                     echo "<p class='carte-description'>" . $row['description'] . "</p>";
-                    echo "<p class='carte-description'> Prix : " . $row['prix'] . "$</p>";
                     echo "<p class='carte-description'> Durée : " . $row['duree'] . "h</p>";
                     echo "</div>";
                 }

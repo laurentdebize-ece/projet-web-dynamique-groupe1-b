@@ -17,8 +17,8 @@
     <?php
 
     $email_error = '';
-    
-    
+
+
     function test_input($data)
     {
         $data = trim($data);
@@ -33,19 +33,18 @@
         $motDePasse = test_input($_POST['mdp']);
         $email = test_input($_POST['email']);
 
-        $verify = "SELECT * FROM compte WHERE email = '$email'" ;
+        $verify = "SELECT * FROM compte WHERE email = '$email'";
         $result = mysqli_query($bdd, $verify);
 
         if (mysqli_num_rows($result) > 0) {
             $email_error =  "Cette email est déjà utilisé";
-        } 
-        else {
+        } else {
             $add = "INSERT INTO compte (nom, prenom, email, mdp, typeCompte) VALUES ('$nom', '$prenom', '$email', '$motDePasse', 3)";
 
             if (mysqli_query($bdd, $add)) {
-                header('Location: Traitement_Creation.php') ;
+                header('Location: Traitement_Creation.php');
             } else {
-               $email_error = "Erreur lors de la création du compte : " . mysqli_error($bdd);
+                $email_error = "Erreur lors de la création du compte : " . mysqli_error($bdd);
             }
         }
     }
@@ -54,15 +53,6 @@
 
 <body>
     <style>
-        .popup {
-            text-align: center;
-            position: fixed;
-            border-radius: 20px;
-            background-color: #9c2b2e;
-            border-style: inset;
-            border: #e84e4f;
-        }
-
         body img {
             display: block;
             margin: 0 auto;
@@ -73,14 +63,6 @@
 
     <h4>
         <div class="container">
-            <br><br><br><br>
-            <div class='popup'>
-                <?php
-                if (isset($GLOBALS['EmailError'])) {
-                    echo "je suis " . $GLOBALS['EmailError'];
-                }
-                ?>
-            </div>
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6" style="height:50%;">
@@ -114,7 +96,7 @@
                             </div>
                         </form>
                     </div>
-                    <?php  echo "<p style='text-align:center;color:red'>" . $email_error . "</p>" ?>
+                    <?php echo "<p style='text-align:center;color:red'>" . $email_error . "</p>" ?>
 
                 </div>
                 <div class="col-sm-4 "></div>

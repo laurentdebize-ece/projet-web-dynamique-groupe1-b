@@ -11,261 +11,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrateur - OMNES BOX</title>
     <?php include("../Users/verif_connexion_bdd.php") ?>
-    <style>
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
-    background-color: #fff; 
-    border-radius: 10px; 
-    padding: 20px;
-}
-
-.panel {
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: .25rem;
-    padding: 20px;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05);
-}
-
-.titre{
-    font-size: 45px;
-}
-
-.log {
-    width: 100%;
-    padding: .375rem .75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    
-    transition: border-color 0.2s;
-}
-
-.submit {
-    
-    border-radius: 15px;
-    background-color: #1877f2;
-    color: white;
-    width: 275px;
-    height: 40px;
-    border: #1877f2;
-}
-
-.submit:hover {
-    background-color: #176ad5;
-    border-color: #176ad5;
-}
-
-
-
-
-
-.btn {
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #007bff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-.bouton-container {
-    display: flex;
-    justify-content: space-around; 
-    flex-wrap: wrap; 
-    margin-bottom: 20px; 
-}
-
-.file-input {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-}
-
-.file-label {
-    background-color: #007bff;
-    color: #fff;
-    padding: 5px 10px; 
-    border-radius: .25rem;
-    cursor: pointer;
-    font-size: 0.8rem; 
-    transition: background-color .3s;
-}
-.file-label:hover{
-    background-color: #0056b3;
-}
-
-
-</style>
-
-
-</head>
-
-<body>
+    <link href="../CSS/accueil_admin.css" rel="stylesheet" type="text/css" media="all" />
     <script>
-        function show(id1,id2,id3,id4) {
+        function show(id1, id2, id3, id4) {
             event.preventDefault();
             document.getElementById("row" + id1).style.display = "block";
             document.getElementById("row" + id2).style.display = "none";
             document.getElementById("row" + id3).style.display = "none";
             document.getElementById("row" + id4).style.display = "none";
-            
-        
         }
     </script>
+</head>
 
-    <?php include("navbar_admin.php") ?>
+<body>
+    <div class="bouton-container">
+        <a class="btn" href='../index.php'>Accueil</a>
+    </div>
     <div class="container">
-    
-    <div class="bouton-container">
-    <div class="row justify-content-end">
-    <h1>Administrateur</h1></div></div>
-    <br>
-    
-    <div class="col">
-    <div class="bouton-container">
-    <button class="btn" onclick="show('1','2','3','4')">Voir les Cartes</button>
-    <button class="btn" onclick="show('2','1','3','4')">Ajouter un Cartes</button>
-    <button class="btn" onclick="show('3','1','2','4')">Ajouter un Partenaire</button>
-    <button class="btn" onclick="show('4','1','2','3')">Voir les Partenaires</button>
-    
-</div>
-    
-</div>
+        <div class="bouton-container">
+            <div class="row justify-content-end">
+                <h1>Administrateur</h1>
+            </div>
+        </div>
+        <br>
+        <div class="col">
+            <div class="bouton-container">
+                <button class="btn" onclick="show('1','2','3','4')">Voir les cartes</button>
+                <button class="btn" onclick="show('2','1','3','4')">Ajouter une carte</button>
+                <button class="btn" onclick="show('3','1','2','4')">Ajouter un partenaire</button>
+                <button class="btn" onclick="show('4','1','2','3')">Voir les partenaires</button>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
     <div class="row" id="row1">
-            <div class="col" style="height:50%;">
-                <div class="panel panel-default" style="height:650px;">
-                    <br><br>
-                    <h2>Voir les Cartes</h2><br>
-                    <div>
+        <div class="col" style="height:50%;">
+            <div class="panel panel-default" style="height:650px;">
+                <br><br>
+                <h2>Voir les Cartes</h2><br>
+                <div>
                     <?php
-                    $table = "SELECT * FROM cartes";
+                    $table = "SELECT c.idCarte, a.description_activite, a.nom FROM cartes AS c, activite AS a WHERE c.idActivite = a.idActivite";
                     $request = mysqli_query($bdd, $table);
-
                     while ($row = mysqli_fetch_array($request)) {
-                        echo "<tr><td>ID : " . $row['idCarte'] . " </td><br><td>Thème : " . $row['theme'] . " </td><br></tr>";
-                        echo "<br>";
-                        echo "<br>";
+                        echo "<div class='carte'>";
+                        echo "<h2 class='carte-titre'> ID : " . $row['idCarte'] . "</h2>";
+                        echo "<p class='carte-description'> Thème : " . $row['nom'] . "</p>";
+                        echo "<p class='carte-description'> Description : " . $row['description_activite'] . "</p>";
+                        echo "</div>";
                     }
-
                     ?>
                 </div>
-                       
-                </div>
             </div>
-        
-                    
-                    
-            
         </div>
-        <div class="row" id="row2">
-            <div class="col" style="height:50%;">
-                <div class="panel panel-default" style="height:650px;">
-                    <br><br>
-                    <h2 >Ajouter une nouvelle carte</h2><br>
-                    <form action="traitement_creation_carte.php" method="post">
-                        <div class="pieddepage">
-                            <p class="text"> Thème :</p>
-                        </div>
-                         <input class="log" name="theme" id="theme"> </span>
-                        <div class="pieddepage">
-                            <p class="text"> Description : </p>
-                        </div>
-                        <input class="log"  name="description" id="description">
-                        <div class="pieddepage">
-                            <p class="text"> Prix :</p>
-                        </div>
-                        <input class="log"  name="prix" id="prix"> </span>
-                        <div class="pieddepage">
-                            
-                        </div>
-                        <input type="file" accept="image/*" name="image" id="image" class="file-input">
-                        <label for="image" class="file-label">Choisir un fichier</label>
-                        <br> 
-                        <br> 
-                        <br> 
-                        <div class="bouton-container"> 
-                        <input class="submit" type="submit" value="Continuer"></div>
-                    </form>
-                </div>
+    </div>
+    <div class="row" id="row2">
+        <div class="col" style="height:50%;">
+            <div class="panel panel-default" style="height:650px;">
+                <br><br>
+                <h2>Ajouter une nouvelle carte</h2><br>
+                <form action="traitement_cartes.php" method="post">
+                    <div class="pieddepage">
+                        <p class="text"> Thème :</p>
+                    </div>
+                    <input class="log" name="theme" id="theme"> </span>
+
+                    <div class="pieddepage">
+                        <p class="text"> Description : </p>
+                    </div>
+                    <input type="text" class="log" name="description" id="description">
+
+                    <br>
+
+                    <div class="pieddepage">
+                        <p class="text"> Image : </p>
+                    </div>
+                    <input class="file-label" type="file" accept="image/*" name="image" id="image">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="bouton-container">
+                        <input class="submit" type="submit" value="Continuer">
+                    </div>
+                </form>
             </div>
+        </div>
     </div>
     <div class="row" id="row3">
-            <div class="col" style="height:50%;">
-                <div class="panel panel-default" style="height:650px;">
-                    <br><br>
-                    <h2 >Ajouter un Partenaire</h2><br>
-                    <form action="traitement_creation_partenaire.php" method="post">
-                        <div class="pieddepage">
-                            <p class="text"> Nom :</p>
-                        </div>
-                         <input class="log" name="nom" id="nom"> </span>
-                        <div class="pieddepage">
-                            <p class="text"> Emplacement : </p>
-                        </div>
-                        <input class="log"name="emplacement" id="emplacement">
-                        <div class="pieddepage">
-                            <p class="text"> Description :</p>
-                        </div>
-                        <input class="log" name="description" id="description"> </span>
-                        <div class="pieddepage">
-                            
-                        </div>
-                        <br> 
-                        <br> 
-                        <br> 
-                        <div class="bouton-container"> 
-                        <input class="submit" type="submit" value="Continuer"></div>
-                    </form>
-                </div>
+        <div class="col" style="height:50%;">
+            <div class="panel panel-default" style="height:650px;">
+                <br><br>
+                <h2>Ajouter un Partenaire</h2><br>
+                <form action="traitement_creation_partenaire.php" method="post">
+                    <div class="pieddepage">
+                        <p class="text"> Nom :</p>
+                    </div>
+                    <input class="log" name="nom" id="nom"> </span>
+                    <div class="pieddepage">
+                        <p class="text"> Email : </p>
+                    </div>
+                    <input class="log" name="email" id="email">
+                    <div class="pieddepage">
+                        <p class="text"> Mot de passe : </p>
+                    </div>
+                    <input class="log" name="mdp" id="mdp">
+                    <div class="pieddepage">
+                        <p class="text"> Description :</p>
+                    </div>
+                    <input class="log" name="description" id="description"> </span>
+                    <div class="pieddepage">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="bouton-container">
+                        <input class="submit" type="submit" value="Continuer">
+                    </div>
+                </form>
             </div>
+        </div>
     </div>
     <div class="row" id="row4">
-            <div class="col" style="height:50%;">
-                <div class="panel panel-default" style="height:650px;">
-                    <br><br>
-                    <h2>Voir les Partenaires</h2><br>
-                    <div>
+        <div class="col" style="height:50%;">
+            <div class="panel panel-default">
+                <br><br>
+                <h2>Voir les Partenaires</h2><br>
+                <div>
                     <?php
-                    
-
+                    $table = "SELECT * FROM partenaire ";
+                    $request = mysqli_query($bdd, $table);
+                    while ($row = mysqli_fetch_array($request)) {
+                        $idPartenaire = $row['idPartenaire'] ;
+                        $request2 = "SELECT * FROM activer WHERE idPartenaire = $idPartenaire";
+                        echo "<div class='carte'>";
+                        echo "<h2 class='carte-titre'> ID : " . $row['idPartenaire'] . "</h2>";
+                        echo "<p class='carte-description'> Nom du Partenaire : " . $row['nom'] . "</p>";
+                        echo "<p class='carte-description'> Email : " . $row['email'] . "</p>";
+                        if(mysqli_num_rows(mysqli_query($bdd, $request2)) > 0){
+                            echo "<p style ='color:red'> En attente d'activation... </p>"  ;
+                        }
+                        echo "</div>";
+                    }
                     ?>
                 </div>
-                       
-                </div>
+
             </div>
-
-
-            
-                
-        
-                
-
-
-
-    </div>
+        </div>
 </body>
 
 </html>

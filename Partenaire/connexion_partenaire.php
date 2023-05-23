@@ -15,13 +15,13 @@
 </head>
 
 <body>
-    <?php include('navbar_partenaire.php') ;
-    include("../Users/verif_connexion_bdd.php") ;
-    include("../Users/verif_session.php") ;
+    <?php include('navbar_partenaire.php');
+    include("../Users/verif_connexion_bdd.php");
+    include("../Users/verif_session.php");
 
     ?>
-    
-    <?php 
+
+    <?php
     function test_input($data)
     {
         $data = trim($data);
@@ -50,23 +50,32 @@
             $email_login_bdd = $info[$i][1];
             $pwd_bdd = $info[$i][2];
             if (!strcasecmp($login, $email_login_bdd) && $pwd == $pwd_bdd) {
-                $pwd_found = true;
-                $_SESSION['idPartenaire'] = $info[$i][0];
-                $_SESSION['connectedPartenaire'] = true;
-            }   
+                $activation = false;
+                $idPartenaire = $info[$i][0];
+                $sql = "SELECT * FROM activer WHERE idPartenaire = $idPartenaire";
+                $verifierActivation = mysqli_query($bdd, $sql);
+                if (mysqli_num_rows($verifierActivation) > 0) {
+                    $_SESSION['idPartenaire'] = $info[$i][0];
+                    $_SESSION['connectedPartenaire'] = true;
+                    header('Location: activation_mdp.php');
+                } else {
+                    $pwd_found = true;
+                    $_SESSION['idPartenaire'] = $info[$i][0];
+                    $_SESSION['connectedPartenaire'] = true;
+                }
+            }
         }
 
         if ($pwd_found == true) {
             header('Location: tableau_de_bord.php');
-        } 
-        else
-            $emailErr = '*Login ou mot de passe incorrect' ;            
+        } else
+            $emailErr = '*Login ou mot de passe incorrect';
     }
     ?>
     <div class="container">
         <h1 class="custom-title">Espace Partenaire</h1>
         <br>
-        <?php echo "<p style='text-align:center; color: red'>" . $emailErr . "</p>"?>
+        <?php echo "<p style='text-align:center; color: red'>" . $emailErr . "</p>" ?>
         <form class="login-form" method="post">
             <label>Email :</label>
             <input type="email" id="entreprise" name="entreprise" placeholder="Entrez le nom de votre entreprise">

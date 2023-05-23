@@ -61,7 +61,6 @@ function togglePasswordVisibility() {
         }
 
         $pwd_found = false;
-        $pwdA_found = false;
 
         for ($i = 0; $i < sizeof($users); $i++) {
             $email_login_bdd = $info[$i][3];
@@ -78,10 +77,9 @@ function togglePasswordVisibility() {
         }
 
         if ($pwd_found == true) {
-            header('Location: mon_compte.php');
-        } else if ($pwdA_found == true) {
-            header('Location: admin.php');
-        } else
+            header('Location: ../index.php');
+        } 
+         else
             //Si le mdp est incorrect
             echo " <p> Login ou mot de passe incorrect </p>";
     }

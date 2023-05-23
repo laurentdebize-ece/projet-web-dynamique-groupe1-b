@@ -31,21 +31,20 @@
     $idPartenaire = $_SESSION['idPartenaire'];
 
 
-    if (isset($_POST["activite"], $_POST["description"],$_POST["prix"], $_POST["duree"]) && !empty($_POST["activite"]) && !empty($_POST["description"]) && !empty($_POST["prix"]) && !empty($_POST["duree"])) {
+    if (isset($_POST["activite"], $_POST["description"], $_POST["duree"]) && !empty($_POST["activite"]) && !empty($_POST["description"]) && !empty($_POST["duree"])) {
         //sécurité contre faille XSS
         $activite = test_input($_POST["activite"]);
         $description = test_input($_POST["description"]);
         $duree = test_input($_POST["duree"]);
-        $prix = test_input($_POST["prix"]);
 
         $formuleExist = false;
-        $verify = "SELECT a.nom, f.prix, f.description
+        $verify = "SELECT a.nom, f.description
                 FROM formule AS f, cartes AS c, partenariat AS p, activite AS a 
                 WHERE p.idFormule = f.idFormule AND p.idCarte = c.idCarte AND c.idActivite = a.idActivite AND p.idPartenaire = '$idPartenaire'";
         $request = mysqli_query($bdd, $verify);
         if ($request != false) {
             while ($formule = mysqli_fetch_assoc($request)) {
-                if (!strcasecmp($activite, $formule['nom']) && $prix == $formule['prix'] && $description == $formule['description']) {
+                if (!strcasecmp($activite, $formule['nom']) && $description == $formule['description']) {
                     $formuleExist = true;
                     break;
                 }
@@ -63,7 +62,7 @@
             }
             //ID DU PARTENAIRE DANS LA SESSION
             $addFormule = "INSERT INTO formule
-                            VALUES (NULL, '$duree', '$description', '$prix')";
+                            VALUES (NULL, '$duree', '$description')";
             //Ajout de la formule
             if (mysqli_query($bdd, $addFormule)) {
                     $messageErreur = 'ERREUR : Formule non ajoutée';
@@ -116,21 +115,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Prix de la formule (en $)</label>
-                    <select class="form-control" name="prix" id="prix">
-                        <option>10</option>
-                        <option>20</option>
-                        <option>50</option>
-                        <option>100</option>
-                        <option>200</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label>Description de la formule</label>
                     <textarea class="form-control" name="description" id="description" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Durée de l'activité (Rentrez 0 si pas de durée)</label>
+                    <label>Durée de l'activité en heure</label>
                     <input type="text" name="duree" class="form-control" id="duree">
                 </div>
                 <input type="submit" value='Créer la formule' class="btn boutton"></input>
@@ -146,10 +135,10 @@
                     <select class="form-control" name="supprimer" id="supprimer">
                         <?php
                         $idPartenaire = $_SESSION['idPartenaire'];
-                        $table = "SELECT f.idFormule, a.nom, f.prix FROM formule AS f, activite AS a, cartes AS c, partenariat as p WHERE p.idCarte = c.idCarte AND p.idFormule = f.idFormule AND c.idActivite = a.idActivite AND p.idPartenaire = '$idPartenaire';";
+                        $table = "SELECT f.idFormule, a.nom FROM formule AS f, activite AS a, cartes AS c, partenariat as p WHERE p.idCarte = c.idCarte AND p.idFormule = f.idFormule AND c.idActivite = a.idActivite AND p.idPartenaire = '$idPartenaire';";
                         $request = mysqli_query($bdd, $table);
                         while ($row = mysqli_fetch_array($request)) {
-                            echo "<option>ID : " . $row['idFormule'] . " -- Thème : " . $row['nom'] . " -- Prix : " . $row['prix'] . "$</option>";
+                            echo "<option>ID : " . $row['idFormule'] . " -- Thème : " . $row['nom'] . "</option>";
                         }
                         ?>
                     </select>
