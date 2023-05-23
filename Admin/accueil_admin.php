@@ -56,6 +56,11 @@
                     while ($row = mysqli_fetch_array($request)) {
                         echo "<div class='carte'>";
                         echo "<h2 class='carte-titre'> ID : " . $row['idCarte'] . "</h2>";
+                        ?>
+                        <button onclick="window.location.href = 'index.php';" class="btn2" >Supprimer</button>
+                        <br>
+                        <?php
+                        echo "<br>";
                         echo "<p class='carte-description'> Thème : " . $row['nom'] . "</p>";
                         echo "<p class='carte-description'> Description : " . $row['description_activite'] . "</p>";
                         echo "</div>";
@@ -145,6 +150,11 @@
                         $request2 = "SELECT * FROM activer WHERE idPartenaire = $idPartenaire";
                         echo "<div class='carte'>";
                         echo "<h2 class='carte-titre'> ID : " . $row['idPartenaire'] . "</h2>";
+                        ?>
+                        <button onclick="window.location.href = 'index.php';" class="btn2" >Supprimer</button>
+                        <br>
+                        <?php
+                        echo "<br>";
                         echo "<p class='carte-description'> Nom du Partenaire : " . $row['nom'] . "</p>";
                         echo "<p class='carte-description'> Email : " . $row['email'] . "</p>";
                         if(mysqli_num_rows(mysqli_query($bdd, $request2)) > 0){

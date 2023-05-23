@@ -50,10 +50,6 @@ body {
     border-color: #176ad5;
 }
 
-
-
-
-
 .btn {
     font-size: 16px;
     padding: 10px 20px;
@@ -68,6 +64,21 @@ body {
 
 .btn:hover {
     background-color: #0056b3;
+}
+
+.btn2 {
+    font-size: 16px;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #ff0000cf;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn2:hover {
+    background-color: #b30000;
 }
 
 .bouton-container {
