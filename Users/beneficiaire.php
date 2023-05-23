@@ -157,8 +157,6 @@
 </head>
 
 <body>
-    <!-- Navbar en php -->
-
     <div class="cart-container">
         <h1>Informations du bénéficiaire</h1>
         <form>

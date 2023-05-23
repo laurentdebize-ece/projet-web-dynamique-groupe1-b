@@ -1,0 +1,44 @@
+.id_produit {
+    text-align: center;
+    text-decoration: 0;
+    background-color: #37a6ff;
+    letter-spacing: 1px;
+    color: #fff;
+    padding: 10px  10%;
+    border-radius: 6px;
+}
+
+.id_produit:hover {
+    background-color: rgb(38, 93, 155);
+    color: white;
+    text-decoration: none;
+}
+.prix {
+    margin: 15px 0;
+    font-weight: 400;
+    color: #37a6ff;
+}
+.image_cartes {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image_cartes img {
+    width: 300px;
+    object-fit: cover;
+    padding: 20px;
+}
+
+.produit {
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.produit:hover {
+    transform: scale(1.1);
+}

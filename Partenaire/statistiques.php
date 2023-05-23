@@ -31,6 +31,7 @@
             margin-top: 1em;
             text-decoration: none;
         }
+
         a:hover {
             background-color: rgb(212, 169, 50);
             color: black;
@@ -73,56 +74,16 @@
         </section>
         <section class="section">
             <h2>Chiffre d'affaires</h2>
-            <div class="chart-container">
-                <canvas id="chart"></canvas>
+            <div class="container">
+                <div class="carte">
+                    <h2 class="carte-titre">- CA 2023 -</h2>
+                    <div class="carte-description">
+                        -----
+                    </div>
+                </div>
             </div>
         </section>
     </div>
-    <script>
-        AOS.init({
-            duration: 1000
-        });
-        // Données du graphique (exemple)
-        var chartData = {
-            labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil'],
-            datasets: [{
-                label: 'Chiffre d\'affaires',
-                data: [500, 1000, 800, 1500, 1200, 1800, 1400],
-                backgroundColor: 'rgba(240, 203, 100, 0.5)',
-                borderColor: 'rgba(240, 203, 100, 1)',
-                borderWidth: 2,
-                pointRadius: 0,
-                fill: 'origin',
-            }]
-        };
-
-        // Configuration du graphique
-        var chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        callback: function(value, index, values) {
-                            return value + ' €';
-                        }
-                    }
-                }]
-            },
-            legend: {
-                display: false
-            }
-        };
-
-        // Création du graphique
-        var ctx = document.getElementById('chart').getContext('2d');
-        var chart = new Chart(ctx, {
-            type: 'line',
-            data: chartData,
-            options: chartOptions
-        });
-    </script>
 
     <footer style="padding: 20px 0; text-align: center; background-color: #000; color: #fff; margin-top: 2xx0px;">
         <a href="tableau_de_bord.php" class="btn boutton">Tableau de Bord</a>

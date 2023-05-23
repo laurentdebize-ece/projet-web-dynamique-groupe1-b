@@ -36,7 +36,7 @@ span {
     font-size: 12px;
     color: #fff;
 }
-.products_list {
+.liste {
     margin: 100px auto;
     position: relative;
     width: 70%;
@@ -49,17 +49,6 @@ span {
     padding: 10px;
 }
 
-.product {
-    background-color: #fff;
-    width: 100%;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    border-radius: 6px;
-    overflow: hidden;
-    transition: 0.5s;
-}
-.product:hover {
-    transform: scale(1.1);
-}
 .image_cartes {
     height: 200px;
     width: 100%;
@@ -77,24 +66,4 @@ span {
     margin-bottom: 30px;
     height: fit-content;
     text-align: center;
-}
-.price {
-    margin: 15px 0;
-    font-weight: 400;
-    color: #37a6ff;
-}
-.id_product {
-    text-align: center;
-    text-decoration: 0;
-    background-color: #37a6ff;
-    letter-spacing: 1px;
-    color: #fff;
-    padding: 10px  10%;
-    border-radius: 6px;
-}
-
-.id_product:hover {
-    background-color: rgb(38, 93, 155);
-    color: white;
-    text-decoration: none;
 }
