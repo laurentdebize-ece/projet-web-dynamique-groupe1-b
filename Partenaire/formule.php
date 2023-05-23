@@ -38,13 +38,13 @@
         $duree = test_input($_POST["duree"]);
 
         $formuleExist = false;
-        $verify = "SELECT a.nom, f.description
+        $verify = "SELECT a.nom, f.description, c.idCarte
                 FROM formule AS f, cartes AS c, partenariat AS p, activite AS a 
                 WHERE p.idFormule = f.idFormule AND p.idCarte = c.idCarte AND c.idActivite = a.idActivite AND p.idPartenaire = '$idPartenaire'";
         $request = mysqli_query($bdd, $verify);
         if ($request != false) {
             while ($formule = mysqli_fetch_assoc($request)) {
-                if (!strcasecmp($activite, $formule['nom']) && $description == $formule['description']) {
+                if ($activite == $formule['idCarte']) {
                     $formuleExist = true;
                     break;
                 }
@@ -54,38 +54,29 @@
         if ($formuleExist) {
             $messageErreur =  'Cette formule existe déjà dans la base de données.';
         } else {
-            //CHERCHER l'ID de la CARTE CADEAU
-            $request = mysqli_query($bdd, "SELECT c.idCarte FROM cartes AS c JOIN activite AS a ON a.idActivite = c.idActivite WHERE a.nom = '$activite'");
-            $idCarte;
-            while ($cartes = mysqli_fetch_assoc($request)) {
-                $idCarte = $cartes['idCarte'];
-            }
             //ID DU PARTENAIRE DANS LA SESSION
             $addFormule = "INSERT INTO formule
                             VALUES (NULL, '$duree', '$description')";
             //Ajout de la formule
             if (mysqli_query($bdd, $addFormule)) {
-                    $messageErreur = 'ERREUR : Formule non ajoutée';
+                //ID DE LA FORMULE AJOUTEE
+                $request = mysqli_query($bdd, 'SELECT MAX(idFormule) AS max FROM formule');
+                $idFormule;
+                while ($formules = mysqli_fetch_assoc($request)) {
+                    $idFormule = $formules['max'];
+                }
+                //AJOUT DANS LA TABLE PARTENARIAT
+
+                if (mysqli_query($bdd, "INSERT INTO partenariat VALUES (NULL, '$activite', '$idPartenaire', '$idFormule')")) {
+                    $messageErreur =  'Formule ajoutée avec succès !';
+                }
             } else {
-            }
-
-            //ID DE LA FORMULE AJOUTEE
-            $request = mysqli_query($bdd, 'SELECT MAX(idFormule) AS max FROM formule');
-            $idFormule;
-            while ($formules = mysqli_fetch_assoc($request)) {
-                $idFormule = $formules['max'];
-            }
-            //AJOUT DANS LA TABLE PARTENARIAT
-
-            if (mysqli_query($bdd, "INSERT INTO partenariat VALUES (NULL, '$idCarte', '$idPartenaire', '$idFormule')")) {
-                $messageErreur =  'Formule ajoutée avec succès !';
             }
         }
     }
     if (isset($_POST["supprimer"]) && !empty($_POST["supprimer"])) {
         //sécurité contre faille XSS
-        $activite = test_input($_POST["supprimer"]);    
-        $idFormule = test_input(substr($activite, 5, 3));
+        $idFormule = test_input($_POST["supprimer"]);
         $supprimer_partenariat = "DELETE FROM partenariat WHERE idFormule = '$idFormule'";
         $supprimer_formule = "DELETE FROM formule WHERE idFormule = '$idFormule'";
         if (mysqli_query($bdd, $supprimer_partenariat) && mysqli_query($bdd, $supprimer_formule)) {
@@ -93,6 +84,11 @@
         }
     }
     ?>
+    <script>
+        function change() {
+            var select = document.getElementById("activite").value;
+        }
+    </script>
 </head>
 
 <body>
@@ -106,10 +102,13 @@
                     <label>Sélectionnez une activité disponible</label>
                     <select class="form-control" name="activite" id="activite">
                         <?php
-                        $table = "SELECT nom FROM activite";
+                        $table = "SELECT c.prix, c.idCarte, a.nom FROM activite AS a, cartes AS c WHERE c.idActivite = a.idActivite";
                         $request = mysqli_query($bdd, $table);
                         while ($row = mysqli_fetch_array($request)) {
-                            echo "<option>" . $row['nom'] . "</option>";
+                            $idCarte = $row['idCarte'];
+                            $nomActivite = $row['nom'];
+                            $prixActivite = $row['prix'];
+                            echo "<option value='$idCarte'>ID : $idCarte --- $nomActivite --- Prix : $prixActivite $</option>";
                         }
                         ?>
                     </select>
@@ -135,10 +134,13 @@
                     <select class="form-control" name="supprimer" id="supprimer">
                         <?php
                         $idPartenaire = $_SESSION['idPartenaire'];
-                        $table = "SELECT f.idFormule, a.nom FROM formule AS f, activite AS a, cartes AS c, partenariat as p WHERE p.idCarte = c.idCarte AND p.idFormule = f.idFormule AND c.idActivite = a.idActivite AND p.idPartenaire = '$idPartenaire';";
+                        $table = "SELECT f.idFormule, a.nom, c.prix FROM formule AS f, activite AS a, cartes AS c, partenariat as p WHERE p.idCarte = c.idCarte AND p.idFormule = f.idFormule AND c.idActivite = a.idActivite AND p.idPartenaire = '$idPartenaire';";
                         $request = mysqli_query($bdd, $table);
                         while ($row = mysqli_fetch_array($request)) {
-                            echo "<option>ID : " . $row['idFormule'] . " -- Thème : " . $row['nom'] . "</option>";
+                            $idFormule = $row['idFormule'];
+                            $theme = $row['nom'];
+                            $prixActivite = $row['prix'];
+                            echo "<option value='$idFormule'>ID : $idFormule --- $theme --- Prix : $prixActivite $</option>";
                         }
                         ?>
                     </select>
@@ -146,7 +148,7 @@
                 <input type="submit" value='Supprimer la formule' class="btn boutton"></input>
             </form>
         </section>
-        <?php echo '<p>' . $suppressionErreur . '</p>' ?>   
+        <?php echo '<p>' . $suppressionErreur . '</p>' ?>
     </div>
 
     <footer style="padding: 0; text-align: center; background-color: #000; color: #d0d0d0; margin-top: 50px;">

@@ -21,6 +21,22 @@
             document.getElementById("row" + id4).style.display = "none";
         }
     </script>
+    <style>
+        .btn2 {
+            font-size: 16px;
+            padding: 7px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #ff0000cf;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn2:hover {
+            background-color: #b30000;
+        }
+    </style>
 </head>
 
 <body>
@@ -56,11 +72,8 @@
                     while ($row = mysqli_fetch_array($request)) {
                         echo "<div class='carte'>";
                         echo "<h2 class='carte-titre'> ID : " . $row['idCarte'] . "</h2>";
-                        ?>
-                        <button onclick="window.location.href = 'index.php';" class="btn2" >Supprimer</button>
-                        <br>
-                        <?php
-                        echo "<br>";
+                        echo "<button onclick=\"window.location.href = 'supprimer_cartes.php?id=" . $row['idCarte'] . "';\" class='btn2'>Supprimer</button>";   
+                        echo "<br><br>";
                         echo "<p class='carte-description'> Thème : " . $row['nom'] . "</p>";
                         echo "<p class='carte-description'> Prix : " . $row['prix'] . "$</p>";
                         echo "<p class='carte-description'> Description : " . $row['description_activite'] . "</p>";
@@ -152,19 +165,16 @@
                     $table = "SELECT * FROM partenaire ";
                     $request = mysqli_query($bdd, $table);
                     while ($row = mysqli_fetch_array($request)) {
-                        $idPartenaire = $row['idPartenaire'] ;
+                        $idPartenaire = $row['idPartenaire'];
                         $request2 = "SELECT * FROM activer WHERE idPartenaire = $idPartenaire";
                         echo "<div class='carte'>";
                         echo "<h2 class='carte-titre'> ID : " . $row['idPartenaire'] . "</h2>";
-                        ?>
-                        <button onclick="window.location.href = 'index.php';" class="btn2" >Supprimer</button>
-                        <br>
-                        <?php
-                        echo "<br>";
+                        echo "<button onclick=\"window.location.href = 'supprimer_partenaire.php?id=" . $idPartenaire . "';\" class='btn2'>Supprimer</button>";   
+                        echo "<br><br>";
                         echo "<p class='carte-description'> Nom du Partenaire : " . $row['nom'] . "</p>";
                         echo "<p class='carte-description'> Email : " . $row['email'] . "</p>";
-                        if(mysqli_num_rows(mysqli_query($bdd, $request2)) > 0){
-                            echo "<p style ='color:red'> En attente d'activation... </p>"  ;
+                        if (mysqli_num_rows(mysqli_query($bdd, $request2)) > 0) {
+                            echo "<p style ='color:red'> En attente d'activation... </p>";
                         }
                         echo "</div>";
                     }

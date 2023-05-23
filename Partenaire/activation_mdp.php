@@ -93,7 +93,7 @@
                         <div class="pieddepage">
                             <p class="text"> Nouveau mot de passe :</p>
                         </div>
-                        <input class="log" name="nouveauMDP" id="nouveauMDP"> </span>
+                        <input class="log" name="nouveauMDP" id="   "> </span>
                         <br>                        <br>
 
                         <div class="pieddepage">
