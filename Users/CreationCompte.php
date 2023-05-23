@@ -39,8 +39,8 @@
         if (mysqli_num_rows($result) > 0) {
             $email_error =  "Cette email est déjà utilisé";
         } else {
-            $sqlInsert = "INSERT INTO compte (nom, prenom, email, mdp, typeCompte) VALUES ('$nom', '$prenom', '$email', '$motDePasse', 1)";
-
+            $add = "INSERT INTO compte (nom, prenom, email, mdp, typeCompte) VALUES ('$nom', '$prenom', '$email', '$motDePasse', 3)";
+            
             if (mysqli_query($bdd, $add)) {
                 header('Location: Traitement_Creation.php');
             } else {

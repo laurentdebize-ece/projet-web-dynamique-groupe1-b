@@ -39,11 +39,8 @@
                 // Enregistrez les données du bénéficiaire pour chaque carte ici
                 // Utilisez les valeurs $id, $beneficiaire_nom, $beneficiaire_prenom, $beneficiaire_email
 
-                // Génération d'une clé bénéficiaire aléatoire unique
-                $cleBeneficiaire = genererCleBeneficiaireUnique($bdd);
-
                 // Exemple d'insertion dans la base de données
-                $query = "INSERT INTO beneficiaire VALUES (NULL, '$beneficiaire_nom', '$beneficiaire_prenom', '$beneficiaire_email', '$cleBeneficiaire')";
+                $query = "INSERT INTO beneficiaire VALUES (NULL, '$beneficiaire_nom', '$beneficiaire_prenom', '$beneficiaire_email')";
 
                 
                 if (mysqli_query($bdd, $query)) {
@@ -60,22 +57,6 @@
         exit();
     }
 
-    // Fonction pour générer une clé bénéficiaire aléatoire unique
-    function genererCleBeneficiaireUnique($bdd) {
-        $cleBeneficiaire = genererCleBeneficiaire();
-
-        // Vérifier si la clé bénéficiaire existe déjà dans la table "beneficiaire"
-        $reqCle = "SELECT cle_beneficiaire FROM beneficiaire WHERE cle_beneficiaire = '$cleBeneficiaire'";
-        $resultCle = mysqli_query($bdd, $reqCle);
-
-        if (mysqli_num_rows($resultCle) > 0) {
-            // La clé bénéficiaire existe déjà, générer une nouvelle clé
-            return genererCleBeneficiaireUnique($bdd);
-        } else {
-            // La clé bénéficiaire est unique, retourner la clé générée
-            return $cleBeneficiaire;
-        }
-    }
 
     // Fonction pour générer une clé bénéficiaire aléatoire
     function genererCleBeneficiaire() {
