@@ -86,7 +86,7 @@
                 <div class="panel panel-default" style="height:500px;">
 
                     <br><br>
-                    <h2 class="text">Login</h2><br>
+                    <h2 class="text">Modification Mot de Passe</h2><br>
                     <form action="connexion.php" method="post">
                         <div class="pieddepage">
                             <p class="piedgauche"> Mot de Passe :</p>
