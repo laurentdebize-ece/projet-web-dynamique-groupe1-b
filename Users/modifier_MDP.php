@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <style>
-    .log {
+.log {
     text-align: center;
 }
 .formu{
