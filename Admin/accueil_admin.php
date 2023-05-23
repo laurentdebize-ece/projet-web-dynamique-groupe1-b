@@ -46,17 +46,18 @@
 
     <div class="row" id="row1">
         <div class="col" style="height:50%;">
-            <div class="panel panel-default" style="height:650px;">
+            <div class="panel panel-default">
                 <br><br>
                 <h2>Voir les Cartes</h2><br>
                 <div>
                     <?php
-                    $table = "SELECT c.idCarte, a.description_activite, a.nom FROM cartes AS c, activite AS a WHERE c.idActivite = a.idActivite";
+                    $table = "SELECT c.idCarte, c.prix, a.description_activite, a.nom FROM cartes AS c, activite AS a WHERE c.idActivite = a.idActivite";
                     $request = mysqli_query($bdd, $table);
                     while ($row = mysqli_fetch_array($request)) {
                         echo "<div class='carte'>";
                         echo "<h2 class='carte-titre'> ID : " . $row['idCarte'] . "</h2>";
                         echo "<p class='carte-description'> Thème : " . $row['nom'] . "</p>";
+                        echo "<p class='carte-description'> Prix : " . $row['prix'] . "$</p>";
                         echo "<p class='carte-description'> Description : " . $row['description_activite'] . "</p>";
                         echo "</div>";
                     }
@@ -75,6 +76,11 @@
                         <p class="text"> Thème :</p>
                     </div>
                     <input class="log" name="theme" id="theme"> </span>
+
+                    <div class="pieddepage">
+                        <p class="text"> Prix : </p>
+                    </div>
+                    <input type="text" class="log" name="prix" id="prix">
 
                     <div class="pieddepage">
                         <p class="text"> Description : </p>
