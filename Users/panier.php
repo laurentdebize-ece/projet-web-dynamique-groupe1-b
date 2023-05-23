@@ -49,7 +49,6 @@
                     if(isset($_SESSION['panier'])){
                         $panier = $_SESSION['panier'];
                         $ids = array_keys($panier);
-                        // rest of your code
                     }
                     
                     //s'il n'y a aucune clé dans le tableau
@@ -110,7 +109,10 @@
                     <th>Total : <?=$total?>€</th>
                 </tr>
             </table>
-            <a href="https://buy.stripe.com/test_3cseYDf3IdICa8E144" class="btn-checkout">Passer à la caisse</a>
+            
+            <a href="ajoutBeneficiaire.php" class="btn-checkout">Ajouter un bénéficiaire</a>
+            <!--<a href="https://buy.stripe.com/test_3cseYDf3IdICa8E144" class="btn-checkout">Passer à la caisse</a> -->
+            <a href="achat.php" class="btn-checkout">Passer à la caisse</a>
         </section>
     </div>
 

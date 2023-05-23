@@ -28,7 +28,7 @@
             // Récupération de l'idCompte de l'acheteur connecté
             $idCompte = $_SESSION['id'];
 
-            $query = "SELECT cartes.*, activite.nom AS nomCarte FROM cartes JOIN achat ON cartes.idCarte = achat.idCarte JOIN activite ON cartes.idActivite = activite.idActivite WHERE achat.idCompte = $idCompte";
+            $query = "SELECT cartes.*, activite.nom AS nomCarte FROM cartes JOIN achat ON cartes.idCarte = achat.idCarte JOIN activite ON cartes.idActivite = activite.idActivite WHERE achat.idBeneficiaire = $idCompte";
             $result = mysqli_query($bdd, $query);
 
 
