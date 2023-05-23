@@ -40,7 +40,7 @@
             $email_error =  "Cette email est déjà utilisé";
         } else {
             $add = "INSERT INTO compte (nom, prenom, email, mdp, typeCompte) VALUES ('$nom', '$prenom', '$email', '$motDePasse', 3)";
-
+            
             if (mysqli_query($bdd, $add)) {
                 header('Location: Traitement_Creation.php');
             } else {
