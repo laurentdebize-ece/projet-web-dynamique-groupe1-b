@@ -36,7 +36,7 @@
         if (mysqli_num_rows($result) > 0) {
             echo "Cette email est déjà utilisé";
         } else {
-            $sqlInsert = "INSERT INTO compte (nom, prenom, email, mdp, typeCompte) VALUES ('$nom', '$prenom', '$email', '$motDePasse', 3)";
+            $sqlInsert = "INSERT INTO compte (nom, prenom, email, mdp, typeCompte) VALUES ('$nom', '$prenom', '$email', '$motDePasse', 1)";
 
             if (mysqli_query($bdd, $sqlInsert)) {
                 echo "Le compte a été créé avec succès.";

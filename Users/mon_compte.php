@@ -47,6 +47,9 @@
         <div style="text-align: center; margin-bottom: 20px;">
             <a href="espace_personnel.php" class="btn btn-personal-space">Espace Personnel</a>
         </div>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="espace_beneficiaire.php" class="btn btn-personal-space">Espace Beneficiaire</a>
+        </div>
 
         <div class="account-info">
             <div class="info-box">
