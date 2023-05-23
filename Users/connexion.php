@@ -100,7 +100,8 @@ function togglePasswordVisibility() {
                     <h2 class="text">Login</h2><br>
                     <form action="connexion.php" method="post">
                         <div class="pieddepage">
-                            <p class="piedgauche"> Email :</p><a href="CreationCompte.php" class="pieddroit">Créer un compte</a>
+                            <h4><p class="piedgauche"> Email :</p></h4>
+                            <a href="CreationCompte.php" class="pieddroit">Créer un compte</a>
                         </div>
                         <br>
                         <br>
@@ -108,11 +109,11 @@ function togglePasswordVisibility() {
 
                         <br> <br>
                         <div class="pieddepage">
-                            <p class="text"> Mot de Passe : </p>    
+                            <h4><p class="text"> Mot de Passe : </p> </h4>   
                         </div>
                         <br><br>
                         <p class="log"><input type="password"id="password" name="pwd" id="pwd"></p>
-                        <p class="show">Afficher le mot de passe <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"></p>
+                        <h4><p class="show">Afficher le mot de passe <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"></p></h4>
                         <br></br>
                         <p class="log"><input class="submit" type="submit" value="Connexion"></p>
 
