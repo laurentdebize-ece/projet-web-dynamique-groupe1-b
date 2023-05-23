@@ -17,6 +17,25 @@
     include("../Users/verif_connexion_bdd.php");
     include("../Users/verif_session.php");
     ?>
+    <style>
+        a {
+            display: inline-block;
+            background-color: rgb(210, 176, 75);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            border: none;
+            padding: 7px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-top: 1em;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: rgb(212, 169, 50);
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
