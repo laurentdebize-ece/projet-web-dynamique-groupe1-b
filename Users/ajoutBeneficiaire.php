@@ -31,9 +31,11 @@
                 $beneficiaire_prenom = $_POST['beneficiaire_prenom_' . $formId];
                 $beneficiaire_email = $_POST['beneficiaire_email_' . $formId];
 
-                $cleBeneficiaire = genererCleBeneficiaireUnique($bdd);
+                // Enregistrez les données du bénéficiaire pour chaque carte ici
+                // Utilisez les valeurs $id, $beneficiaire_nom, $beneficiaire_prenom, $beneficiaire_email
 
-                $query = "INSERT INTO beneficiaire VALUES (NULL, '$beneficiaire_nom', '$beneficiaire_prenom', '$beneficiaire_email', '$cleBeneficiaire')";
+                // Exemple d'insertion dans la base de données
+                $query = "INSERT INTO beneficiaire VALUES (NULL, '$beneficiaire_nom', '$beneficiaire_prenom', '$beneficiaire_email')";
 
 
                 if (mysqli_query($bdd, $query)) {
@@ -48,19 +50,6 @@
         exit();
     }
 
-    function genererCleBeneficiaireUnique($bdd)
-    {
-        $cleBeneficiaire = genererCleBeneficiaire();
-
-        $reqCle = "SELECT cle_beneficiaire FROM beneficiaire WHERE cle_beneficiaire = '$cleBeneficiaire'";
-        $resultCle = mysqli_query($bdd, $reqCle);
-
-        if (mysqli_num_rows($resultCle) > 0) {
-            return genererCleBeneficiaireUnique($bdd);
-        } else {
-            return $cleBeneficiaire;
-        }
-    }
 
     function genererCleBeneficiaire()
     {
