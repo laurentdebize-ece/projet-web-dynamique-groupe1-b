@@ -30,11 +30,6 @@
                 $beneficiaire_nom = $_POST['beneficiaire_nom_' . $formId];
                 $beneficiaire_prenom = $_POST['beneficiaire_prenom_' . $formId];
                 $beneficiaire_email = $_POST['beneficiaire_email_' . $formId];
-
-                // Enregistrez les données du bénéficiaire pour chaque carte ici
-                // Utilisez les valeurs $id, $beneficiaire_nom, $beneficiaire_prenom, $beneficiaire_email
-
-                // Exemple d'insertion dans la base de données
                 $query = "INSERT INTO beneficiaire VALUES (NULL, '$beneficiaire_nom', '$beneficiaire_prenom', '$beneficiaire_email')";
 
 
