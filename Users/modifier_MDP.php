@@ -1,13 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5zzenw4p+HHAAK5GSLf2xlYtvJ8U2Q4U+9cuEnJoa3" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="../CSS/modifier_MDP.css" rel="stylesheet" type="text/css" media="all" />
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Modification Mot de Passe - OMNES BOX</title>
+    <link href="../CSS/connexion.css" rel="stylesheet" type="text/css" media="all" />
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
 
@@ -73,7 +76,7 @@
 </head>
 
 <body>
-    <a href="accueil.php">
+<a href="accueil.php">
         <img src="../Images/logo_omnesBox.png" width="150" height="40" alt="Logo">
     </a>
     
@@ -84,29 +87,31 @@
                 <div class="panel panel-default" style="height:500px;">
 
                     <br><br>
-                    <h2 class="text">Modifier Mot De Passe</h2><br>
-                    <form action="" method="POST">
+                    <h2 class="text">Login</h2><br>
+                    <form action="connexion.php" method="post">
                         <div class="pieddepage">
-                            <p class="piedgauche"> Ancien Mot de Passe :</p>
+                            <p class="piedgauche"> Mot de Passe :</p>
                         </div>
-                        <p class="log"> <input type="password" name="ancienMDP" id="pwd" required> </span></p>
+                        <br>
+                        <br>
+                        <p class="log"> <input name="mdp" id="mdp"></p>
+
+
+                        <br> <br>
                         <div class="pieddepage">
                             <p class="text"> Nouveau Mot de Passe : </p>    
                         </div>
-                        <p class="log"><input type="password"id="password" name="nouveauMDP" id="pwd" required></p>
-                        <div class="pieddepage">
-                            <p class="text"> Confirmation Mot de Passe : </p>    
-                        </div>
-                        <p class="log"><input type="password"id="password" name="confirmationMDP" id="pwd" required></p>
+                        <br><br>
+                        <p class="log"><input type="password"id="password" name="pwd" id="pwd"></p>
                         <br></br>
-                        <p class="log"><input class="submit" type="submit" value="Valider"></p>
+                        <p class="log"><input class="submit" type="submit" value="Connexion"></p>
 
                     </form>
                 </div>
             </div>
             <div class="col-sm-4 ">
                 
-                <button onclick="window.location.href = 'mon_compte.php';" class="close-button" aria-label="Case de fermeture" type="button">
+                <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
 
