@@ -120,13 +120,13 @@ function togglePasswordVisibility() {
                     </form>
                 </div>
             </div>
-            <div class="col-sm-4 ">
+            <div class="col-sm-4 "></div>
                 
                 <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
 
-            </div>
+            
         </div>
     </div>
     

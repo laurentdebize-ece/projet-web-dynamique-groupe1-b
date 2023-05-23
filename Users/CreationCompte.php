@@ -52,16 +52,10 @@
 </head>
 
 <body>
-    <style>
-        body img {
-            display: block;
-            margin: 0 auto;
-            margin-top: 10px;
-        }
-    </style>
+    
     <a href="accueil.php"><img src="../Images/logo_omnesBox.png" width="150" height="40" alt="Logo"></a>
 
-    <h4>
+    
         <div class="container">
             <div class="row">
                 <div class="col-sm-3"></div>
@@ -106,8 +100,8 @@
 
             </div>
         </div>
-        </div>
-    </h4>
+        
+    
 </body>
 
 </html>
