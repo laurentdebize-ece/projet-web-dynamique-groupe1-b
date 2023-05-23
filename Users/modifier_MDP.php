@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>Modification Mot de Passe - OMNES BOX</title>
     <link href="../CSS/connexion.css" rel="stylesheet" type="text/css" media="all" />
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
