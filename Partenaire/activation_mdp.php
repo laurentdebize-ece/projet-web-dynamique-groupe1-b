@@ -56,11 +56,12 @@
     <br><hr>
     <div class="container">
         <h2>Activer votre compte</h2>
+        <?php echo "<p style='text-align:center;color:red'>" . $email_error . "</p>" ?>
         <form method="post">
             <p>Nouveau Mot de Passe :</p>
-            <input type="password" id="login" name="login">
+            <input type="password" id="nouveauMDP" name="nouveauMDP">
             <p>Confirmer Mot de Passe :</p>
-            <input type="password" id="pwd" name="pwd">
+            <input type="password" id="nouveauMDP" name="nouveauMDP">
             <input class="submit" type="submit" value="Connexion">
         </form>
     </div>

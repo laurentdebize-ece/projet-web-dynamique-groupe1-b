@@ -81,19 +81,26 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4" style="height:50%;">
-                <div class="panel panel-default" style="height:500px;">
-
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6" style="height:50%;">
+                <div class="panel panel-default" style="height:550px;">
                     <br><br>
                     <h2 class="text">Modification Mot de Passe</h2><br>
                     <form action="connexion.php" method="post">
+                    <div class="pieddepage">
+                            <p class="piedgauche"> Ancien Mot de Passe :</p>
+                        </div>
+                        <br>
+                        <br>
+                        <p class="log2"> <input type="password" name="ancienMDP" id="pwd" required> </span></p>
+                        <br>
+                        
                         <div class="pieddepage">
                             <p class="piedgauche"> Mot de Passe :</p>
                         </div>
                         <br>
                         <br>
-                        <p class="log"> <input name="mdp" id="mdp"></p>
+                        <p class="log2"> <input type="password"id="password" name="nouveauMDP" id="pwd" required>
 
 
                         <br> <br>
@@ -101,14 +108,14 @@
                             <p class="text"> Nouveau Mot de Passe : </p>    
                         </div>
                         <br><br>
-                        <p class="log"><input type="password"id="password" name="pwd" id="pwd"></p>
+                        <p class="log2"><input type="password"id="password" name="confirmationMDP" id="pwd" required></p>
                         <br></br>
                         <p class="log"><input class="submit" type="submit" value="Connexion"></p>
 
                     </form>
                 </div>
             </div>
-            <div class="col-sm-4 ">
+            <div class="col-sm-3 ">
                 
                 <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
                     <span aria-hidden="true">&times;</span>
