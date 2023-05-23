@@ -96,16 +96,16 @@
             for ($i = 0; $i < $quantite; $i++) {
                 $formId = $id . '_' . $i;
 
-                $produit = mysqli_query($bdd, "SELECT * FROM cartes WHERE idActivite = $id");
-                $produit = mysqli_fetch_assoc($produit);
+                $product = mysqli_query($bdd, "SELECT * FROM cartes WHERE idActivite = $id");
+                $product = mysqli_fetch_assoc($product);
 
                 $req = mysqli_query($bdd, "SELECT nom FROM activite JOIN cartes ON activite.idActivite = cartes.idActivite WHERE cartes.idActivite = {$product['idActivite']}");
 
                 if (mysqli_num_rows($req) > 0) {
                     $row = mysqli_fetch_assoc($req);
 
-                    $image_data = base64_encode($produit['image']);
-                    $mime_type = finfo_buffer(finfo_open(), $produit['image'], FILEINFO_MIME_TYPE);
+                    $image_data = base64_encode($product['image']);
+                    $mime_type = finfo_buffer(finfo_open(), $product['image'], FILEINFO_MIME_TYPE);
                     $image_src = "data:" . $mime_type . ";base64," . $image_data;
 
 
@@ -113,7 +113,7 @@
                     <div class="cart-container">
                         <img src="<?php echo $image_src ?>">
                         <h2>Carte : <?= isset($row['nom']) ? $row['nom'] : '' ?></h2>
-                        <p>Prix : <?= $produit['prix'] ?>€</p>
+                        <p>Prix : <?= $product['prix'] ?>€</p>
                         <div class="form-group">
                             <label for="beneficiaire_email_<?= $formId ?>">Adresse e-mail</label>
                             <input type="email" name="beneficiaire_email_<?= $formId ?>" id="beneficiaire_email_<?= $formId ?>" required class="form-control" placeholder="prenom@example.com">
