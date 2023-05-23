@@ -1,10 +1,10 @@
 .log {
     text-align: center;
 }
-.log2 {
-    text-align: center;
-   
-}   
+.formu{
+    width: 300px;
+}
+
 
 .show {
     text-align: center;
@@ -62,8 +62,7 @@ img{
 }
 
 .submit:hover {
-    width: 285px;
-    height: 43px;
+    
     background-color: #176ad5;
     border: #176ad5;
 }
@@ -81,8 +80,7 @@ img{
 }
 
 .close-button:hover {
-    width: 30px;
-    height: 27px;
+
     background-color:#15933f;
     border: #15933f;
 }

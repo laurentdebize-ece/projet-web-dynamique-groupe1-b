@@ -1,4 +1,98 @@
 <!DOCTYPE html>
+<style>
+    .log {
+    text-align: center;
+}
+.formu{
+    width: 300px;
+}
+
+
+.show {
+    text-align: center;
+    font-size: 15px;
+    
+}
+
+.text {
+    margin-left: 25px;
+}
+
+.pieddepage {
+    position: absolute;
+    bottom: 1;
+    width: 90%;
+    background-color: #FFFFFF;
+}
+
+.piedgauche {
+    margin-left: 25px;
+    float: left;
+    width: 40%;
+    text-align: left;
+
+}
+
+img{
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.container{
+     margin-top: 50px;
+
+}
+
+.pieddroit {
+    margin-right: 65px;
+    float: right;
+    width: 40%;
+    text-align: right;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.submit {
+    
+    border-radius: 15px;
+    background-color: #1877f2;
+    color: white;
+    width: 275px;
+    height: 40px;
+    border: #1877f2;
+}
+
+.submit:hover {
+    
+    background-color: #176ad5;
+    border: #176ad5;
+}
+
+.close-button {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center; 
+        transition: all 0.3s ease;
+    }
+
+    .close-button:hover {
+        background-color: #c82333;
+        color: #fff;
+        transform: scale(1.1);
+        
+    }
+
+</style>
 
 <html lang="fr">
 
@@ -9,7 +103,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="../CSS/connexion.css" rel="stylesheet" type="text/css" media="all" />
+
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
 
@@ -86,29 +180,29 @@
                 <div class="panel panel-default" style="height:550px;">
                     <br><br>
                     <h2 class="text">Modification Mot de Passe</h2><br>
-                    <form action="connexion.php" method="post">
+                    <form action="" method="post">
                     <div class="pieddepage">
-                            <p class="piedgauche"> Ancien Mot de Passe :</p>
+                            <h4><p class="piedgauche"> Ancien Mot de Passe :</p></h4>
                         </div>
                         <br>
                         <br>
-                        <p class="log2"> <input type="password" name="ancienMDP" id="pwd" required> </span></p>
+                        <p class="log"> <input class="formu" type="password" name="ancienMDP" id="pwd" required></p>
                         <br>
                         
                         <div class="pieddepage">
-                            <p class="piedgauche"> Mot de Passe :</p>
+                            <h4><p class="piedgauche"> Nouveau Mot de Passe :</p></h4>
                         </div>
                         <br>
                         <br>
-                        <p class="log2"> <input type="password"id="password" name="nouveauMDP" id="pwd" required>
+                        <p class="log"> <input class="formu" type="password"id="password" name="nouveauMDP" id="pwd" required></p>
 
 
                         <br> <br>
                         <div class="pieddepage">
-                            <p class="text"> Nouveau Mot de Passe : </p>    
+                            <h4><p class="text"> Confirmation Mot de Passe : </p></h4>
                         </div>
                         <br><br>
-                        <p class="log2"><input type="password"id="password" name="confirmationMDP" id="pwd" required></p>
+                        <p class="log"><input class="formu" type="password"id="password" name="confirmationMDP" id="pwd" required></p>
                         <br></br>
                         <p class="log"><input class="submit" type="submit" value="Connexion"></p>
 
