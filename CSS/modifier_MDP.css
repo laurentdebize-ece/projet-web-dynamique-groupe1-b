@@ -1,36 +1,51 @@
-
-.submit {
-    
-    border-radius: 15px;
-    background-color: #1877f2;
-    color: white;
-    width: 200px;
-    height: 40px;
-    border: #1877f2;
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f2f2f2;
+    color: #333;
 }
 
-.submit:hover {
-    width: 285px;
-    height: 43px;
-    background-color: #176ad5;
-    border: #176ad5;
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.close-button {
-    border-radius: 15px;
-    background-color: #1a9f46;
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container p {
+    margin-bottom: 10px;
+}
+
+.container input[type="text"],
+.container input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.container .submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
     color: white;
-    border: #1a9f46;
-    position: absolute;
+    background: #f0cb64;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    margin-left: 350px;
-    height: 25px;
-    width: 25px;
+    transition: background 0.3s;
 }
 
-.close-button:hover {
-    width: 30px;
-    height: 27px;
-    background-color:#15933f;
-    border: #15933f;
+.container .submit:hover {
+    background: #d0a224;
 }

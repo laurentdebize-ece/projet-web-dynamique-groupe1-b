@@ -1,13 +1,109 @@
 <!DOCTYPE html>
+<style>
+.log {
+    text-align: center;
+}
+.formu{
+    width: 300px;
+}
+
+
+.show {
+    text-align: center;
+    font-size: 15px;
+    
+}
+
+.text {
+    margin-left: 25px;
+}
+
+.pieddepage {
+    position: absolute;
+    bottom: 1;
+    width: 90%;
+    background-color: #FFFFFF;
+}
+
+.piedgauche {
+    margin-left: 25px;
+    float: left;
+    width: 40%;
+    text-align: left;
+
+}
+
+img{
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.container{
+     margin-top: 50px;
+
+}
+
+.pieddroit {
+    margin-right: 65px;
+    float: right;
+    width: 40%;
+    text-align: right;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.submit {
+    
+    border-radius: 15px;
+    background-color: #1877f2;
+    color: white;
+    width: 275px;
+    height: 40px;
+    border: #1877f2;
+}
+
+.submit:hover {
+    
+    background-color: #176ad5;
+    border: #176ad5;
+}
+
+.close-button {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center; 
+        transition: all 0.3s ease;
+    }
+
+    .close-button:hover {
+        background-color: #c82333;
+        color: #fff;
+        transform: scale(1.1);
+        
+    }
+
+</style>
+
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5zzenw4p+HHAAK5GSLf2xlYtvJ8U2Q4U+9cuEnJoa3" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="../CSS/modifier_MDP.css" rel="stylesheet" type="text/css" media="all" />
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <?php include("verif_connexion_bdd.php") ?>
     <?php include("verif_session.php") ?>
 
@@ -73,40 +169,49 @@
 </head>
 
 <body>
-    <a href="accueil.php">
+<a href="accueil.php">
         <img src="../Images/logo_omnesBox.png" width="150" height="40" alt="Logo">
     </a>
     
     <div class="container">
         <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4" style="height:50%;">
-                <div class="panel panel-default" style="height:500px;">
-
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6" style="height:50%;">
+                <div class="panel panel-default" style="height:550px;">
                     <br><br>
-                    <h2 class="text">Modifier Mot De Passe</h2><br>
-                    <form action="" method="POST">
-                        <div class="pieddepage">
-                            <p class="piedgauche"> Ancien Mot de Passe :</p>
+                    <h2 class="text">Modification Mot de Passe</h2><br>
+                    <form action="" method="post">
+                    <div class="pieddepage">
+                            <h4><p class="piedgauche"> Ancien Mot de Passe :</p></h4>
                         </div>
-                        <p class="log"> <input type="password" name="ancienMDP" id="pwd" required> </span></p>
+                        <br>
+                        <br>
+                        <p class="log"> <input class="formu" type="password" name="ancienMDP" id="pwd" required></p>
+                        <br>
+                        
                         <div class="pieddepage">
-                            <p class="text"> Nouveau Mot de Passe : </p>    
+                            <h4><p class="piedgauche"> Nouveau Mot de Passe :</p></h4>
                         </div>
-                        <p class="log"><input type="password"id="password" name="nouveauMDP" id="pwd" required></p>
+                        <br>
+                        <br>
+                        <p class="log"> <input class="formu" type="password"id="password" name="nouveauMDP" id="pwd" required></p>
+
+
+                        <br> <br>
                         <div class="pieddepage">
-                            <p class="text"> Confirmation Mot de Passe : </p>    
+                            <h4><p class="text"> Confirmation Mot de Passe : </p></h4>
                         </div>
-                        <p class="log"><input type="password"id="password" name="confirmationMDP" id="pwd" required></p>
+                        <br><br>
+                        <p class="log"><input class="formu" type="password"id="password" name="confirmationMDP" id="pwd" required></p>
                         <br></br>
-                        <p class="log"><input class="submit" type="submit" value="Valider"></p>
+                        <p class="log"><input class="submit" type="submit" value="Connexion"></p>
 
                     </form>
                 </div>
             </div>
-            <div class="col-sm-4 ">
+            <div class="col-sm-3 ">
                 
-                <button onclick="window.location.href = 'mon_compte.php';" class="close-button" aria-label="Case de fermeture" type="button">
+                <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
 

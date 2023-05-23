@@ -2,11 +2,10 @@ body {
     font-family: "Century Gothic", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color:black;
 }
 
 .header {
-    background-image: url('../Images/background_pro.jpeg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -17,7 +16,7 @@ body {
 }
 
 .header h1 {
-    color: black;
+    color: white;
     font-size: 4em;
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);

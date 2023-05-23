@@ -17,6 +17,25 @@
     include("../Users/verif_connexion_bdd.php");
     include("../Users/verif_session.php");
     ?>
+    <style>
+        a {
+            display: inline-block;
+            background-color: rgb(210, 176, 75);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            border: none;
+            padding: 7px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-top: 1em;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: rgb(212, 169, 50);
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,29 +47,18 @@
                 <h2 class="carte-titre">Vos cartes cadeaux</h2>
                 <?php
                 $idPartenaire = $_SESSION['idPartenaire'];
-                $table = "SELECT c.theme, f.prix, f.description, f.duree  
-                            FROM formule AS f, cartes AS c, partenariat AS pa 
-                            WHERE pa.idPartenaire = '$idPartenaire' AND pa.idFormule = f.idFormule AND pa.idCarte = c.idCarte";
+                $table = "SELECT a.nom, f.description, f.duree  
+                            FROM formule AS f, cartes AS c, partenariat AS pa, activite AS a 
+                            WHERE pa.idPartenaire = '$idPartenaire' AND pa.idFormule = f.idFormule AND a.idActivite = c.idActivite AND pa.idCarte = c.idCarte";
                 $request = mysqli_query($bdd, $table);
                 while ($row = mysqli_fetch_array($request)) {
                     echo "<div class='carte'>";
-                    echo "<h2 class='carte-titre'>" . $row['theme'] . "</h2>";
+                    echo "<h2 class='carte-titre'>" . $row['nom'] . "</h2>";
                     echo "<p class='carte-description'>" . $row['description'] . "</p>";
-                    echo "<p class='carte-description'> Prix : " . $row['prix'] . "$</p>";
                     echo "<p class='carte-description'> Durée : " . $row['duree'] . "h</p>";
                     echo "</div>";
                 }
                 ?>
-            </div>
-        </section>
-        <section class="section">
-            <div class="carte">
-                <h2 class="carte-titre">Activités proposées</h2>
-                <div class="carte-description">
-                    <div class="activity">restauration</div>
-                    <div class="activity">aventure</div>
-                    <div class="activity">spa</div>
-                </div>
             </div>
         </section>
         <section class="section">

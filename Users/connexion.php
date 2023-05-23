@@ -41,13 +41,13 @@ function togglePasswordVisibility() {
     }
 
     $emailErr = '';
-    $sql = "SELECT idCompte, nom, prenom, email, mdp FROM compte";
+    $sql = "SELECT idCompte, nom, prenom, email, mdp, typeCompte FROM compte";
     $request = mysqli_query($bdd, $sql);
     $users = mysqli_fetch_all($request);
     $id_compte = 0;
     for ($i = 0; $i < sizeof($users); $i++) {
         $utilisateurs[$users[$i][2]] = $users[$i][3];
-        $info[$i] = array($users[$i][0], $users[$i][1], $users[$i][2], $users[$i][3],  $users[$i][4]);
+        $info[$i] = array($users[$i][0], $users[$i][1], $users[$i][2], $users[$i][3],  $users[$i][4],  $users[$i][5]);
     }
 
 
@@ -61,7 +61,6 @@ function togglePasswordVisibility() {
         }
 
         $pwd_found = false;
-        $pwdA_found = false;
 
         for ($i = 0; $i < sizeof($users); $i++) {
             $email_login_bdd = $info[$i][3];
@@ -69,7 +68,7 @@ function togglePasswordVisibility() {
             if (!strcasecmp($login, $email_login_bdd) && $pwd == $pwd_bdd) {
                 $pwd_found = true;
                 $_SESSION['email'] =  $email_login_bdd;
-                $_SESSION['type'] = $type;
+                $_SESSION['type'] = $info[$i][5];
                 $_SESSION['id'] = $info[$i][0];
                 $_SESSION['nom'] = $info[$i][1];
                 $_SESSION['prenom'] = $info[$i][2];
@@ -78,10 +77,9 @@ function togglePasswordVisibility() {
         }
 
         if ($pwd_found == true) {
-            header('Location: mon_compte.php');
-        } else if ($pwdA_found == true) {
-            header('Location: admin.php');
-        } else
+            header('Location: ../index.php');
+        } 
+         else
             //Si le mdp est incorrect
             echo " <p> Login ou mot de passe incorrect </p>";
     }
@@ -102,7 +100,8 @@ function togglePasswordVisibility() {
                     <h2 class="text">Login</h2><br>
                     <form action="connexion.php" method="post">
                         <div class="pieddepage">
-                            <p class="piedgauche"> Email :</p><a href="CreationCompte.php" class="pieddroit">Créer un compte</a>
+                            <h4><p class="piedgauche"> Email :</p></h4>
+                            <a href="CreationCompte.php" class="pieddroit">Créer un compte</a>
                         </div>
                         <br>
                         <br>
@@ -110,24 +109,24 @@ function togglePasswordVisibility() {
 
                         <br> <br>
                         <div class="pieddepage">
-                            <p class="text"> Mot de Passe : </p>    
+                            <h4><p class="text"> Mot de Passe : </p> </h4>   
                         </div>
                         <br><br>
                         <p class="log"><input type="password"id="password" name="pwd" id="pwd"></p>
-                        <p class="show">Afficher le mot de passe <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"></p>
+                        <h4><p class="show">Afficher le mot de passe <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"></p></h4>
                         <br></br>
                         <p class="log"><input class="submit" type="submit" value="Connexion"></p>
 
                     </form>
                 </div>
             </div>
-            <div class="col-sm-4 ">
+            <div class="col-sm-4 "></div>
                 
                 <button onclick="window.location.href = 'accueil.php';" class="close-button" aria-label="Case de fermeture" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
 
-            </div>
+            
         </div>
     </div>
     

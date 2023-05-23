@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     color: white;
-    background-image: url(../Images/background_pro.jpeg);
+    background-color: black;
+
 }
 
 
@@ -39,7 +40,7 @@ body {
 
 a {
     display: inline-block;
-    background-color: rgb(38, 93, 155);
+    background-color: rgb(210, 176, 75);
     color: white;
     font-size: 12px;
     font-weight: bold;
@@ -52,7 +53,7 @@ a {
 }
 
 a:hover {
-    background-color: rgb(221, 188, 100);
+    background-color: rgb(212, 169, 50);
     color: black;
 }
 

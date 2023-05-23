@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php  include("../Users/verif_session.php") ?>
-    <link href="../CSS/tableau_bord.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../CSS/tableau_Bord.css" rel="stylesheet" type="text/css" media="all" />
     <title>Tableau de Bord</title>
 </head>
 
@@ -21,15 +21,8 @@
     </header>
     <main>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="affichage" data-aos="fade-up">
-                        <h3>Cartes Cadeau</h3>
-                        <p>Gérez vos offres de cartes cadeau et suivez leur utilisation.</p>
-                        <a href="#">Voir les détails</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
+            <div class="row" style="text-align: center">
+                <div class="col-lg-12">
                     <div class="affichage" data-aos="fade-up" data-aos-delay="200">
                         <h3>Formules</h3>
                         <p>Consultez et gérez vos formules d'abonnement et de partenariat.</p>
@@ -37,7 +30,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <div class="affichage" data-aos="fade-up" data-aos-delay="400" style="text-align: center">
+                    <div class="affichage" data-aos="fade-up" data-aos-delay="400" >
                         <h3>Statistiques</h3>
                         <p>Consultez les statistiques de votre partenariat et optimisez vos performances.</p>
                         <a href="statistiques.php">Voir les détails</a>
